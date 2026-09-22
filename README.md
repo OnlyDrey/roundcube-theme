@@ -4,12 +4,11 @@ Akio is a provider-neutral, accessible skin for Roundcube Webmail. This
 repository contains only the skin and its build tooling: it does not fork
 Roundcube, implement IMAP/SMTP, or modify Roundcube core.
 
-Phase 1 establishes an installable foundation: semantic design tokens, local
-Inter fonts and selected Lucide icons, light/dark/system themes, a responsive
-shell layer, branding assets, and deterministic development/production builds.
-Complete Mail, Contacts, Settings, Composer, and login redesigns are intentionally
-reserved for later phases. See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for
-the decisions rather than duplicating them here.
+Phase 3 adds an owned, dense mail workspace and isolated message reader to the
+login, navigation, theme, and token foundation. Contacts, Settings, and Composer
+remain inherited for later phases. See [`docs/PHASE-3.md`](docs/PHASE-3.md) for
+the mail contracts and [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the
+architecture.
 
 ## Requirements
 
@@ -142,8 +141,9 @@ deployment documentation only; it is not part of this repository's runtime.
   `assets/images/` when producing a branded distribution.
 - Theme selection is stored in the first-party `akioColorMode` cookie. `system`
   follows `prefers-color-scheme`; explicit light/dark choices override it.
-- The existing Elastic theme control cycles System → Light → Dark in Phase 1.
-  A dedicated three-option control belongs to the later application-shell phase.
+- The account menu provides explicit, localized System, Light, and Dark choices.
+  It supports arrow-key navigation, persists to the first-party cookie, follows
+  live OS changes in System mode, and updates browser theme metadata.
 
 No theme or asset causes a third-party request.
 
@@ -165,14 +165,17 @@ inventory and compatibility review in
 update takes priority; select Elastic temporarily if an Akio combination is not
 yet qualified.
 
-## Known Phase 1 limitations
+## Known Phase 3 limitations
 
-- The visual foundation still relies on Elastic templates, Bootstrap assets,
-  responsive behavior, and UI JavaScript through supported inheritance.
-- The theme selector reuses Elastic's existing theme action as a three-state
-  cycle. A fully localized explicit chooser is deferred to Phase 2.
-- Only the shared document layout is overridden. Major screen-specific templates
-  and plugin adapters have not been implemented.
+- Contacts, Settings, Composer, attachment-part previews, generic includes, and
+  plugin-specific templates still inherit Elastic. Akio owns the mail workspace,
+  reader, toolbar, shared layout/navigation, and login presentation; Elastic UI
+  JavaScript remains the compatibility controller for core behavior.
+- The message list intentionally has no fabricated body snippets because
+  Roundcube's standard list object exposes envelope metadata rather than safe
+  message excerpts.
+- Visual browser, assistive-technology, and authenticated-server checks remain a
+  release qualification step; static automation does not establish WCAG conformance.
 - The PWA manifest supplies metadata and an icon only. There is no service worker
   or offline mail storage.
 - Automated checks cover static foundation properties; they do not establish
