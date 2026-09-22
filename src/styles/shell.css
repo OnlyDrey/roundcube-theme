@@ -1,0 +1,103 @@
+#layout {
+  background: var(--ak-color-canvas);
+  color: var(--ak-color-fg);
+}
+
+#layout-menu {
+  background: var(--ak-color-sidebar);
+  border-inline-end: var(--ak-border-width) solid var(--ak-color-border-subtle);
+}
+
+#layout-sidebar,
+#layout-list,
+#layout-content {
+  min-width: 0;
+  background: var(--ak-color-surface);
+  border-color: var(--ak-color-border-subtle);
+}
+
+#layout-sidebar {
+  background: var(--ak-color-sidebar);
+}
+
+#layout > .header,
+#layout-sidebar > .header,
+#layout-list > .header,
+#layout-content > .header {
+  min-height: var(--ak-size-toolbar);
+  border-color: var(--ak-color-border-subtle);
+  background: var(--ak-color-surface);
+  color: var(--ak-color-fg);
+}
+
+.header-title,
+.boxtitle {
+  color: var(--ak-color-fg);
+  font-size: var(--ak-font-size-md);
+  font-weight: var(--ak-weight-semibold);
+}
+
+.scroller {
+  scrollbar-color: var(--ak-color-border) transparent;
+  scrollbar-width: thin;
+}
+
+.listing {
+  color: var(--ak-color-fg);
+}
+
+.listing tr > td,
+.listing li {
+  border-color: var(--ak-color-border-subtle);
+}
+
+.listing tr:hover > td,
+.listing li:hover {
+  background: var(--ak-color-hover);
+}
+
+.listing tr.unread > td,
+.listing li.unread {
+  color: var(--ak-color-fg);
+  font-weight: var(--ak-weight-semibold);
+}
+
+.listing tr.selected > td,
+.listing li.selected {
+  background: var(--ak-color-selected);
+  color: var(--ak-color-fg);
+}
+
+.listing tr.selected > td:first-child,
+.listing li.selected {
+  box-shadow: inset 3px 0 0 var(--ak-color-selected-border);
+}
+
+.iframe-wrapper,
+.frame-content {
+  background: var(--ak-color-message);
+}
+
+.iframe-wrapper > iframe {
+  background: var(--ak-color-message);
+}
+
+/* The Phase 1 shell only tunes established Elastic regions. Pane behavior and
+   full component redesign remain deliberately deferred to later phases. */
+@media (width >= 68.75rem) {
+  #layout-sidebar {
+    flex-basis: var(--ak-size-folder-pane);
+  }
+
+  #layout-list {
+    flex-basis: var(--ak-size-list-pane);
+  }
+}
+
+@media (width < 48rem) {
+  :where(#layout-menu, #layout-sidebar, #layout-list, #layout-content) a.button,
+  :where(#layout-menu, #layout-sidebar, #layout-list, #layout-content) button {
+    min-width: var(--ak-size-target);
+    min-height: var(--ak-size-target);
+  }
+}

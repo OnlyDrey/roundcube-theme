@@ -1,0 +1,139 @@
+:root {
+  color-scheme: light;
+
+  /* Typography */
+  --ak-font-sans:
+    "Inter", ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont,
+    "Segoe UI", sans-serif;
+  --ak-font-mono:
+    ui-monospace, "SFMono-Regular", consolas, "Liberation Mono", monospace;
+  --ak-font-size-xs: 0.75rem;
+  --ak-font-size-sm: 0.8125rem;
+  --ak-font-size-base: 0.875rem;
+  --ak-font-size-md: 1rem;
+  --ak-font-size-lg: 1.125rem;
+  --ak-font-size-xl: 1.5rem;
+  --ak-line-tight: 1.25;
+  --ak-line-base: 1.45;
+  --ak-weight-regular: 400;
+  --ak-weight-medium: 500;
+  --ak-weight-semibold: 600;
+
+  /* Four-pixel spacing grid */
+  --ak-space-1: 0.25rem;
+  --ak-space-2: 0.5rem;
+  --ak-space-3: 0.75rem;
+  --ak-space-4: 1rem;
+  --ak-space-6: 1.5rem;
+  --ak-space-8: 2rem;
+  --ak-space-12: 3rem;
+
+  /* Geometry and elevation */
+  --ak-border-width: 1px;
+  --ak-radius-sm: 0.25rem;
+  --ak-radius-control: 0.5rem;
+  --ak-radius-dialog: 0.75rem;
+  --ak-shadow-menu:
+    0 0.5rem 1.5rem rgb(25 32 44 / 14%), 0 0.125rem 0.375rem rgb(25 32 44 / 8%);
+  --ak-shadow-dialog:
+    0 1rem 3rem rgb(25 32 44 / 20%), 0 0.25rem 0.75rem rgb(25 32 44 / 10%);
+
+  /* Layout */
+  --ak-size-task-rail: 4.25rem;
+  --ak-size-folder-pane: 15rem;
+  --ak-size-list-pane: 25rem;
+  --ak-size-toolbar: 3.5rem;
+  --ak-size-row: 3.25rem;
+  --ak-size-target: 2.75rem;
+  --ak-content-max: 72rem;
+
+  /* Light theme surfaces and foregrounds */
+  --ak-color-canvas: #f7f8fa;
+  --ak-color-sidebar: #f0f2f5;
+  --ak-color-surface: #fff;
+  --ak-color-surface-raised: #fff;
+  --ak-color-input: #fff;
+  --ak-color-message: #fff;
+  --ak-color-fg: #18202b;
+  --ak-color-fg-secondary: #465363;
+  --ak-color-fg-muted: #687588;
+  --ak-color-border: #c9d0da;
+  --ak-color-border-subtle: #e1e5eb;
+  --ak-color-hover: #e9edf3;
+  --ak-color-selected: #dce9f8;
+  --ak-color-selected-border: #2563a5;
+  --ak-color-accent: #2563a5;
+  --ak-color-accent-hover: #1d4f85;
+  --ak-color-accent-contrast: #fff;
+  --ak-color-focus: #0969da;
+  --ak-color-focus-outer: #fff;
+  --ak-color-success: #237a45;
+  --ak-color-success-surface: #e5f5eb;
+  --ak-color-warning: #8a5300;
+  --ak-color-warning-surface: #fff3d6;
+  --ak-color-danger: #b4232f;
+  --ak-color-danger-surface: #fdebed;
+  --ak-color-info: #235b91;
+  --ak-color-info-surface: #e7f1fb;
+  --ak-color-backdrop: rgb(24 32 43 / 48%);
+  --ak-transition-fast: 140ms;
+}
+
+:root.dark-mode,
+:root[data-akio-theme-resolved="dark"] {
+  color-scheme: dark;
+
+  --ak-color-canvas: #11151b;
+  --ak-color-sidebar: #171c24;
+  --ak-color-surface: #1c222c;
+  --ak-color-surface-raised: #242c37;
+  --ak-color-input: #171c24;
+  --ak-color-message: #1c222c;
+  --ak-color-fg: #edf1f6;
+  --ak-color-fg-secondary: #c0c8d4;
+  --ak-color-fg-muted: #9ca8b8;
+  --ak-color-border: #46515f;
+  --ak-color-border-subtle: #303946;
+  --ak-color-hover: #29323e;
+  --ak-color-selected: #173a5f;
+  --ak-color-selected-border: #6eafe9;
+  --ak-color-accent: #78b8f0;
+  --ak-color-accent-hover: #9dcbf3;
+  --ak-color-accent-contrast: #0d263e;
+  --ak-color-focus: #8bc5ff;
+  --ak-color-focus-outer: #11151b;
+  --ak-color-success: #70d398;
+  --ak-color-success-surface: #163b29;
+  --ak-color-warning: #f0c36c;
+  --ak-color-warning-surface: #443316;
+  --ak-color-danger: #ff9ca5;
+  --ak-color-danger-surface: #4a2027;
+  --ak-color-info: #91c7fa;
+  --ak-color-info-surface: #193652;
+  --ak-color-backdrop: rgb(0 0 0 / 66%);
+  --ak-shadow-menu:
+    0 0.5rem 1.5rem rgb(0 0 0 / 38%), 0 0.125rem 0.375rem rgb(0 0 0 / 25%);
+  --ak-shadow-dialog:
+    0 1rem 3rem rgb(0 0 0 / 48%), 0 0.25rem 0.75rem rgb(0 0 0 / 30%);
+}
+
+@media (width >= 90rem) {
+  :root {
+    --ak-size-folder-pane: 16rem;
+    --ak-size-list-pane: 28rem;
+  }
+}
+
+@media (width < 68.75rem) {
+  :root {
+    --ak-size-folder-pane: 13.5rem;
+    --ak-size-list-pane: 22.5rem;
+  }
+}
+
+@media (width < 48rem) {
+  :root {
+    --ak-size-toolbar: 3.25rem;
+    --ak-size-row: 3.5rem;
+  }
+}

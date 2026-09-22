@@ -1,0 +1,9 @@
+{
+  "name": "akio/roundcube-skin-akio",
+  "description": "A calm, accessible, provider-neutral skin for Roundcube Webmail",
+  "type": "roundcube-skin",
+  "license": "CC-BY-SA-3.0",
+  "require": {
+    "roundcube/plugin-installer": "^0.3.11"
+  }
+}

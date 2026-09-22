@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8fa" />
+    <title>Akio foundation specimen</title>
+    <script src="../build/dev/akio/scripts/theme.js"></script>
+    <link rel="stylesheet" href="../build/dev/akio/styles/akio.css" />
+  </head>
+  <body>
+    <main class="ak-demo">
+      <header class="ak-demo-stack">
+        <p>Roundcube skin foundation · development only</p>
+        <h1>Interface specimen</h1>
+        <div class="ak-theme-options" role="radiogroup" aria-label="Theme">
+          <button
+            class="ak-theme-option"
+            role="radio"
+            data-akio-theme-value="system"
+          >
+            System
+          </button>
+          <button
+            class="ak-theme-option"
+            role="radio"
+            data-akio-theme-value="light"
+          >
+            Light
+          </button>
+          <button
+            class="ak-theme-option"
+            role="radio"
+            data-akio-theme-value="dark"
+          >
+            Dark
+          </button>
+        </div>
+      </header>
+
+      <div class="ak-demo-grid">
+        <section
+          class="ak-demo-card ak-demo-stack"
+          aria-labelledby="controls-title"
+        >
+          <h2 id="controls-title">Controls</h2>
+          <label for="demo-email">Email address</label>
+          <input id="demo-email" type="email" placeholder="name@example.com" />
+          <label for="demo-folder">Folder</label>
+          <select id="demo-folder">
+            <option>Inbox</option>
+            <option>Archive</option>
+          </select>
+          <label><input type="checkbox" checked /> Save a copy</label>
+          <div class="ak-demo-row">
+            <button class="btn btn-primary">Primary action</button>
+            <button class="btn">Secondary</button>
+            <button class="btn" disabled>Disabled</button>
+          </div>
+        </section>
+
+        <section
+          class="ak-demo-card ak-demo-stack"
+          aria-labelledby="states-title"
+        >
+          <h2 id="states-title">Semantic states</h2>
+          <p class="notice">Information uses text and color.</p>
+          <p class="confirmation">The message was saved.</p>
+          <p class="warning">Review the selected option.</p>
+          <p class="error">The request could not be completed.</p>
+          <div class="ak-demo-row">
+            <span class="badge">12 unread</span>
+            <a href="#focus-target">Keyboard focus target</a>
+          </div>
+        </section>
+      </div>
+
+      <section class="ak-demo-card" aria-labelledby="list-title">
+        <h2 id="list-title">Message-list-like rows</h2>
+        <div class="ak-demo-list-row">
+          <strong>Studio Team</strong><span>Updated project schedule</span
+          ><time>10:42</time>
+        </div>
+        <div class="ak-demo-list-row">
+          <span>Alex Morgan</span><span>Notes from yesterday's review</span
+          ><time>Yesterday</time>
+        </div>
+      </section>
+      <span id="focus-target" tabindex="0">End of specimen</span>
+    </main>
+  </body>
+</html>
