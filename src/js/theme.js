@@ -47,55 +47,47 @@ function applyTheme(mode, persist = false) {
   );
 }
 
-function currentLabel(mode) {
-  const fallback = { system: "System", light: "Light", dark: "Dark" };
-  const key = `akio.theme.${mode}`;
-  if (window.rcmail?.gettext) {
-    const translated = window.rcmail.gettext(key);
-    if (translated && translated !== key) return translated;
-  }
-  return fallback[mode];
-}
-
-function prepareElasticToggle(toggle) {
-  toggle.addEventListener(
-    "click",
-    (event) => {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      const mode = readCookie();
-      const nextMode = MODES[(MODES.indexOf(mode) + 1) % MODES.length];
-      applyTheme(nextMode, true);
-      updateElasticToggle(toggle, nextMode);
-    },
-    true,
-  );
-  updateElasticToggle(toggle, readCookie());
-}
-
-function updateElasticToggle(toggle, mode) {
-  const nextMode = MODES[(MODES.indexOf(mode) + 1) % MODES.length];
-  const label = currentLabel(mode);
-  const nextLabel = currentLabel(nextMode);
-  toggle.setAttribute(
-    "aria-label",
-    `${currentLabel("system")} theme: ${label}. ${nextLabel} next.`,
-  );
-  toggle.setAttribute("title", `${label} theme — switch to ${nextLabel}`);
-  const text = toggle.querySelector("span");
-  if (text) text.textContent = label;
-}
-
 function initializeControls() {
   document.addEventListener("click", (event) => {
     const control = event.target.closest?.("[data-akio-theme-value]");
     if (!control) return;
     event.preventDefault();
     applyTheme(control.dataset.akioThemeValue, true);
+    control.closest("details")?.removeAttribute("open");
   });
 
-  const elasticToggle = document.querySelector("#taskmenu a.theme");
-  if (elasticToggle) prepareElasticToggle(elasticToggle);
+  document.addEventListener("keydown", (event) => {
+    const popover = event.target.closest?.("[data-akio-popover]");
+    if (event.key === "Escape" && popover?.open) {
+      popover.open = false;
+      popover.querySelector("summary")?.focus();
+    }
+
+    const option = event.target.closest?.("[data-akio-theme-value]");
+    if (!option || !["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key))
+      return;
+    event.preventDefault();
+    const options = [
+      ...option.parentElement.querySelectorAll("[data-akio-theme-value]"),
+    ];
+    let index = options.indexOf(option);
+    if (event.key === "Home") index = 0;
+    else if (event.key === "End") index = options.length - 1;
+    else
+      index =
+        (index + (event.key === "ArrowDown" ? 1 : -1) + options.length) %
+        options.length;
+    options[index].focus();
+  });
+
+  document.addEventListener("click", (event) => {
+    for (const popover of document.querySelectorAll(
+      "[data-akio-popover][open]",
+    )) {
+      if (!popover.contains(event.target)) popover.removeAttribute("open");
+    }
+  });
+
   applyTheme(readCookie());
 }
 

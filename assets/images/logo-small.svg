@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
-  <title id="title">Webmail</title>
+  <title id="title">Akio</title>
   <g fill="none" stroke="#2563a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
     <rect x="4" y="4" width="56" height="56" rx="14" fill="#dce9f8"/>
     <path d="m16 23 16 12 16-12M16 23v22h32V23"/>

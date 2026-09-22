@@ -1,0 +1,48 @@
+<!-- Akio shell navigation; commands, states and extension container match Elastic 1.7.4. -->
+<nav id="layout-menu" class="ak-app-nav" aria-labelledby="aria-label-tasknav">
+  <h2 id="aria-label-tasknav" class="voice"><roundcube:label name="arialabeltasknav" /></h2>
+  <div class="popover-header">
+    <roundcube:object name="logo" src="/images/logo-small.svg" id="logo" alt="" />
+    <a class="button icon cancel" href="#close"><span class="inner"><roundcube:label name="close" /></span></a>
+  </div>
+  <div id="taskmenu" class="menu toolbar" role="navigation" aria-labelledby="aria-label-tasknav">
+    <span class="action-buttons">
+      <roundcube:button command="compose" type="link" class="compose" classSel="compose selected"
+        label="compose" title="writenewmessage" innerclass="inner" data-fab="true"
+        data-fab-task="mail" data-fab-action="none" />
+    </span>
+    <roundcube:button command="mail" label="mail" type="link" innerClass="inner"
+      class="mail" classSel="mail selected" />
+    <roundcube:button command="addressbook" label="contacts" type="link" innerClass="inner"
+      class="contacts" classSel="contacts selected" />
+    <roundcube:container name="taskbar" id="taskmenu" />
+    <roundcube:button command="settings" label="settings" type="link" innerClass="inner"
+      class="settings" classSel="settings selected" />
+    <span class="special-buttons">
+      <details class="ak-account-menu" data-akio-popover>
+        <summary class="ak-account-trigger" aria-haspopup="menu">
+          <span class="ak-nav-icon ak-icon-user" aria-hidden="true"></span>
+          <span class="inner"><roundcube:object name="username" /></span>
+        </summary>
+        <div class="ak-popover" role="menu">
+          <div class="ak-account-name"><roundcube:object name="username" /></div>
+          <fieldset class="ak-theme-fieldset">
+            <legend><roundcube:label name="akio.theme.choose" /></legend>
+            <button type="button" role="menuitemradio" data-akio-theme-value="system" aria-checked="false">
+              <span class="ak-nav-icon ak-icon-monitor" aria-hidden="true"></span><roundcube:label name="akio.theme.system" />
+            </button>
+            <button type="button" role="menuitemradio" data-akio-theme-value="light" aria-checked="false">
+              <span class="ak-nav-icon ak-icon-sun" aria-hidden="true"></span><roundcube:label name="akio.theme.light" />
+            </button>
+            <button type="button" role="menuitemradio" data-akio-theme-value="dark" aria-checked="false">
+              <span class="ak-nav-icon ak-icon-moon" aria-hidden="true"></span><roundcube:label name="akio.theme.dark" />
+            </button>
+          </fieldset>
+          <roundcube:button name="about" label="about" type="link" class="about" innerClass="inner"
+            onclick="UI.about_dialog(this)" />
+          <roundcube:button command="logout" label="logout" type="link" class="logout" innerClass="inner" />
+        </div>
+      </details>
+    </span>
+  </div>
+</nav>

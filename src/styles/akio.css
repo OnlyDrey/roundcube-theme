@@ -4,6 +4,7 @@
 @import url("./components.css");
 @import url("./icons.css");
 @import url("./shell.css");
+@import url("./mail.css");
 @import url("./demo.css");
 
 @tailwind components;

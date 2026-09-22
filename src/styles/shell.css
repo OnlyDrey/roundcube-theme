@@ -4,9 +4,189 @@
 }
 
 #layout-menu {
+  width: var(--ak-size-task-rail);
   background: var(--ak-color-sidebar);
   border-inline-end: var(--ak-border-width) solid var(--ak-color-border-subtle);
 }
+
+/* Login intentionally uses the page, not a floating dashboard card. */
+body.task-login #layout {
+  display: grid;
+  min-height: 100dvh;
+  place-items: center;
+}
+
+.ak-login {
+  display: grid;
+  width: 100%;
+  min-height: 100dvh;
+  padding: clamp(var(--ak-space-6), 7vh, 5rem) var(--ak-space-4);
+  background: var(--ak-color-canvas);
+  place-items: center;
+}
+
+.ak-login-panel {
+  width: min(100%, 23rem);
+}
+
+.ak-login #logo {
+  display: block;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 auto var(--ak-space-4);
+}
+
+.ak-login-title {
+  margin: 0 0 var(--ak-space-8);
+  color: var(--ak-color-fg);
+  font-size: var(--ak-font-size-xl);
+  font-weight: var(--ak-weight-semibold);
+  line-height: var(--ak-line-tight);
+  text-align: center;
+}
+
+.ak-login-form .form-group {
+  margin-block-end: var(--ak-space-4);
+}
+
+.ak-login-form label {
+  display: block;
+  margin-block-end: var(--ak-space-2);
+}
+
+.ak-login-form .form-control,
+.ak-login-form .button {
+  width: 100%;
+}
+
+.ak-login-form .button {
+  margin-block-start: var(--ak-space-2);
+}
+
+.ak-login-extensions:empty {
+  display: none;
+}
+
+body.task-login #messagestack {
+  width: min(23rem, calc(100% - var(--ak-space-8)));
+}
+
+/* Compact product rail. Roundcube commands remain the navigation mechanism. */
+.ak-app-nav,
+.ak-app-nav #taskmenu {
+  overflow: visible;
+}
+
+.ak-app-nav #taskmenu {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  padding: var(--ak-space-2);
+  gap: var(--ak-space-1);
+}
+
+/* stylelint-disable no-descending-specificity -- Roundcube IDs/classes are the integration contract. */
+.ak-app-nav #taskmenu > a,
+.ak-app-nav .action-buttons > a,
+.ak-account-trigger {
+  position: relative;
+  display: flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: var(--ak-radius-control);
+  color: var(--ak-color-fg-secondary);
+  text-decoration: none;
+}
+
+.ak-app-nav #taskmenu > a:hover,
+.ak-app-nav .action-buttons > a:hover,
+.ak-account-trigger:hover {
+  background: var(--ak-color-hover);
+  color: var(--ak-color-fg);
+}
+
+.ak-app-nav #taskmenu > a.selected {
+  background: var(--ak-color-selected);
+  box-shadow: inset 3px 0 var(--ak-color-selected-border);
+  color: var(--ak-color-fg);
+}
+
+.ak-app-nav #taskmenu .inner,
+.ak-account-trigger .inner {
+  font-size: var(--ak-font-size-xs);
+}
+
+.ak-app-nav .compose {
+  margin-block-end: var(--ak-space-2);
+  background: var(--ak-color-accent);
+  color: var(--ak-color-accent-contrast);
+}
+
+.ak-app-nav .special-buttons {
+  margin-block-start: auto;
+}
+
+.ak-account-menu {
+  position: relative;
+}
+
+.ak-account-trigger {
+  cursor: pointer;
+  list-style: none;
+}
+
+.ak-account-trigger::-webkit-details-marker {
+  display: none;
+}
+
+.ak-account-trigger .inner {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.ak-nav-icon {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: currentcolor;
+  mask: center / contain no-repeat;
+}
+
+.ak-icon-user {
+  mask-image: url("../images/icons/user.svg");
+}
+
+.ak-icon-monitor {
+  mask-image: url("../images/icons/monitor.svg");
+}
+
+.ak-icon-sun {
+  mask-image: url("../images/icons/sun.svg");
+}
+
+.ak-icon-moon {
+  mask-image: url("../images/icons/moon.svg");
+}
+
+/* Folder names remain dynamic; ellipsis never changes their accessible text. */
+#mailboxlist li > a {
+  min-height: 2.375rem;
+  overflow: hidden;
+  padding-block: var(--ak-space-2);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#mailboxlist .unreadcount {
+  font-variant-numeric: tabular-nums;
+}
+/* stylelint-enable no-descending-specificity */
 
 #layout-sidebar,
 #layout-list,
@@ -99,5 +279,19 @@
   :where(#layout-menu, #layout-sidebar, #layout-list, #layout-content) button {
     min-width: var(--ak-size-target);
     min-height: var(--ak-size-target);
+  }
+
+  .ak-popover {
+    position: fixed;
+    inset: auto var(--ak-space-3) var(--ak-space-3);
+    width: auto;
+  }
+}
+
+@media (forced-colors: active) {
+  .ak-app-nav #taskmenu > a.selected,
+  .ak-theme-fieldset button[aria-checked="true"] {
+    border-inline-start: 3px solid Highlight;
+    box-shadow: none;
   }
 }

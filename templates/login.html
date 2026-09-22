@@ -1,0 +1,21 @@
+<!-- Independently authored from the Roundcube 1.7.4 login object contract. -->
+<roundcube:include file="includes/layout.html" />
+
+<main id="layout-content" class="ak-login selected no-navbar" aria-labelledby="ak-login-title">
+  <section class="ak-login-panel">
+    <roundcube:object name="logo" src="/images/logo.svg" id="logo" alt="" />
+    <h1 id="ak-login-title" class="ak-login-title"><roundcube:object name="productname" /></h1>
+    <roundcube:form id="login-form" name="login-form" method="post" class="propform ak-login-form">
+      <roundcube:object name="loginform" form="login-form" size="40" submit="true" class="form-control" />
+      <div id="login-footer" class="ak-login-extensions">
+        <roundcube:container name="loginfooter" id="login-footer" />
+      </div>
+    </roundcube:form>
+  </section>
+</main>
+
+<noscript>
+  <p class="noscriptwarning"><roundcube:label name="noscriptwarning" /></p>
+</noscript>
+
+<roundcube:include file="includes/footer.html" />

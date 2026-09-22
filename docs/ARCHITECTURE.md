@@ -13,7 +13,7 @@ license to use private 1.7 implementation details. Release information comes
 from the [official 1.7.4 release][release], and implementation conclusions were
 checked against the `1.7.4` tag rather than `master`.
 
-The skin will use the working name **Akio Mail**, while keeping every brand
+The skin will use the working name **Akio**, while keeping every brand
 surface replaceable. The install directory and package name will be `akio`.
 
 ## Supported architecture

@@ -1,0 +1,390 @@
+/* stylelint-disable no-descending-specificity -- Roundcube state selectors intentionally override its structural CSS. */
+
+/* Mail workspace: compact, scan-first styling over Roundcube's live objects. */
+.task-mail.action-none #layout-list {
+  flex-basis: clamp(20rem, 27vw, var(--ak-size-list-pane));
+  max-width: 34rem;
+}
+
+.task-mail .ak-folder-pane {
+  flex-basis: var(--ak-size-folder-pane);
+  max-width: 18rem;
+}
+
+.ak-mail-list-toolbar {
+  gap: var(--ak-space-1);
+  padding-inline: var(--ak-space-2);
+}
+
+.ak-mail-list-toolbar .toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--ak-space-1);
+}
+
+.ak-mail-list-toolbar :where(a, button),
+#mailtoolbar :where(a, button) {
+  min-width: var(--ak-size-target);
+  min-height: var(--ak-size-target);
+  border-radius: var(--ak-radius-control);
+}
+
+.ak-mail-list-toolbar :where(a, button):hover,
+#mailtoolbar :where(a, button):hover {
+  background: var(--ak-color-hover);
+}
+
+#mailsearchform {
+  margin: var(--ak-space-2);
+  border: var(--ak-border-width) solid var(--ak-color-border);
+  border-radius: var(--ak-radius-control);
+  background: var(--ak-color-input);
+  box-shadow: none;
+}
+
+#mailsearchform:focus-within {
+  border-color: var(--ak-color-focus);
+  box-shadow: 0 0 0 1px var(--ak-color-focus-outer);
+}
+
+#mailsearchform input {
+  min-height: 2.5rem;
+  border: 0;
+  background: transparent;
+}
+
+#searchmenu {
+  border-color: var(--ak-color-border);
+  background: var(--ak-color-surface-raised);
+}
+
+.ak-message-list {
+  border-block-start: var(--ak-border-width) solid var(--ak-color-border-subtle);
+}
+
+.ak-message-list .messagelist {
+  table-layout: fixed;
+}
+
+.ak-message-list .messagelist tr {
+  height: var(--ak-size-mail-row);
+}
+
+.ak-message-list .messagelist td {
+  border-block-end: var(--ak-border-width) solid var(--ak-color-border-subtle);
+  background: var(--ak-color-surface);
+  color: var(--ak-color-fg-secondary);
+  vertical-align: middle;
+}
+
+.ak-message-list .messagelist tr:hover td {
+  background: var(--ak-color-hover);
+}
+
+.ak-message-list .messagelist tr.selected td {
+  background: var(--ak-color-selected);
+  color: var(--ak-color-fg);
+}
+
+.ak-message-list .messagelist tr.selected td:first-child {
+  box-shadow: inset 3px 0 var(--ak-color-selected-border);
+}
+
+.ak-message-list .messagelist tr:focus-visible td,
+.ak-message-list .messagelist tr.focused td {
+  outline: 2px solid var(--ak-color-focus);
+  outline-offset: -2px;
+}
+
+.ak-message-list .messagelist td.subject {
+  min-width: 0;
+  padding-block: var(--ak-space-1);
+}
+
+.ak-message-list .messagelist td.subject span.subject,
+.ak-message-list .messagelist td.subject span.fromto {
+  overflow: hidden;
+  color: var(--ak-color-fg);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ak-message-list .messagelist td.subject span.date,
+.ak-message-list .messagelist td.subject span.size {
+  color: var(--ak-color-fg-muted);
+  font-size: var(--ak-font-size-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.ak-message-list .messagelist tr.unread td.subject span.subject,
+.ak-message-list .messagelist tr.unread td.subject span.fromto {
+  font-weight: var(--ak-weight-semibold);
+}
+
+.ak-message-list .messagelist tr.unread td.subject span.msgicon.status::before {
+  border: 2px solid var(--ak-color-surface);
+  border-radius: 50%;
+  background: var(--ak-color-accent);
+  box-shadow: 0 0 0 1px var(--ak-color-accent);
+}
+
+.ak-message-list .messagelist tr.flagged:not(.deleted) td {
+  color: var(--ak-color-fg);
+}
+
+.ak-message-list .messagelist span.flagged::before {
+  color: var(--ak-color-warning);
+}
+
+.ak-message-list .messagelist span.attachment span {
+  color: var(--ak-color-fg-muted);
+}
+
+.ak-message-list .messagelist tr.deleted {
+  opacity: 0.62;
+}
+
+.ak-message-list .listing-info {
+  padding: var(--ak-space-12) var(--ak-space-6);
+  color: var(--ak-color-fg-muted);
+  text-align: center;
+}
+
+.ak-folder-pane #folderlist-content {
+  padding: var(--ak-space-2);
+}
+
+.ak-folder-pane #mailboxlist li > a {
+  border-radius: var(--ak-radius-control);
+  color: var(--ak-color-fg-secondary);
+}
+
+.ak-folder-pane #mailboxlist li.selected > a {
+  background: var(--ak-color-selected);
+  box-shadow: inset 3px 0 var(--ak-color-selected-border);
+  color: var(--ak-color-fg);
+  font-weight: var(--ak-weight-semibold);
+}
+
+.ak-folder-pane #mailboxlist li.droptarget > a {
+  outline: 2px dashed var(--ak-color-focus);
+  outline-offset: -2px;
+}
+
+.ak-folder-pane .unreadcount {
+  min-width: 1.5rem;
+  padding-inline: var(--ak-space-1);
+  background: var(--ak-color-surface-raised);
+  color: var(--ak-color-fg);
+  text-align: center;
+}
+
+.ak-reader-pane,
+.ak-reader-frame,
+.ak-message-reader,
+.ak-reader-content {
+  background: var(--ak-color-message);
+}
+
+.ak-reader-frame {
+  border: 0;
+}
+
+#mailtoolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--ak-space-1);
+  padding-inline: var(--ak-space-2);
+}
+
+#mailtoolbar .spacer {
+  width: var(--ak-border-width);
+  height: 1.5rem;
+  margin-inline: var(--ak-space-1);
+  background: var(--ak-color-border-subtle);
+}
+
+/* Replace inherited icon-font glyphs on owned mail surfaces with local Lucide SVGs. */
+:where(#mailtoolbar, .ak-mail-list-toolbar) a::before,
+.messagelist span.flagged::before,
+.messagelist span.attachment span::before {
+  width: 1.125rem;
+  height: 1.125rem;
+  background: currentcolor;
+  content: "";
+  mask: center / contain no-repeat;
+}
+
+:where(#mailtoolbar, .ak-mail-list-toolbar) .reply::before {
+  mask-image: url("../images/icons/reply.svg");
+}
+
+:where(#mailtoolbar, .ak-mail-list-toolbar) .reply-all::before {
+  mask-image: url("../images/icons/reply-all.svg");
+}
+
+:where(#mailtoolbar, .ak-mail-list-toolbar) .forward::before {
+  mask-image: url("../images/icons/forward.svg");
+}
+
+:where(#mailtoolbar, .ak-mail-list-toolbar) .delete::before {
+  mask-image: url("../images/icons/trash-2.svg");
+}
+
+:where(#mailtoolbar, .ak-mail-list-toolbar) .more::before,
+:where(#mailtoolbar, .ak-mail-list-toolbar) .options::before {
+  mask-image: url("../images/icons/ellipsis.svg");
+}
+
+:where(#mailtoolbar, .ak-mail-list-toolbar) .refresh::before {
+  mask-image: url("../images/icons/rotate-cw.svg");
+}
+
+.messagelist span.flagged::before {
+  mask-image: url("../images/icons/star.svg");
+}
+
+.messagelist span.attachment span::before {
+  mask-image: url("../images/icons/paperclip.svg");
+}
+
+.ak-reader-content {
+  max-width: 80rem;
+  padding: clamp(var(--ak-space-4), 2.5vw, var(--ak-space-8));
+  margin-inline: auto;
+}
+
+.ak-message-header {
+  padding-block-end: var(--ak-space-4);
+  border-block-end: var(--ak-border-width) solid var(--ak-color-border-subtle);
+}
+
+.ak-message-header .subject {
+  margin: 0 0 var(--ak-space-4);
+  color: var(--ak-color-fg);
+  font-size: clamp(var(--ak-font-size-lg), 2vw, var(--ak-font-size-xl));
+  font-weight: var(--ak-weight-semibold);
+  line-height: var(--ak-line-tight);
+}
+
+.ak-message-header .contactphoto {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.ak-message-header .header-summary,
+.ak-message-header .header-headers {
+  color: var(--ak-color-fg-secondary);
+}
+
+.ak-message-header .header-links {
+  margin-block-start: var(--ak-space-2);
+  font-size: var(--ak-font-size-sm);
+}
+
+.ak-message-content {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.ak-message-content .rightcol {
+  min-width: 0;
+  order: 1;
+  padding-block: var(--ak-space-6);
+}
+
+.ak-message-content .leftcol {
+  order: 2;
+  padding-block: var(--ak-space-4);
+  border-block-start: var(--ak-border-width) solid var(--ak-color-border-subtle);
+}
+
+.attachmentslist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ak-space-2);
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.attachmentslist li {
+  max-width: min(100%, 22rem);
+  min-height: var(--ak-size-target);
+  border: var(--ak-border-width) solid var(--ak-color-border);
+  border-radius: var(--ak-radius-control);
+  background: var(--ak-color-surface-raised);
+}
+
+.attachmentslist li > a {
+  overflow: hidden;
+  color: var(--ak-color-fg);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.attachmentslist .attachment-size {
+  color: var(--ak-color-fg-muted);
+  font-size: var(--ak-font-size-xs);
+}
+
+#message-objects :where(.notice, .warning),
+#messagestack > div {
+  border-inline-start: 4px solid currentcolor;
+}
+
+.iframe-loader {
+  background: color-mix(in srgb, var(--ak-color-message) 92%, transparent);
+}
+
+.column-resizer {
+  width: 5px;
+  background: transparent;
+}
+
+.column-resizer:hover,
+.column-resizer.active {
+  background: var(--ak-color-focus);
+}
+
+@media (width < 75rem) {
+  .task-mail.action-none #layout-list {
+    flex-basis: 21rem;
+  }
+
+  .task-mail .ak-folder-pane {
+    flex-basis: 13rem;
+  }
+}
+
+@media (width < 64rem) {
+  .ak-reader-content {
+    padding: var(--ak-space-4);
+  }
+}
+
+@media (width <= 48rem) {
+  .task-mail.action-none #layout-list,
+  .task-mail .ak-folder-pane {
+    max-width: none;
+  }
+
+  .ak-reader-content {
+    padding: var(--ak-space-3);
+  }
+
+  .ak-message-header .contactphoto {
+    display: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .ak-message-list .messagelist tr.selected td:first-child,
+  .ak-folder-pane #mailboxlist li.selected > a {
+    border-inline-start: 3px solid Highlight;
+    box-shadow: none;
+  }
+}
+/* stylelint-enable no-descending-specificity */
