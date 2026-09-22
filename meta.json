@@ -1,0 +1,31 @@
+{
+  "name": "Akio",
+  "author": "Akio contributors",
+  "license": "Creative Commons Attribution-ShareAlike 3.0",
+  "license-url": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "extends": "elastic",
+  "localization": true,
+  "config": {
+    "supported_layouts": ["widescreen"],
+    "jquery_ui_colors_theme": "bootstrap",
+    "embed_css_location": "/styles/embed.css",
+    "editor_css_location": "/styles/embed.css",
+    "dark_mode_support": true,
+    "media_browser_css_location": "none",
+    "additional_logo_types": ["dark", "small", "small-dark"]
+  },
+  "meta": {
+    "viewport": "width=device-width, initial-scale=1.0, shrink-to-fit=no",
+    "theme-color": {
+      "content": "#f7f8fa",
+      "id": "akio-theme-color"
+    }
+  },
+  "links": {
+    "icon": {
+      "type": "image/svg+xml",
+      "href": "/images/favicon.svg"
+    },
+    "manifest": "/manifest.webmanifest"
+  }
+}

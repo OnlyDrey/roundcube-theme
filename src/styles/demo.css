@@ -1,0 +1,55 @@
+.ak-demo {
+  max-width: var(--ak-content-max);
+  padding: var(--ak-space-8);
+  margin: 0 auto;
+}
+
+.ak-demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: var(--ak-space-6);
+}
+
+.ak-demo-card {
+  padding: var(--ak-space-6);
+  border: var(--ak-border-width) solid var(--ak-color-border-subtle);
+  border-radius: var(--ak-radius-dialog);
+  background: var(--ak-color-surface);
+}
+
+.ak-demo-stack {
+  display: grid;
+  gap: var(--ak-space-3);
+}
+
+.ak-demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ak-space-2);
+  align-items: center;
+}
+
+.ak-demo-list-row {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.7fr) minmax(10rem, 1.5fr) auto;
+  gap: var(--ak-space-3);
+  min-height: var(--ak-size-row);
+  padding: var(--ak-space-2) var(--ak-space-3);
+  border-block-end: var(--ak-border-width) solid var(--ak-color-border-subtle);
+  align-items: center;
+}
+
+@media (width < 48rem) {
+  .ak-demo {
+    padding: var(--ak-space-4);
+  }
+
+  .ak-demo-list-row {
+    grid-template-columns: 1fr auto;
+  }
+
+  .ak-demo-list-row > :nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}

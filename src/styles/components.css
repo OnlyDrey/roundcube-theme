@@ -1,0 +1,158 @@
+/* Controls */
+:where(
+  button,
+  .btn,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"]
+) {
+  min-height: var(--ak-size-target);
+  border-radius: var(--ak-radius-control);
+  font: inherit;
+  font-weight: var(--ak-weight-medium);
+  transition:
+    background-color var(--ak-transition-fast) ease,
+    border-color var(--ak-transition-fast) ease,
+    color var(--ak-transition-fast) ease;
+}
+
+:where(.btn-primary, input.button.mainaction, button.mainaction) {
+  border-color: var(--ak-color-accent);
+  background: var(--ak-color-accent);
+  color: var(--ak-color-accent-contrast);
+}
+
+:where(.btn-primary, input.button.mainaction, button.mainaction):hover {
+  border-color: var(--ak-color-accent-hover);
+  background: var(--ak-color-accent-hover);
+}
+
+:where(
+  input:not([type="checkbox"], [type="radio"]),
+  textarea,
+  select,
+  .form-control,
+  .custom-select
+) {
+  min-height: var(--ak-size-target);
+  border: var(--ak-border-width) solid var(--ak-color-border);
+  border-radius: var(--ak-radius-control);
+  background: var(--ak-color-input);
+  color: var(--ak-color-fg);
+  font: inherit;
+}
+
+:where(input, textarea)::placeholder {
+  color: var(--ak-color-fg-muted);
+  opacity: 1;
+}
+
+:where(input, textarea, select, .form-control):hover:not(:disabled) {
+  border-color: var(--ak-color-fg-muted);
+}
+
+:where(input, textarea, select, .form-control):focus {
+  border-color: var(--ak-color-focus);
+}
+
+:where(input[type="checkbox"], input[type="radio"]) {
+  width: 1.125rem;
+  height: 1.125rem;
+  accent-color: var(--ak-color-accent);
+}
+
+label {
+  color: var(--ak-color-fg-secondary);
+  font-weight: var(--ak-weight-medium);
+}
+
+/* Menus and dialogs */
+:where(.popupmenu, .dropdown-menu, .ui-menu) {
+  border: var(--ak-border-width) solid var(--ak-color-border);
+  border-radius: var(--ak-radius-control);
+  background: var(--ak-color-surface-raised);
+  box-shadow: var(--ak-shadow-menu);
+  color: var(--ak-color-fg);
+}
+
+:where(.popupmenu, .dropdown-menu, .ui-menu) a {
+  min-height: var(--ak-size-target);
+  color: var(--ak-color-fg);
+}
+
+:where(.popupmenu, .dropdown-menu, .ui-menu) a:hover,
+:where(.popupmenu, .dropdown-menu, .ui-menu) .selected {
+  background: var(--ak-color-hover);
+  color: var(--ak-color-fg);
+}
+
+:where(.ui-dialog, .modal-content) {
+  border: var(--ak-border-width) solid var(--ak-color-border);
+  border-radius: var(--ak-radius-dialog);
+  background: var(--ak-color-surface-raised);
+  box-shadow: var(--ak-shadow-dialog);
+  color: var(--ak-color-fg);
+}
+
+.ui-widget-overlay,
+.modal-backdrop {
+  background: var(--ak-color-backdrop);
+}
+
+/* Semantic feedback always retains text/icon meaning supplied by Roundcube. */
+:where(.alert-success, .confirmation) {
+  border-color: var(--ak-color-success);
+  background: var(--ak-color-success-surface);
+  color: var(--ak-color-success);
+}
+
+:where(.alert-warning, .warning) {
+  border-color: var(--ak-color-warning);
+  background: var(--ak-color-warning-surface);
+  color: var(--ak-color-warning);
+}
+
+:where(.alert-danger, .error) {
+  border-color: var(--ak-color-danger);
+  background: var(--ak-color-danger-surface);
+  color: var(--ak-color-danger);
+}
+
+:where(.alert-info, .notice) {
+  border-color: var(--ak-color-info);
+  background: var(--ak-color-info-surface);
+  color: var(--ak-color-info);
+}
+
+.badge,
+.count {
+  border-radius: 999px;
+  font-size: var(--ak-font-size-xs);
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--ak-weight-semibold);
+}
+
+/* Theme option primitives for the future settings/menu template and demo. */
+.ak-theme-options {
+  display: inline-flex;
+  gap: var(--ak-space-1);
+  padding: var(--ak-space-1);
+  border: var(--ak-border-width) solid var(--ak-color-border);
+  border-radius: calc(var(--ak-radius-control) + var(--ak-space-1));
+  background: var(--ak-color-sidebar);
+}
+
+.ak-theme-option {
+  min-height: var(--ak-size-target);
+  padding-inline: var(--ak-space-3);
+  border: 0;
+  background: transparent;
+  color: var(--ak-color-fg-secondary);
+}
+
+.ak-theme-option.selected,
+.ak-theme-option[aria-checked="true"] {
+  background: var(--ak-color-surface-raised);
+  box-shadow: 0 1px 2px rgb(24 32 43 / 12%);
+  color: var(--ak-color-fg);
+}

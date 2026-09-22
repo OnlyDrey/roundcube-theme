@@ -1,0 +1,31 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  phase-one:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20.19"
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      - run: npm run validate
+      - name: Verify deterministic package checksums
+        run: |
+          cp dist/akio/SHA256SUMS /tmp/akio-SHA256SUMS
+          npm run build
+          cmp /tmp/akio-SHA256SUMS dist/akio/SHA256SUMS
+      - name: Verify repository has no prohibited binary artifacts
+        run: |
+          ! git ls-files | grep -Ei '\.(woff2?|ttf|otf|png|jpe?g|webp|ico|zip|tar|gz)$'

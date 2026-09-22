@@ -1,0 +1,22 @@
+.ak-icon {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 auto;
+  color: inherit;
+  vertical-align: -0.2em;
+}
+
+.ak-icon[aria-hidden="true"] {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Icon-only controls still require an aria-label or equivalent accessible name. */
+.ak-icon-button {
+  display: inline-grid;
+  min-width: var(--ak-size-target);
+  min-height: var(--ak-size-target);
+  padding: var(--ak-space-2);
+  place-items: center;
+}
