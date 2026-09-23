@@ -35,6 +35,21 @@ test("the pre-paint theme script is loaded before styles", async () => {
   );
 });
 
+test("the layout requests the compiled Elastic baseline and Akio assets", async () => {
+  const layout = await readFile("templates/includes/layout.html", "utf8");
+  assert.match(layout, /href="\/styles\/styles\.min\.css"/);
+  assert.match(layout, /href="\/styles\/akio\.css"/);
+  assert.doesNotMatch(layout, /href="\/styles\/styles\.css"/);
+});
+
+test("login styles constrain the card, logo, fields, and submit control", async () => {
+  const styles = await readFile("src/styles/login.css", "utf8");
+  assert.match(styles, /#login-form[\s\S]*width: min\(100%, 22rem\)/);
+  assert.match(styles, /#logo[\s\S]*object-fit: contain/);
+  assert.match(styles, /#rcmloginsubmit[\s\S]*width: 100%/);
+  assert.match(styles, /@media \(width < 30rem\), \(height < 38rem\)/);
+});
+
 test("Tailwind stays scoped and does not reset Roundcube markup", async () => {
   const config = (await import("../tailwind.config.js")).default;
   assert.equal(config.prefix, "ak-");
