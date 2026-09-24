@@ -98,6 +98,8 @@ body {
 .preview-page .preview-stack {
   display: grid;
   gap: 1rem;
+  align-content: start;
+  justify-items: start;
 }
 .preview-page .preview-fields {
   display: grid;
@@ -165,7 +167,7 @@ body {
   border-radius: var(--ak-radius-dialog);
   background: var(--ak-color-surface);
 }
-@media (width < 48rem) {
+@media (width <= 48rem) {
   .preview-page #layout-menu {
     width: 3.5rem;
   }

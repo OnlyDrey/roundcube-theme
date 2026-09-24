@@ -60,9 +60,9 @@
               <tr class="unread selected">
                 <td>★</td>
                 <td>
-                  <strong>Akio Team</strong><br /><span
-                    >Welcome to Akio Mail</span
-                  ><br /><span class="message-snippet"
+                  <strong class="message-sender">Akio Team</strong
+                  ><span class="message-subject">Welcome to Akio Mail</span
+                  ><span class="message-snippet"
                     >A quick tour of your fictional inbox…</span
                   >
                 </td>
@@ -71,8 +71,10 @@
               <tr class="unread">
                 <td>☆</td>
                 <td>
-                  <strong>Casey Example</strong><br />Project update and
-                  milestones<br /><span class="message-snippet"
+                  <strong class="message-sender">Casey Example</strong
+                  ><span class="message-subject"
+                    >Project update and milestones</span
+                  ><span class="message-snippet"
                     >The prototype review is ready…</span
                   >
                 </td>
@@ -81,8 +83,10 @@
               <tr>
                 <td>★</td>
                 <td>
-                  Jordan Sample<br />Meeting notes and next steps<br /><span
-                    class="message-snippet"
+                  <span class="message-sender">Jordan Sample</span
+                  ><span class="message-subject"
+                    >Meeting notes and next steps</span
+                  ><span class="message-snippet"
                     >Attached are the notes from yesterday… 📎</span
                   >
                 </td>
@@ -91,8 +95,9 @@
               <tr>
                 <td>☆</td>
                 <td>
-                  Billing Robot<br />Invoice available<br /><span
-                    class="message-snippet"
+                  <span class="message-sender">Billing Robot</span
+                  ><span class="message-subject">Invoice available</span
+                  ><span class="message-snippet"
                     >Your fictional invoice is available… 📎</span
                   >
                 </td>
@@ -101,9 +106,12 @@
               <tr>
                 <td>☆</td>
                 <td>
-                  A Very Long Fictional Sender Name<br />An intentionally very
-                  long subject that demonstrates truncation without exposing any
-                  private information<br /><span class="message-snippet"
+                  <span class="message-sender"
+                    >A Very Long Fictional Sender Name</span
+                  ><span class="message-subject"
+                    >An intentionally very long subject that demonstrates
+                    truncation without exposing any private information</span
+                  ><span class="message-snippet"
                     >Sent to
                     preview-recipient-with-a-deliberately-long-address@example.invalid…</span
                   >
@@ -113,8 +121,9 @@
               <tr>
                 <td>☆</td>
                 <td>
-                  Taylor Demo<br />Weekend plans<br /><span
-                    class="message-snippet"
+                  <span class="message-sender">Taylor Demo</span
+                  ><span class="message-subject">Weekend plans</span
+                  ><span class="message-snippet"
                     >How about a walk near the imaginary lake?</span
                   >
                 </td>
@@ -141,7 +150,7 @@
           <div class="error" role="alert">
             A sample operation could not be completed.
           </div>
-          <p class="message-snippet">Select a message to display it here.</p>
+          <p class="empty-state">Select a message to display it here.</p>
           <button data-preview-target="#demo-dialog">Open sample dialog</button>
         </div>
       </main>

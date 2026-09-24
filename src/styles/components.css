@@ -7,7 +7,12 @@
   input[type="reset"]
 ) {
   min-height: var(--ak-size-target);
+  padding: var(--ak-space-2) var(--ak-space-4);
+  border: var(--ak-border-width) solid var(--ak-color-border);
   border-radius: var(--ak-radius-control);
+  background: var(--ak-color-surface-raised);
+  background-image: none;
+  color: var(--ak-color-fg);
   font: inherit;
   font-weight: var(--ak-weight-medium);
   transition:
@@ -16,15 +21,48 @@
     color var(--ak-transition-fast) ease;
 }
 
+:where(
+    button,
+    .btn,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"]
+  ):hover:not(:disabled) {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-hover);
+  color: var(--ak-color-fg);
+}
+
+:where(
+    button,
+    .btn,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"]
+  ):active:not(:disabled) {
+  transform: translateY(1px);
+}
+
 :where(.btn-primary, input.button.mainaction, button.mainaction) {
   border-color: var(--ak-color-accent);
   background: var(--ak-color-accent);
   color: var(--ak-color-accent-contrast);
 }
 
+/* Keep link-based primary actions legible against the global anchor color. */
+a.btn-primary,
+a.button.mainaction {
+  color: var(--ak-color-accent-contrast);
+}
+
 :where(.btn-primary, input.button.mainaction, button.mainaction):hover {
   border-color: var(--ak-color-accent-hover);
   background: var(--ak-color-accent-hover);
+}
+
+a.btn-primary:hover,
+a.button.mainaction:hover {
+  color: var(--ak-color-accent-contrast);
 }
 
 :where(
@@ -35,11 +73,13 @@
   .custom-select
 ) {
   min-height: var(--ak-size-target);
+  padding-inline: var(--ak-space-3);
   border: var(--ak-border-width) solid var(--ak-color-border);
   border-radius: var(--ak-radius-control);
   background: var(--ak-color-input);
   color: var(--ak-color-fg);
   font: inherit;
+  line-height: var(--ak-line-base);
 }
 
 :where(input, textarea)::placeholder {
@@ -100,6 +140,15 @@ label {
 }
 
 /* Semantic feedback always retains text/icon meaning supplied by Roundcube. */
+:where(.alert, .confirmation, .warning, .error, .notice) {
+  width: fit-content;
+  max-width: min(100%, 42rem);
+  padding: var(--ak-space-3) var(--ak-space-4);
+  border: var(--ak-border-width) solid;
+  border-radius: var(--ak-radius-control);
+  line-height: var(--ak-line-base);
+}
+
 :where(.alert-success, .confirmation) {
   border-color: var(--ak-color-success);
   background: var(--ak-color-success-surface);

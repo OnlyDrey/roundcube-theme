@@ -9,10 +9,10 @@
     ui-monospace, "SFMono-Regular", consolas, "Liberation Mono", monospace;
   --ak-font-size-xs: 0.75rem;
   --ak-font-size-sm: 0.8125rem;
-  --ak-font-size-base: 0.875rem;
-  --ak-font-size-md: 1rem;
-  --ak-font-size-lg: 1.125rem;
-  --ak-font-size-xl: 1.5rem;
+  --ak-font-size-base: 0.9375rem;
+  --ak-font-size-md: 1.0625rem;
+  --ak-font-size-lg: 1.25rem;
+  --ak-font-size-xl: 1.625rem;
   --ak-line-tight: 1.25;
   --ak-line-base: 1.45;
   --ak-weight-regular: 400;
@@ -33,6 +33,7 @@
   --ak-radius-sm: 0.25rem;
   --ak-radius-control: 0.5rem;
   --ak-radius-dialog: 0.75rem;
+  --ak-radius-compact: 0.375rem;
   --ak-shadow-menu:
     0 0.5rem 1.5rem rgb(25 32 44 / 14%), 0 0.125rem 0.375rem rgb(25 32 44 / 8%);
   --ak-shadow-dialog:
@@ -58,6 +59,7 @@
   --ak-color-fg-secondary: #465363;
   --ak-color-fg-muted: #687588;
   --ak-color-border: #c9d0da;
+  --ak-color-border-strong: #aeb8c5;
   --ak-color-border-subtle: #e1e5eb;
   --ak-color-hover: #e9edf3;
   --ak-color-selected: #dce9f8;
@@ -93,6 +95,7 @@
   --ak-color-fg-secondary: #c0c8d4;
   --ak-color-fg-muted: #9ca8b8;
   --ak-color-border: #46515f;
+  --ak-color-border-strong: #647182;
   --ak-color-border-subtle: #303946;
   --ak-color-hover: #29323e;
   --ak-color-selected: #173a5f;

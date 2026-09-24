@@ -1,0 +1,280 @@
+/* Mailbox chrome built on Roundcube Elastic's stable layout regions/classes. */
+.task-mail #layout-menu {
+  display: flex;
+  padding: var(--ak-space-3) var(--ak-space-2);
+  gap: var(--ak-space-2);
+  border-inline-end-color: var(--ak-color-border-subtle);
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.task-mail #layout-menu :where(a.button, .task-button, button) {
+  display: grid;
+  width: 100%;
+  min-width: var(--ak-size-target);
+  min-height: var(--ak-size-target);
+  padding: var(--ak-space-2);
+  border: 0;
+  border-radius: var(--ak-radius-control);
+  background: transparent;
+  color: var(--ak-color-fg-muted);
+  place-items: center;
+  text-decoration: none;
+}
+
+.task-mail #layout-menu :where(a.button, .task-button, button):hover {
+  background: var(--ak-color-hover);
+  color: var(--ak-color-fg);
+}
+
+.task-mail #layout-menu :where(a.button, .task-button, button).selected {
+  background: var(--ak-color-selected);
+  box-shadow: inset 3px 0 0 var(--ak-color-selected-border);
+  color: var(--ak-color-accent);
+}
+
+.task-mail :where(#layout-sidebar, #layout-list, #layout-content) {
+  border-color: var(--ak-color-border-subtle);
+}
+
+.task-mail #layout-sidebar {
+  background: var(--ak-color-sidebar);
+}
+
+.task-mail :where(#layout-list, #layout-content) {
+  background: var(--ak-color-surface);
+}
+
+.task-mail :where(#layout-sidebar, #layout-list, #layout-content) > .header {
+  min-height: var(--ak-size-toolbar);
+  padding: var(--ak-space-3) var(--ak-space-4);
+  gap: var(--ak-space-2);
+  border-block-end: var(--ak-border-width) solid var(--ak-color-border-subtle);
+}
+
+.task-mail .header-title {
+  overflow: hidden;
+  margin: 0;
+  color: var(--ak-color-fg);
+  font-size: var(--ak-font-size-md);
+  font-weight: var(--ak-weight-semibold);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-mail #layout-content > .header .header-title {
+  font-size: var(--ak-font-size-lg);
+}
+
+.task-mail .toolbar {
+  min-height: var(--ak-size-toolbar);
+  padding: var(--ak-space-2) var(--ak-space-4);
+  gap: var(--ak-space-2);
+  border-block-end: var(--ak-border-width) solid var(--ak-color-border-subtle);
+  background: var(--ak-color-surface);
+  align-items: center;
+}
+
+.task-mail .toolbar :where(button, .btn, a.button) {
+  display: inline-flex;
+  min-height: 2.5rem;
+  padding: var(--ak-space-2) var(--ak-space-3);
+  align-items: center;
+  justify-content: center;
+  font-size: var(--ak-font-size-base);
+  line-height: var(--ak-line-base);
+  text-indent: 0;
+}
+
+.task-mail #layout-sidebar .listing {
+  padding: var(--ak-space-2);
+}
+
+.task-mail #layout-sidebar .listing li > a {
+  display: flex;
+  min-height: var(--ak-size-target);
+  padding: var(--ak-space-2) var(--ak-space-3);
+  gap: var(--ak-space-2);
+  align-items: center;
+  border-radius: var(--ak-radius-control);
+  color: var(--ak-color-fg-secondary);
+  text-decoration: none;
+}
+
+.task-mail #layout-sidebar .listing li > a:hover {
+  background: var(--ak-color-hover);
+  color: var(--ak-color-fg);
+}
+
+.task-mail #layout-sidebar .listing li.selected > a {
+  background: var(--ak-color-selected);
+  box-shadow: inset 3px 0 0 var(--ak-color-selected-border);
+  color: var(--ak-color-fg);
+  font-weight: var(--ak-weight-semibold);
+}
+
+.task-mail #layout-sidebar .count {
+  min-width: 1.5rem;
+  padding: 0.125rem var(--ak-space-2);
+  margin-inline-start: auto;
+  background: var(--ak-color-surface-raised);
+  color: var(--ak-color-accent);
+  text-align: center;
+}
+
+.task-mail .messagelist {
+  table-layout: fixed;
+}
+
+.task-mail .messagelist tr > td {
+  padding: var(--ak-space-3) var(--ak-space-2);
+  border-block-end: var(--ak-border-width) solid var(--ak-color-border-subtle);
+  vertical-align: top;
+}
+
+.task-mail .messagelist tr > td:first-child {
+  width: 2rem;
+  color: var(--ak-color-fg-muted);
+  text-align: center;
+}
+
+.task-mail .messagelist tr > td:nth-child(2) {
+  overflow: hidden;
+  width: auto;
+  min-width: 0;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+}
+
+.task-mail .messagelist tr > td:last-child {
+  width: 4.25rem;
+  color: var(--ak-color-fg-muted);
+  font-size: var(--ak-font-size-sm);
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+  white-space: nowrap;
+}
+
+.task-mail .messagelist tr:hover > td {
+  background: var(--ak-color-hover);
+}
+
+.task-mail .messagelist tr.unread > td {
+  font-weight: var(--ak-weight-regular);
+}
+
+.task-mail .messagelist tr.unread strong {
+  color: var(--ak-color-fg);
+  font-weight: var(--ak-weight-semibold);
+}
+
+.task-mail
+  .messagelist
+  :where(.message-sender, .message-subject, .fromto, .subject) {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-mail .messagelist .message-sender {
+  color: var(--ak-color-fg-secondary);
+}
+
+.task-mail .messagelist tr.unread .message-sender,
+.task-mail .messagelist tr.unread .message-subject {
+  color: var(--ak-color-fg);
+  font-weight: var(--ak-weight-semibold);
+}
+
+.task-mail .messagelist tr.selected > td {
+  background: var(--ak-color-selected);
+}
+
+.task-mail .messagelist tr.selected > td:first-child {
+  box-shadow: inset 3px 0 0 var(--ak-color-selected-border);
+}
+
+.task-mail .message-snippet {
+  display: block;
+  overflow: hidden;
+  color: var(--ak-color-fg-muted);
+  font-size: var(--ak-font-size-sm);
+  font-weight: var(--ak-weight-regular);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-mail
+  #layout-content
+  .scroller
+  > :where(.alert, .confirmation, .warning, .error, .notice) {
+  margin-block-end: var(--ak-space-3);
+}
+
+.task-mail .empty-state {
+  display: grid;
+  width: 100%;
+  min-height: 12rem;
+  padding: var(--ak-space-8);
+  color: var(--ak-color-fg-muted);
+  place-items: center;
+  justify-self: stretch;
+  text-align: center;
+}
+
+.task-mail #layout-list > .toolbar:last-child {
+  justify-content: flex-end;
+  border-block-start: var(--ak-border-width) solid var(--ak-color-border-subtle);
+  border-block-end: 0;
+  color: var(--ak-color-fg-muted);
+  font-size: var(--ak-font-size-sm);
+}
+
+.task-mail #layout-list > .toolbar:last-child :where(button, .btn) {
+  width: 2.5rem;
+  min-width: 2.5rem;
+  padding: 0;
+}
+
+.task-mail :where(.popupmenu, .dropdown-menu) {
+  padding: var(--ak-space-2);
+}
+
+/* Elastic menu links follow higher-specificity folder-list rules in source. */
+/* stylelint-disable-next-line no-descending-specificity */
+.task-mail :where(.popupmenu, .dropdown-menu) a {
+  display: flex;
+  min-height: 2.5rem;
+  padding: var(--ak-space-2) var(--ak-space-3);
+  border-radius: var(--ak-radius-compact);
+  align-items: center;
+  text-decoration: none;
+}
+
+.task-mail :where(.ui-dialog, .modal-content) {
+  width: min(28rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  padding: var(--ak-space-6);
+  overflow: auto;
+}
+
+.task-mail :where(.ui-dialog, .modal-content) h2 {
+  margin-block: 0 var(--ak-space-4);
+  font-size: var(--ak-font-size-lg);
+}
+
+@media (width <= 48rem) {
+  .task-mail #layout-menu {
+    padding: var(--ak-space-2) var(--ak-space-1);
+  }
+
+  .task-mail :where(#layout-sidebar, #layout-list, #layout-content) > .header,
+  .task-mail .toolbar {
+    padding-inline: var(--ak-space-3);
+  }
+
+  .task-mail .messagelist tr > td {
+    padding-block: var(--ak-space-3);
+  }
+}

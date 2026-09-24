@@ -159,3 +159,22 @@ test("preview infrastructure stays outside the production build inputs", async (
     /visual presentation only/i,
   );
 });
+
+test("mailbox polish is shipped by the production skin", async () => {
+  const entrypoint = await readFile("src/styles/akio.css", "utf8");
+  const inbox = await readFile("src/styles/inbox.css", "utf8");
+  const preview = await readFile("preview/preview.css", "utf8");
+
+  assert.match(entrypoint, /@import url\("\.\/inbox\.css"\)/);
+  for (const selector of [
+    "#layout-menu",
+    "#layout-sidebar",
+    ".messagelist",
+    ".message-snippet",
+    ".empty-state",
+    ".ui-dialog",
+  ]) {
+    assert.ok(inbox.includes(selector), `${selector} is not production CSS`);
+  }
+  assert.doesNotMatch(preview, /\.preview-page \.messagelist/);
+});
