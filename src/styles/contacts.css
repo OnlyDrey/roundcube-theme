@@ -85,6 +85,10 @@
   display: none;
 }
 
+.task-addressbook .mobile-contact-title {
+  display: none;
+}
+
 @media (width <= 48rem) {
   .task-addressbook :where(#contact-details, .contact-details) {
     padding: var(--ak-space-4);
@@ -94,8 +98,33 @@
     display: inline-grid;
   }
 
+  .task-addressbook .desktop-contact-title {
+    display: none;
+  }
+
+  .task-addressbook .mobile-contact-title {
+    display: inline;
+  }
+
   .task-addressbook .contactfieldgroup {
     grid-template-columns: 1fr;
     gap: var(--ak-space-1);
+  }
+
+  .task-addressbook .contact-compose {
+    width: var(--ak-size-target);
+    min-width: var(--ak-size-target);
+    padding: var(--ak-space-2);
+    border-color: transparent;
+    background: transparent;
+    color: var(--ak-color-accent);
+  }
+
+  .task-addressbook .contact-compose .action-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
   }
 }

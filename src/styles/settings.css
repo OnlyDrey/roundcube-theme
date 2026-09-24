@@ -60,4 +60,23 @@
   .task-settings :where(.propform, .settings-form) :where(input, select) {
     max-width: 100%;
   }
+
+  .task-settings .settings-form .confirmation {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    margin-block-end: var(--ak-space-2);
+  }
+
+  .task-settings .propform table {
+    border-spacing: 0 var(--ak-space-2);
+  }
+
+  .task-settings .settings-form fieldset {
+    padding-block: var(--ak-space-2) var(--ak-space-4);
+  }
+
+  .task-settings .settings-form fieldset legend {
+    padding-block-start: var(--ak-space-2);
+  }
 }

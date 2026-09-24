@@ -336,23 +336,85 @@
   mask: url("../images/icons/x.svg") center / contain no-repeat;
 }
 
-@media (width <= 48rem) {
+@media (width <= 37.5rem) {
+  .task-mail.action-compose #layout-content {
+    position: relative;
+  }
+
+  .task-mail.action-compose #layout-content > .header {
+    min-height: 3.25rem;
+    padding-inline: 3.5rem 5.25rem;
+  }
+
+  .task-mail.action-compose .close-compose {
+    position: absolute;
+    left: var(--ak-space-2);
+    order: -1;
+  }
+
+  .task-mail.action-compose #messagetoolbar {
+    min-height: 2.5rem;
+    padding: 0 var(--ak-space-3);
+    border-block-end: var(--ak-border-width) solid var(--ak-color-border-subtle);
+  }
+
+  .task-mail.action-compose #messagetoolbar > .send {
+    position: absolute;
+    z-index: 2;
+    top: var(--ak-space-2);
+    right: var(--ak-space-3);
+    min-height: 2.25rem;
+    padding: var(--ak-space-1) var(--ak-space-3);
+  }
+
+  .task-mail.action-compose #messagetoolbar > .cancel {
+    display: none;
+  }
+
   .task-mail.action-compose :where(#compose-content, .compose-workspace) {
-    padding: var(--ak-space-4);
+    padding: var(--ak-space-3);
   }
 
   .task-mail.action-compose :where(.compose-headers, .compose-fields) {
-    grid-template-columns: 1fr;
-    gap: var(--ak-space-2);
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: var(--ak-space-1) var(--ak-space-2);
   }
 
   .task-mail.action-compose :where(.compose-headers, .compose-fields) label {
-    margin-block-start: var(--ak-space-2);
-    text-align: start;
+    margin: 0;
+    text-align: end;
   }
 
   .task-mail.action-compose .recipient-actions {
-    grid-column: 1;
+    grid-column: 2;
+    margin: 0;
+  }
+
+  .task-mail.action-compose .recipient-actions button {
+    min-height: 1.75rem;
+  }
+
+  .task-mail.action-compose .optional-recipient {
+    display: none;
+  }
+
+  .task-mail.action-compose .compose-fields > :where(span:empty) {
+    display: none;
+  }
+
+  .task-mail.action-compose .compose-fields > .invalid-feedback {
+    grid-column: 2;
+    margin: 0 0 var(--ak-space-1);
+  }
+
+  .task-mail.action-compose :where(.recipient-input, .recipients-input) {
+    min-height: 2.5rem;
+    padding: 0.1875rem;
+  }
+
+  .task-mail.action-compose :where(.recipient, .recipient-token) {
+    max-width: calc(50% - var(--ak-space-1));
+    padding-block: 0.125rem;
   }
 
   .task-mail.action-compose
@@ -363,6 +425,17 @@
       .tox-edit-area,
       iframe
     ) {
-    min-height: 22rem;
+    min-height: 24rem;
+  }
+
+  .task-mail.action-compose
+    :where(.editor-toolbar, .tox-toolbar__primary, .mce-toolbar-grp) {
+    margin-block-start: var(--ak-space-3);
+  }
+
+  .task-mail.action-compose .attachment-item,
+  .task-mail.action-compose .attachmentslist > li {
+    padding: var(--ak-space-2);
+    gap: var(--ak-space-2);
   }
 }

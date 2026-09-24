@@ -46,23 +46,40 @@
           <button class="reply-action">
             <span class="ak-icon ak-icon-reply" aria-hidden="true"></span>
             Reply</button
-          ><button>
+          ><button class="mobile-overflow-action">
             <span class="ak-icon ak-icon-reply-all" aria-hidden="true"></span>
             Reply all</button
           ><button>
             <span class="ak-icon ak-icon-forward" aria-hidden="true"></span>
             Forward</button
-          ><button>
+          ><button class="mobile-overflow-action">
             <span class="ak-icon ak-icon-trash" aria-hidden="true"></span>
             Delete</button
-          ><button aria-label="Print">
+          ><button class="mobile-overflow-action" aria-label="Print">
             <span
               class="ak-icon ak-icon-printer"
               aria-hidden="true"
             ></span></button
-          ><button aria-label="More actions">
+          ><button
+            aria-label="More actions"
+            data-preview-target="#message-menu"
+          >
             <span class="ak-icon ak-icon-ellipsis" aria-hidden="true"></span>
           </button>
+          <div id="message-menu" class="popupmenu" role="menu" hidden>
+            <a href="#" role="menuitem"
+              ><span class="ak-icon ak-icon-reply-all" aria-hidden="true"></span
+              ><span>Reply all</span></a
+            >
+            <a href="#" role="menuitem"
+              ><span class="ak-icon ak-icon-trash" aria-hidden="true"></span
+              ><span>Delete</span></a
+            >
+            <a href="#" role="menuitem"
+              ><span class="ak-icon ak-icon-printer" aria-hidden="true"></span
+              ><span>Print</span></a
+            >
+          </div>
         </div>
         <article class="scroller preview-detail preview-stack">
           <header id="message-header" class="message-header">
@@ -74,14 +91,20 @@
                   >&lt;hello@example.invalid&gt;</span
                 >
               </p>
-              <p class="message-recipients">
-                To: Preview User
-                &lt;preview-recipient-with-a-deliberately-long-address@example.invalid&gt;<br />Cc:
-                Project Review &lt;review@example.invalid&gt;
+              <p class="message-summary">
+                to me · <time datetime="2026-09-24T09:42:00Z">09:42</time>
               </p>
-              <time class="message-date" datetime="2026-09-24T09:42:00Z"
-                >September 24, 2026 at 09:42</time
-              >
+              <details class="message-details">
+                <summary>Recipient details</summary>
+                <p class="message-recipients">
+                  To: Preview User
+                  &lt;preview-recipient-with-a-deliberately-long-address@example.invalid&gt;<br />Cc:
+                  Project Review &lt;review@example.invalid&gt;
+                </p>
+                <time class="message-date" datetime="2026-09-24T09:42:00Z"
+                  >September 24, 2026 at 09:42</time
+                >
+              </details>
             </div>
           </header>
           <div class="notice remote-images-notice">

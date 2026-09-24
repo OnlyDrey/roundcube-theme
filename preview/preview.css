@@ -174,5 +174,6 @@ body {
   }
   .preview-page .preview-fields {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
 }

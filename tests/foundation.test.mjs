@@ -260,7 +260,11 @@ test("message and compose cover production reading and editor states", async () 
   assert.match(compose, /\.attachment-item\.is-uploading/);
   assert.match(compose, /\.attachment-item\.is-failed/);
   assert.match(messageFixture, /ak-icon-(reply|forward|trash|printer)/);
-  assert.match(composeFixture, /aria-invalid="true"[\s\S]*invalid-feedback/);
+  assert.match(
+    composeFixture,
+    /aria-describedby="to-error"[\s\S]*id="to-error" class="invalid-feedback" hidden/,
+  );
+  assert.match(compose, /\.recipients-input\)\.is-invalid/);
   assert.doesNotMatch(messageFixture + composeFixture, /[📎🖨❌]/u);
 });
 
@@ -278,6 +282,22 @@ test("shared overlays retain bounded geometry and generated close icon", async (
     inbox,
     /grid-template-columns: var\(--ak-icon-size\) minmax\(0, 1fr\)/,
   );
+});
+
+test("mobile mail workflows prioritize writing and reading content", async () => {
+  const compose = await readFile("src/styles/compose.css", "utf8");
+  const message = await readFile("src/styles/message.css", "utf8");
+  const contacts = await readFile("src/styles/contacts.css", "utf8");
+  const settings = await readFile("src/styles/settings.css", "utf8");
+
+  assert.match(compose, /@media \(width <= 37\.5rem\)/);
+  assert.match(compose, /#messagetoolbar > \.send[\s\S]*position: absolute/);
+  assert.match(compose, /#messagetoolbar > \.cancel[\s\S]*display: none/);
+  assert.match(compose, /\.optional-recipient[\s\S]*display: none/);
+  assert.match(message, /\.mobile-overflow-action[\s\S]*display: none/);
+  assert.match(message, /\.remote-images-notice[\s\S]*grid-template-columns/);
+  assert.match(contacts, /\.mobile-contact-title[\s\S]*display: inline/);
+  assert.match(settings, /\.settings-form \.confirmation[\s\S]*width: 100%/);
 });
 
 test("the pinned Inter manifest covers required Phase 1 styles and weights", async () => {

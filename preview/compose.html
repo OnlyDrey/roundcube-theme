@@ -26,7 +26,7 @@
       </div>
       <main id="layout-content" class="selected">
         <header class="header">
-          <h1 class="header-title">Compose message</h1>
+          <h1 class="header-title">New message</h1>
           <button class="close-compose" aria-label="Close">
             <span class="close-icon" aria-hidden="true"></span>
           </button>
@@ -52,7 +52,7 @@
                 Preview User &lt;preview@example.invalid&gt;
               </option></select
             ><label for="to-input">To</label>
-            <div class="recipient-input is-invalid" aria-describedby="to-error">
+            <div class="recipient-input" aria-describedby="to-error">
               <span class="recipient-token"
                 ><span>Casey Example &lt;casey@example.invalid&gt;</span
                 ><button
@@ -79,31 +79,32 @@
                     aria-hidden="true"
                   ></span></button
               ></span>
-              <input id="to-input" autocomplete="off" aria-invalid="true" />
+              <input id="to-input" autocomplete="off" />
             </div>
             <span></span
-            ><span id="to-error" class="invalid-feedback"
+            ><span id="to-error" class="invalid-feedback" hidden
               >One recipient needs review.</span
             >
             <p class="recipient-actions">
               <button type="button">Add Cc</button>
               <button type="button">Add Bcc</button>
             </p>
-            <label for="cc">Cc</label
+            <label class="optional-recipient" for="cc">Cc</label
             ><input
+              class="optional-recipient"
               id="cc"
               value="preview-recipient-with-a-deliberately-long-address@example.invalid"
-            /><label for="bcc">Bcc</label
+            /><label class="optional-recipient" for="bcc">Bcc</label
             ><input
+              class="optional-recipient"
               id="bcc"
               value="another-fictional-recipient@example.invalid"
             /><label for="subject">Subject</label
             ><input
               id="subject"
               value="Project update and an intentionally long subject for overflow review"
-              aria-invalid="true"
             /><span></span
-            ><span class="invalid-feedback"
+            ><span class="invalid-feedback" hidden
               >Review the sample subject before sending.</span
             >
           </div>
