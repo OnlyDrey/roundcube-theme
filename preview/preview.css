@@ -83,10 +83,6 @@ body {
   place-items: center;
   text-decoration: none;
 }
-.preview-login .input-group-text.icon img {
-  width: 1.125rem;
-  height: 1.125rem;
-}
 .preview-page .message-snippet {
   color: var(--ak-color-fg-muted);
   font-weight: 400;
@@ -111,12 +107,6 @@ body {
 .preview-page .preview-fields select,
 .preview-page .preview-fields textarea {
   width: 100%;
-}
-.preview-page .preview-editor {
-  min-height: 16rem;
-  padding: 1rem;
-  border: 1px solid var(--ak-color-border);
-  background: var(--ak-color-input);
 }
 .preview-page .preview-avatar {
   display: inline-grid;

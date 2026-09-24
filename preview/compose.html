@@ -19,15 +19,23 @@
       <main id="layout-content" class="selected">
         <header class="header">
           <h1 class="header-title">Compose message</h1>
-          <button aria-label="Close">×</button>
+          <button class="close-compose" aria-label="Close">
+            <span class="close-icon" aria-hidden="true"></span>
+          </button>
         </header>
-        <div class="toolbar">
-          <button class="btn-primary">Send</button><button>Save draft</button
-          ><button>Attach</button><button>Cancel</button>
+        <div id="messagetoolbar" class="toolbar menu" role="toolbar">
+          <button class="btn-primary send">Send</button
+          ><button class="save draft">Save draft</button
+          ><button class="attach">Attach</button
+          ><button class="cancel">Cancel</button>
         </div>
         <!-- Approximation: Roundcube generates recipient widgets and editor chrome at runtime. -->
-        <form class="scroller preview-detail preview-stack" action="#">
-          <div class="preview-fields">
+        <form
+          id="compose-content"
+          class="formcontainer content compose-workspace"
+          action="#"
+        >
+          <div id="compose-headers" class="compose-fields">
             <label for="from">From</label
             ><select id="from">
               <option>
@@ -39,7 +47,7 @@
               value="Casey Example &lt;casey@example.invalid&gt;"
               autocomplete="off"
             /><span></span>
-            <p>
+            <p class="recipient-actions">
               <button type="button">Add Cc</button>
               <button type="button">Add Bcc</button>
             </p>
@@ -47,6 +55,10 @@
             ><input
               id="cc"
               value="preview-recipient-with-a-deliberately-long-address@example.invalid"
+            /><label for="bcc">Bcc</label
+            ><input
+              id="bcc"
+              value="another-fictional-recipient@example.invalid"
             /><label for="subject">Subject</label
             ><input
               id="subject"
@@ -57,9 +69,9 @@
               >Review the sample subject before sending.</span
             >
           </div>
-          <div class="toolbar">
-            <button type="button"><strong>B</strong></button
-            ><button type="button"><em>I</em></button
+          <div class="editor-toolbar" role="toolbar" aria-label="Formatting">
+            <button type="button" aria-label="Bold"><strong>B</strong></button
+            ><button type="button" aria-label="Italic"><em>I</em></button
             ><button type="button">List</button
             ><select aria-label="Text style">
               <option>Normal</option>
@@ -67,7 +79,7 @@
             </select>
           </div>
           <div
-            class="preview-editor"
+            class="compose-editor"
             contenteditable="true"
             role="textbox"
             aria-label="Message body"
@@ -75,12 +87,17 @@
             Hello Casey,<br /><br />Here is the fictional project update for
             visual review.<br /><br />Regards,<br />Preview User
           </div>
-          <section>
+          <section id="compose-attachments">
             <h2>Attachments</h2>
-            <div class="preview-card">
-              📎 project-notes.txt
-              <span class="message-snippet">12 KB · uploaded</span>
-              <button type="button">Remove</button>
+            <div class="attachment-item">
+              <span class="attachment-icon" aria-hidden="true"></span>
+              <span class="attachment-info">
+                <span class="attachment-name"
+                  >project-notes-with-a-deliberately-long-filename.txt</span
+                >
+                <span class="attachment-meta">12 KB · uploaded</span>
+              </span>
+              <button class="attachment-remove" type="button">Remove</button>
             </div>
           </section>
         </form>

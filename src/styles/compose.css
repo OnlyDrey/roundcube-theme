@@ -1,0 +1,279 @@
+/* Compose workspace mapped to Roundcube Elastic 1.7.4 IDs and classes. */
+.task-mail.action-compose #layout-content {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.task-mail.action-compose :where(#compose-content, .compose-workspace) {
+  width: min(100%, 68rem);
+  min-width: 0;
+  min-height: 0;
+  padding: var(--ak-space-6);
+  margin-inline: auto;
+  overflow: auto;
+  flex: 1 1 auto;
+  scrollbar-color: var(--ak-color-border) transparent;
+}
+
+.task-mail.action-compose
+  #messagetoolbar
+  > :where(a, button, .dropbutton):not(.btn-primary, .mainaction, .send) {
+  display: inline-flex;
+  min-height: 2.5rem;
+  padding: var(--ak-space-2) var(--ak-space-3);
+  border: var(--ak-border-width) solid transparent;
+  border-radius: var(--ak-radius-control);
+  color: var(--ak-color-fg-secondary);
+  align-items: center;
+  text-decoration: none;
+}
+
+.task-mail.action-compose
+  #messagetoolbar
+  > :where(a, button):not(.btn-primary, .mainaction, .send):hover {
+  background: var(--ak-color-hover);
+  color: var(--ak-color-fg);
+}
+
+.task-mail.action-compose
+  #messagetoolbar
+  > :is(.btn-primary, .mainaction, .send) {
+  border-color: var(--ak-color-accent);
+  background: var(--ak-color-accent);
+  color: var(--ak-color-accent-contrast);
+}
+
+.task-mail.action-compose
+  #messagetoolbar
+  > :is(.btn-primary, .mainaction, .send):hover:not(:disabled) {
+  border-color: var(--ak-color-accent-hover);
+  background: var(--ak-color-accent-hover);
+  color: var(--ak-color-accent-contrast);
+}
+
+.task-mail.action-compose
+  #messagetoolbar
+  > :where(.selected, [aria-pressed="true"]) {
+  background: var(--ak-color-selected);
+  color: var(--ak-color-accent);
+}
+
+.task-mail.action-compose :where(.compose-headers, .compose-fields) {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  gap: var(--ak-space-3) var(--ak-space-4);
+  align-items: center;
+}
+
+.task-mail.action-compose :where(.compose-headers, .compose-fields) .row {
+  display: contents;
+}
+
+.task-mail.action-compose
+  :where(.compose-headers, .compose-fields)
+  :where(.col-10, .input-group, input, select, .form-control) {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+}
+
+.task-mail.action-compose :where(.compose-headers, .compose-fields) label {
+  width: auto;
+  max-width: none;
+  margin: 0;
+  flex: none;
+  color: var(--ak-color-fg-secondary);
+  font-size: var(--ak-font-size-sm);
+  text-align: end;
+}
+
+.task-mail.action-compose .recipient-actions {
+  grid-column: 2;
+  margin: calc(var(--ak-space-2) * -1) 0 0;
+}
+
+.task-mail.action-compose .recipient-actions :where(button, a) {
+  min-height: 2rem;
+  padding: var(--ak-space-1) var(--ak-space-2);
+  border-color: transparent;
+  background: transparent;
+  color: var(--ak-color-accent);
+  font-size: var(--ak-font-size-sm);
+}
+
+.task-mail.action-compose .recipient-actions :where(button, a):hover {
+  background: var(--ak-color-hover);
+  color: var(--ak-color-accent-hover);
+}
+
+.task-mail.action-compose
+  :where(.editor-toolbar, .tox-toolbar__primary, .mce-toolbar-grp) {
+  display: flex;
+  min-height: var(--ak-size-target);
+  padding: var(--ak-space-1);
+  margin-block: var(--ak-space-6) 0;
+  gap: var(--ak-space-1);
+  border: var(--ak-border-width) solid var(--ak-color-border);
+  border-block-end-color: var(--ak-color-border-subtle);
+  border-radius: var(--ak-radius-control) var(--ak-radius-control) 0 0;
+  background: var(--ak-color-sidebar);
+  align-items: center;
+}
+
+.task-mail.action-compose .editor-toolbar :where(button, select),
+.task-mail.action-compose .tox-toolbar__primary :where(button, select),
+.task-mail.action-compose .mce-toolbar-grp :where(button, select) {
+  min-width: 2.25rem;
+  min-height: 2.25rem;
+  padding: var(--ak-space-1) var(--ak-space-2);
+  border-color: transparent;
+  background: transparent;
+  color: var(--ak-color-fg-secondary);
+}
+
+.task-mail.action-compose
+  :where(.editor-toolbar, .tox-toolbar__primary, .mce-toolbar-grp)
+  :where(button, select):hover {
+  background: var(--ak-color-hover);
+  color: var(--ak-color-fg);
+}
+
+.task-mail.action-compose
+  :where(.editor-toolbar, .tox-toolbar__primary, .mce-toolbar-grp)
+  :where(.active, [aria-pressed="true"]) {
+  background: var(--ak-color-selected);
+  color: var(--ak-color-accent);
+}
+
+.task-mail.action-compose :where(#composebodycontainer, .compose-editor-wrap) {
+  width: 100%;
+  min-width: 0;
+}
+
+.task-mail.action-compose
+  :where(
+    #composebody,
+    .compose-editor,
+    .preview-editor,
+    .tox-edit-area,
+    iframe
+  ) {
+  width: 100%;
+  min-width: 0;
+  min-height: clamp(24rem, 48vh, 38rem);
+  padding: var(--ak-space-4);
+  border: var(--ak-border-width) solid var(--ak-color-border);
+  border-radius: 0 0 var(--ak-radius-control) var(--ak-radius-control);
+  background: var(--ak-color-input);
+  color: var(--ak-color-fg);
+  font: inherit;
+  line-height: 1.65;
+}
+
+.task-mail.action-compose
+  :where(#composebody, .compose-editor, .preview-editor):focus-visible {
+  position: relative;
+  z-index: 1;
+  border-color: var(--ak-color-focus);
+  outline: 2px solid var(--ak-color-focus);
+  outline-offset: 1px;
+}
+
+.task-mail.action-compose #compose-attachments {
+  margin-block-start: var(--ak-space-6);
+}
+
+.task-mail.action-compose .attachment-item,
+.task-mail.action-compose .attachmentslist > li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  padding: var(--ak-space-3);
+  gap: var(--ak-space-3);
+  border: var(--ak-border-width) solid var(--ak-color-border-subtle);
+  border-radius: var(--ak-radius-control);
+  background: var(--ak-color-sidebar);
+  align-items: center;
+}
+
+.task-mail.action-compose .attachment-icon {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: var(--ak-color-fg-muted);
+  mask: url("../images/icons/paperclip.svg") center / contain no-repeat;
+}
+
+.task-mail.action-compose .attachment-info {
+  min-width: 0;
+}
+
+.task-mail.action-compose .attachment-name {
+  display: block;
+  overflow: hidden;
+  color: var(--ak-color-fg);
+  font-weight: var(--ak-weight-medium);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-mail.action-compose .attachment-meta {
+  color: var(--ak-color-fg-muted);
+  font-size: var(--ak-font-size-sm);
+}
+
+.task-mail.action-compose .attachment-remove {
+  min-height: 2.25rem;
+  padding: var(--ak-space-1) var(--ak-space-2);
+  border-color: transparent;
+  background: transparent;
+  color: var(--ak-color-danger);
+}
+
+.task-mail.action-compose .close-compose {
+  display: inline-grid;
+  width: var(--ak-size-target);
+  min-width: var(--ak-size-target);
+  padding: var(--ak-space-2);
+  border-color: transparent;
+  background: transparent;
+  place-items: center;
+}
+
+.task-mail.action-compose .close-icon {
+  display: block;
+  width: 1.125rem;
+  height: 1.125rem;
+  background: currentcolor;
+  mask: url("../images/icons/x.svg") center / contain no-repeat;
+}
+
+@media (width <= 48rem) {
+  .task-mail.action-compose :where(#compose-content, .compose-workspace) {
+    padding: var(--ak-space-4);
+  }
+
+  .task-mail.action-compose :where(.compose-headers, .compose-fields) {
+    grid-template-columns: 1fr;
+    gap: var(--ak-space-2);
+  }
+
+  .task-mail.action-compose :where(.compose-headers, .compose-fields) label {
+    margin-block-start: var(--ak-space-2);
+    text-align: start;
+  }
+
+  .task-mail.action-compose .recipient-actions {
+    grid-column: 1;
+  }
+
+  .task-mail.action-compose
+    :where(
+      #composebody,
+      .compose-editor,
+      .preview-editor,
+      .tox-edit-area,
+      iframe
+    ) {
+    min-height: 22rem;
+  }
+}

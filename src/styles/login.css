@@ -97,6 +97,24 @@
   justify-content: center;
 }
 
+.task-login #login-form .input-group-text.icon::before {
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0;
+  background: currentcolor;
+  content: "";
+  font: inherit;
+  mask: center / contain no-repeat;
+}
+
+.task-login #login-form .input-group-text.icon.user::before {
+  mask-image: url("../images/icons/users.svg");
+}
+
+.task-login #login-form .input-group-text.icon.pass::before {
+  mask-image: url("../images/icons/lock.svg");
+}
+
 .task-login #login-form .input-group > :where(input, select, .form-control) {
   width: 1%;
   min-width: 0;
@@ -109,6 +127,12 @@
   position: relative;
   z-index: 1;
   border-color: var(--ak-color-focus);
+  color: var(--ak-color-accent);
+}
+
+.task-login #login-form .input-group:has(.is-invalid) .input-group-text.icon {
+  border-color: var(--ak-color-danger);
+  color: var(--ak-color-danger);
 }
 
 .task-login #login-form .formbuttons {

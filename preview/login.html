@@ -28,10 +28,10 @@
                 </td>
                 <td class="input input-group input-group-lg">
                   <span class="input-group-prepend"
-                    ><i class="input-group-text icon user" aria-hidden="true"
-                      ><img
-                        src="../build/dev/akio/images/icons/users.svg"
-                        alt="" /></i></span
+                    ><i
+                      class="input-group-text icon user"
+                      aria-hidden="true"
+                    ></i></span
                   ><input
                     id="rcmloginuser"
                     name="_user"
@@ -48,10 +48,10 @@
                 </td>
                 <td class="input input-group input-group-lg">
                   <span class="input-group-prepend"
-                    ><i class="input-group-text icon pass" aria-hidden="true"
-                      ><img
-                        src="../build/dev/akio/images/icons/lock.svg"
-                        alt="" /></i></span
+                    ><i
+                      class="input-group-text icon pass"
+                      aria-hidden="true"
+                    ></i></span
                   ><input
                     type="password"
                     id="rcmloginpwd"
@@ -74,11 +74,16 @@
               Log in
             </button>
           </p>
-          <p>
-            <button type="button" class="btn" disabled aria-busy="true">
-              Signing in…
-            </button>
-          </p>
+          <!-- Roundcube disables the existing submit control and announces a
+               global loading message on submit; it does not add a second button. -->
+          <div
+            class="notice login-busy"
+            role="status"
+            aria-live="polite"
+            hidden
+          >
+            Signing in…
+          </div>
           <div id="login-footer" role="contentinfo">Akio Mail preview</div>
         </form>
       </div>

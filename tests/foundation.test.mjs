@@ -66,6 +66,8 @@ test("login styles center responsively and integrate input icons", async () => {
     /#logo[\s\S]*width: min\(100%, 14rem\)[\s\S]*max-height: 6rem[\s\S]*margin: auto auto/,
   );
   assert.match(styles, /td\.input\.input-group[\s\S]*flex-wrap: nowrap/);
+  assert.match(styles, /\.icon\.user::before[\s\S]*users\.svg/);
+  assert.match(styles, /\.icon\.pass::before[\s\S]*lock\.svg/);
   assert.match(
     styles,
     /\.input-group > :where\(input, select, \.form-control\)[\s\S]*flex: 1 1 0/,
@@ -74,6 +76,23 @@ test("login styles center responsively and integrate input icons", async () => {
   assert.match(
     styles,
     /@media \(height < 38rem\)[\s\S]*margin-top: 0[\s\S]*margin-bottom: 0/,
+  );
+});
+
+test("compose workspace and editor use production-sized responsive surfaces", async () => {
+  const entrypoint = await readFile("src/styles/akio.css", "utf8");
+  const styles = await readFile("src/styles/compose.css", "utf8");
+  const fixture = await readFile("preview/compose.html", "utf8");
+
+  assert.match(entrypoint, /@import url\("\.\/compose\.css"\)/);
+  assert.match(styles, /#compose-content[\s\S]*width: min\(100%, 68rem\)/);
+  assert.match(styles, /min-height: clamp\(24rem, 48vh, 38rem\)/);
+  assert.match(styles, /\.compose-headers[\s\S]*minmax\(0, 1fr\)/);
+  assert.match(styles, /\.tox-toolbar__primary/);
+  assert.match(styles, /\.attachmentslist > li/);
+  assert.doesNotMatch(
+    fixture,
+    /compose-workspace[^>]*\bscroller\b|\bpreview-detail\b/,
   );
 });
 
