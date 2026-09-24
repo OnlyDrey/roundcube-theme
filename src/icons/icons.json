@@ -1,5 +1,6 @@
 [
   "building-2",
+  "bold",
   "chevron-down",
   "chevron-left",
   "chevron-right",
@@ -12,7 +13,10 @@
   "house",
   "image-off",
   "inbox",
+  "italic",
   "lock",
+  "link",
+  "list",
   "mail",
   "mail-open",
   "menu",

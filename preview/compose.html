@@ -33,7 +33,9 @@
         </header>
         <div id="messagetoolbar" class="toolbar menu" role="toolbar">
           <button class="btn-primary send">Send</button
-          ><button class="save draft">Save draft</button
+          ><button class="save draft">
+            <span class="ak-icon ak-icon-save" aria-hidden="true"></span>
+            Save draft</button
           ><button class="attach">
             <span class="ak-icon ak-icon-paperclip" aria-hidden="true"></span>
             Attach</button
@@ -115,14 +117,34 @@
               aria-label="Bold"
               aria-pressed="true"
             >
-              <strong>B</strong></button
-            ><button type="button" aria-label="Italic"><em>I</em></button
-            ><button type="button">List</button
-            ><button type="button" disabled>Link</button
-            ><select aria-label="Text style">
-              <option>Normal</option>
-              <option>Heading</option>
-            </select>
+              <span
+                class="ak-icon ak-icon-bold"
+                aria-hidden="true"
+              ></span></button
+            ><button type="button" aria-label="Italic">
+              <span
+                class="ak-icon ak-icon-italic"
+                aria-hidden="true"
+              ></span></button
+            ><button type="button" aria-label="Bulleted list">
+              <span
+                class="ak-icon ak-icon-list"
+                aria-hidden="true"
+              ></span></button
+            ><button type="button" aria-label="Insert link" disabled>
+              <span
+                class="ak-icon ak-icon-link"
+                aria-hidden="true"
+              ></span></button
+            ><span class="editor-style-select"
+              ><select aria-label="Text style">
+                <option>Normal</option>
+                <option>Heading</option></select
+              ><span
+                class="ak-icon ak-icon-chevron-down"
+                aria-hidden="true"
+              ></span
+            ></span>
           </div>
           <div
             class="compose-editor"

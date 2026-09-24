@@ -158,3 +158,19 @@
 .ak-icon-chevron-down {
   --ak-icon: url("../images/icons/chevron-down.svg");
 }
+
+.ak-icon-bold {
+  --ak-icon: url("../images/icons/bold.svg");
+}
+
+.ak-icon-italic {
+  --ak-icon: url("../images/icons/italic.svg");
+}
+
+.ak-icon-list {
+  --ak-icon: url("../images/icons/list.svg");
+}
+
+.ak-icon-link {
+  --ak-icon: url("../images/icons/link.svg");
+}

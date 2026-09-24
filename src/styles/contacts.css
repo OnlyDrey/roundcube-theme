@@ -117,7 +117,13 @@
     padding: var(--ak-space-2);
     border-color: transparent;
     background: transparent;
-    color: var(--ak-color-accent);
+    color: var(--ak-color-fg-secondary);
+  }
+
+  .task-addressbook .contact-compose:hover,
+  .task-addressbook .contact-compose:focus-visible {
+    background: var(--ak-color-hover);
+    color: var(--ak-color-fg);
   }
 
   .task-addressbook .contact-compose .action-label {

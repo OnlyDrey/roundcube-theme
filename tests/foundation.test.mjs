@@ -300,6 +300,34 @@ test("mobile mail workflows prioritize writing and reading content", async () =>
   assert.match(settings, /\.settings-form \.confirmation[\s\S]*width: 100%/);
 });
 
+test("mobile polish keeps compact mail controls and generated formatting icons", async () => {
+  const icons = JSON.parse(await readFile("src/icons/icons.json", "utf8"));
+  const compose = await readFile("src/styles/compose.css", "utf8");
+  const message = await readFile("src/styles/message.css", "utf8");
+  const composeFixture = await readFile("preview/compose.html", "utf8");
+  const messageFixture = await readFile("preview/message.html", "utf8");
+  const contactsFixture = await readFile("preview/contacts.html", "utf8");
+
+  assert.ok(
+    ["bold", "italic", "list", "link"].every((icon) => icons.includes(icon)),
+  );
+  assert.match(composeFixture, /ak-icon-italic/);
+  assert.doesNotMatch(composeFixture, /aria-label="Italic"[^]*<em>/);
+  assert.match(compose, /recipients-input\)[^]*min-height: 2\.25rem/);
+  assert.match(
+    compose,
+    /#compose-attachments h2[^]*font-size: var\(--ak-font-size-sm\)/,
+  );
+  assert.match(compose, /attachmentslist > li[^]*border-width: 0 0/);
+  assert.match(messageFixture, /<details class="message-details">/);
+  assert.doesNotMatch(messageFixture, /<footer class="toolbar">/);
+  assert.match(
+    message,
+    /message-attachments h2[^]*font-size: var\(--ak-font-size-sm\)/,
+  );
+  assert.doesNotMatch(contactsFixture, /btn-primary contact-compose/);
+});
+
 test("the pinned Inter manifest covers required Phase 1 styles and weights", async () => {
   const manifest = JSON.parse(
     await readFile("assets/fonts/inter-4.1.json", "utf8"),

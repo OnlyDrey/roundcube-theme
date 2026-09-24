@@ -210,6 +210,23 @@
   color: var(--ak-color-accent);
 }
 
+.task-mail.action-compose .editor-style-select {
+  display: inline-grid;
+  grid-template-columns: auto var(--ak-icon-size-sm);
+  align-items: center;
+}
+
+.task-mail.action-compose .editor-style-select select {
+  min-width: 4.5rem;
+  padding-inline-end: 0;
+  appearance: none;
+}
+
+.task-mail.action-compose .editor-style-select .ak-icon {
+  margin-inline-start: calc(var(--ak-space-2) * -1);
+  pointer-events: none;
+}
+
 .task-mail.action-compose :where(#composebodycontainer, .compose-editor-wrap) {
   width: 100%;
   min-width: 0;
@@ -246,6 +263,14 @@
 
 .task-mail.action-compose #compose-attachments {
   margin-block-start: var(--ak-space-6);
+}
+
+.task-mail.action-compose #compose-attachments h2 {
+  margin: 0 0 var(--ak-space-2);
+  color: var(--ak-color-fg-secondary);
+  font-size: var(--ak-font-size-sm);
+  font-weight: var(--ak-weight-semibold);
+  letter-spacing: 0.02em;
 }
 
 .task-mail.action-compose .attachment-item,
@@ -291,6 +316,12 @@
   padding: var(--ak-space-1) var(--ak-space-2);
   border-color: transparent;
   background: transparent;
+  color: var(--ak-color-fg-secondary);
+}
+
+.task-mail.action-compose .attachment-remove:hover,
+.task-mail.action-compose .attachment-remove:focus-visible,
+.task-mail.action-compose .attachment-item.is-failed .attachment-remove {
   color: var(--ak-color-danger);
 }
 
@@ -408,13 +439,22 @@
   }
 
   .task-mail.action-compose :where(.recipient-input, .recipients-input) {
-    min-height: 2.5rem;
+    min-height: 2.25rem;
     padding: 0.1875rem;
+    border-color: var(--ak-color-border-subtle);
   }
 
   .task-mail.action-compose :where(.recipient, .recipient-token) {
-    max-width: calc(50% - var(--ak-space-1));
+    max-width: 42%;
     padding-block: 0.125rem;
+  }
+
+  .task-mail.action-compose
+    :where(.recipient-input, .recipients-input)
+    > input {
+    width: 1.5rem;
+    min-width: 1.5rem;
+    flex: 1 1 1.5rem;
   }
 
   .task-mail.action-compose
@@ -437,5 +477,16 @@
   .task-mail.action-compose .attachmentslist > li {
     padding: var(--ak-space-2);
     gap: var(--ak-space-2);
+    border-width: 0 0 var(--ak-border-width);
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .task-mail.action-compose #compose-attachments {
+    margin-block-start: var(--ak-space-4);
+  }
+
+  .task-mail.action-compose #compose-attachments h2 {
+    margin-block-end: var(--ak-space-1);
   }
 }

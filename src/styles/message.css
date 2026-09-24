@@ -1,6 +1,17 @@
 /* Message reading chrome; layout behavior remains owned by Elastic. */
 .task-mail.action-show #layout-content > .toolbar {
+  position: relative;
   gap: var(--ak-space-1);
+}
+
+.task-mail.action-show
+  #layout-content
+  > .toolbar
+  :where(#messagemenu, .message-actions-menu) {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% - var(--ak-space-1));
+  right: var(--ak-space-3);
 }
 
 .task-mail.action-show
@@ -125,6 +136,14 @@
   gap: var(--ak-space-2);
 }
 
+.task-mail.action-show .message-attachments h2 {
+  margin: 0 0 var(--ak-space-2);
+  color: var(--ak-color-fg-secondary);
+  font-size: var(--ak-font-size-sm);
+  font-weight: var(--ak-weight-semibold);
+  letter-spacing: 0.02em;
+}
+
 .task-mail.action-show .attachment-details {
   min-width: 0;
 }
@@ -154,8 +173,8 @@
   .task-mail.action-show .remote-images-notice {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
-    padding: var(--ak-space-2) var(--ak-space-3);
-    gap: var(--ak-space-2);
+    padding: var(--ak-space-2);
+    gap: var(--ak-space-1) var(--ak-space-2);
     align-items: start;
   }
 
@@ -163,6 +182,10 @@
     grid-column: 2;
     gap: var(--ak-space-2);
     flex-wrap: nowrap;
+  }
+
+  .task-mail.action-show .remote-images-notice strong {
+    display: block;
   }
 
   .task-mail.action-show .remote-images-notice .notice-actions button {
@@ -177,8 +200,11 @@
 
   .task-mail.action-show :where(.message-attachment, .attachmentslist > li) {
     grid-template-columns: auto minmax(0, 1fr) auto;
-    padding: var(--ak-space-2);
+    padding: var(--ak-space-2) 0;
     gap: var(--ak-space-2);
+    border-width: 0 0 var(--ak-border-width);
+    border-radius: 0;
+    background: transparent;
   }
 
   /* Attachment actions specialize the compact semantic-notice actions. */
@@ -186,5 +212,9 @@
   .task-mail.action-show .message-attachment button {
     grid-column: 3;
     padding-inline: var(--ak-space-1);
+  }
+
+  .task-mail.action-show .message-attachments h2 {
+    margin-block-end: var(--ak-space-1);
   }
 }
