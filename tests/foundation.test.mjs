@@ -93,7 +93,7 @@ test("primary text and interactive colors meet WCAG AA token targets", () => {
     ["dark secondary", "#c2ccda", "#172033", 4.5],
     ["dark muted", "#9baabd", "#172033", 4.5],
     ["dark inactive icon", "#9baabd", "#111827", 3],
-    ["dark active icon", "#7dbcf2", "#172f4d", 3],
+    ["dark active icon", "#7dbcf2", "#152940", 3],
     ["dark control border", "#64748b", "#172033", 3],
     ["dark primary button", "#0b2035", "#7dbcf2", 4.5],
     ["dark danger", "#ff9ca5", "#4a2027", 4.5],
@@ -107,6 +107,27 @@ test("primary text and interactive colors meet WCAG AA token targets", () => {
       `${name} contrast is below ${minimum}:1`,
     );
   }
+});
+
+test("primary controls keep explicit accessible interactive states", async () => {
+  const components = await readFile("src/styles/components.css", "utf8");
+  const primary =
+    /:is\(\.btn-primary, input\.button\.mainaction, button\.mainaction\)/;
+
+  assert.match(components, primary);
+  for (const state of ["hover", "active", "focus-visible", "disabled"]) {
+    assert.match(
+      components,
+      new RegExp(
+        `${primary.source}:${state}[\\s\\S]*?color: var\\(--ak-color-accent-contrast\\)`,
+      ),
+    );
+  }
+  assert.ok(
+    components.indexOf(":is(.btn-primary") >
+      components.indexOf(":hover:not(:disabled)"),
+    "primary states must follow generic control states in the cascade",
+  );
 });
 
 test("the pinned Inter manifest covers required Phase 1 styles and weights", async () => {

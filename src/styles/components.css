@@ -43,26 +43,41 @@
   transform: translateY(1px);
 }
 
-:where(.btn-primary, input.button.mainaction, button.mainaction) {
+:is(.btn-primary, input.button.mainaction, button.mainaction) {
   border-color: var(--ak-color-accent);
   background: var(--ak-color-accent);
   color: var(--ak-color-accent-contrast);
 }
 
-/* Keep link-based primary actions legible against the global anchor color. */
-a.btn-primary,
-a.button.mainaction {
-  color: var(--ak-color-accent-contrast);
-}
-
-:where(.btn-primary, input.button.mainaction, button.mainaction):hover {
+:is(.btn-primary, input.button.mainaction, button.mainaction):hover:not(
+    :disabled
+  ) {
   border-color: var(--ak-color-accent-hover);
   background: var(--ak-color-accent-hover);
+  color: var(--ak-color-accent-contrast);
 }
 
-a.btn-primary:hover,
-a.button.mainaction:hover {
+:is(.btn-primary, input.button.mainaction, button.mainaction):active:not(
+    :disabled
+  ) {
+  border-color: var(--ak-color-accent);
+  background: var(--ak-color-accent);
   color: var(--ak-color-accent-contrast);
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 18%);
+}
+
+:is(.btn-primary, input.button.mainaction, button.mainaction):focus-visible {
+  border-color: var(--ak-color-focus);
+  background: var(--ak-color-accent);
+  color: var(--ak-color-accent-contrast);
+}
+
+:is(.btn-primary, input.button.mainaction, button.mainaction):disabled,
+:is(.btn-primary, input.button.mainaction, button.mainaction).disabled {
+  border-color: var(--ak-color-accent);
+  background: var(--ak-color-accent);
+  color: var(--ak-color-accent-contrast);
+  opacity: 0.68;
 }
 
 :where(
