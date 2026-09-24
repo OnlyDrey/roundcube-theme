@@ -42,12 +42,28 @@ test("the layout requests the compiled Elastic baseline and Akio assets", async 
   assert.doesNotMatch(layout, /href="\/styles\/styles\.css"/);
 });
 
-test("login styles constrain the card, logo, fields, and submit control", async () => {
+test("login styles center responsively and integrate input icons", async () => {
   const styles = await readFile("src/styles/login.css", "utf8");
   assert.match(styles, /#login-form[\s\S]*width: min\(100%, 22rem\)/);
-  assert.match(styles, /#logo[\s\S]*object-fit: contain/);
+  assert.match(styles, /#layout[\s\S]*height: 100dvh/);
+  assert.match(
+    styles,
+    /#layout-content[\s\S]*env\(safe-area-inset-top\)[\s\S]*overflow: hidden auto/,
+  );
+  assert.match(
+    styles,
+    /#logo[\s\S]*width: min\(100%, 14rem\)[\s\S]*max-height: 6rem[\s\S]*margin: auto auto/,
+  );
+  assert.match(styles, /td\.input\.input-group[\s\S]*flex-wrap: nowrap/);
+  assert.match(
+    styles,
+    /\.input-group > :where\(input, select, \.form-control\)[\s\S]*flex: 1 1 0/,
+  );
   assert.match(styles, /#rcmloginsubmit[\s\S]*width: 100%/);
-  assert.match(styles, /@media \(width < 30rem\), \(height < 38rem\)/);
+  assert.match(
+    styles,
+    /@media \(height < 38rem\)[\s\S]*margin-top: 0[\s\S]*margin-bottom: 0/,
+  );
 });
 
 test("Tailwind stays scoped and does not reset Roundcube markup", async () => {
