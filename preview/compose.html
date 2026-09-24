@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Compose — Akio preview</title>
+    <script src="../build/dev/akio/scripts/theme.js"></script>
+    <link rel="stylesheet" href="../build/dev/akio/styles/akio.css" />
+    <link rel="stylesheet" href="preview.css" />
+  </head>
+  <body class="akio task-mail action-compose preview-page">
+    <div id="layout">
+      <div id="layout-menu" role="navigation" aria-label="Tasks">
+        <a class="task-button selected" href="inbox.html">✉</a
+        ><a class="task-button" href="contacts.html">♙</a
+        ><a class="task-button" href="settings.html">⚙</a
+        ><a class="task-button" href="index.html">⌂</a>
+      </div>
+      <main id="layout-content" class="selected">
+        <header class="header">
+          <h1 class="header-title">Compose message</h1>
+          <button aria-label="Close">×</button>
+        </header>
+        <div class="toolbar">
+          <button class="btn-primary">Send</button><button>Save draft</button
+          ><button>Attach</button><button>Cancel</button>
+        </div>
+        <!-- Approximation: Roundcube generates recipient widgets and editor chrome at runtime. -->
+        <form class="scroller preview-detail preview-stack" action="#">
+          <div class="preview-fields">
+            <label for="from">From</label
+            ><select id="from">
+              <option>
+                Preview User &lt;preview@example.invalid&gt;
+              </option></select
+            ><label for="to">To</label
+            ><input
+              id="to"
+              value="Casey Example &lt;casey@example.invalid&gt;"
+              autocomplete="off"
+            /><span></span>
+            <p>
+              <button type="button">Add Cc</button>
+              <button type="button">Add Bcc</button>
+            </p>
+            <label for="cc">Cc</label
+            ><input
+              id="cc"
+              value="preview-recipient-with-a-deliberately-long-address@example.invalid"
+            /><label for="subject">Subject</label
+            ><input
+              id="subject"
+              value="Project update and an intentionally long subject for overflow review"
+              aria-invalid="true"
+            /><span></span
+            ><span class="invalid-feedback"
+              >Review the sample subject before sending.</span
+            >
+          </div>
+          <div class="toolbar">
+            <button type="button"><strong>B</strong></button
+            ><button type="button"><em>I</em></button
+            ><button type="button">List</button
+            ><select aria-label="Text style">
+              <option>Normal</option>
+              <option>Heading</option>
+            </select>
+          </div>
+          <div
+            class="preview-editor"
+            contenteditable="true"
+            role="textbox"
+            aria-label="Message body"
+          >
+            Hello Casey,<br /><br />Here is the fictional project update for
+            visual review.<br /><br />Regards,<br />Preview User
+          </div>
+          <section>
+            <h2>Attachments</h2>
+            <div class="preview-card">
+              📎 project-notes.txt
+              <span class="message-snippet">12 KB · uploaded</span>
+              <button type="button">Remove</button>
+            </div>
+          </section>
+        </form>
+      </main>
+    </div>
+    <script src="preview.js"></script>
+  </body>
+</html>

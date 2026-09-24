@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Inbox — Akio preview</title>
+    <script src="../build/dev/akio/scripts/theme.js"></script>
+    <link rel="stylesheet" href="../build/dev/akio/styles/akio.css" />
+    <link rel="stylesheet" href="preview.css" />
+  </head>
+  <body class="akio task-mail preview-page">
+    <div id="layout">
+      <div id="layout-menu" role="navigation" aria-label="Tasks">
+        <a class="task-button selected" href="inbox.html" aria-label="Mail">✉</a
+        ><a class="task-button" href="contacts.html" aria-label="Contacts">♙</a
+        ><a class="task-button" href="settings.html" aria-label="Settings">⚙</a
+        ><a class="task-button" href="index.html" aria-label="Preview index"
+          >⌂</a
+        >
+      </div>
+      <section id="layout-sidebar">
+        <header class="header">
+          <h2 class="header-title">Folders</h2>
+          <button aria-label="Folder options">•••</button>
+        </header>
+        <div class="scroller">
+          <ul class="listing menu-list">
+            <li class="selected">
+              <a href="#">Inbox <span class="count">4</span></a>
+            </li>
+            <li><a href="#">Drafts</a></li>
+            <li><a href="#">Sent</a></li>
+            <li><a href="#">Junk</a></li>
+            <li><a href="#">Trash</a></li>
+          </ul>
+        </div>
+      </section>
+      <section id="layout-list" class="selected">
+        <header class="header">
+          <h1 class="header-title">Inbox</h1>
+          <button aria-label="Search">Search</button
+          ><button data-preview-target="#mail-menu" aria-expanded="false">
+            More
+          </button>
+          <div id="mail-menu" class="popupmenu" hidden>
+            <a href="#">Mark as read</a><a href="#">Move to folder</a
+            ><a href="#">Delete</a>
+          </div>
+        </header>
+        <div class="toolbar">
+          <a class="btn btn-primary" href="compose.html">Compose</a
+          ><button>Refresh</button><button disabled>Delete</button>
+        </div>
+        <div class="confirmation" role="status">
+          Mailbox refreshed successfully.
+        </div>
+        <div class="scroller">
+          <table class="listing messagelist" aria-label="Messages">
+            <tbody>
+              <tr class="unread selected">
+                <td>★</td>
+                <td>
+                  <strong>Akio Team</strong><br /><span
+                    >Welcome to Akio Mail</span
+                  ><br /><span class="message-snippet"
+                    >A quick tour of your fictional inbox…</span
+                  >
+                </td>
+                <td>09:42</td>
+              </tr>
+              <tr class="unread">
+                <td>☆</td>
+                <td>
+                  <strong>Casey Example</strong><br />Project update and
+                  milestones<br /><span class="message-snippet"
+                    >The prototype review is ready…</span
+                  >
+                </td>
+                <td>08:15</td>
+              </tr>
+              <tr>
+                <td>★</td>
+                <td>
+                  Jordan Sample<br />Meeting notes and next steps<br /><span
+                    class="message-snippet"
+                    >Attached are the notes from yesterday… 📎</span
+                  >
+                </td>
+                <td>Tue</td>
+              </tr>
+              <tr>
+                <td>☆</td>
+                <td>
+                  Billing Robot<br />Invoice available<br /><span
+                    class="message-snippet"
+                    >Your fictional invoice is available… 📎</span
+                  >
+                </td>
+                <td>Mon</td>
+              </tr>
+              <tr>
+                <td>☆</td>
+                <td>
+                  A Very Long Fictional Sender Name<br />An intentionally very
+                  long subject that demonstrates truncation without exposing any
+                  private information<br /><span class="message-snippet"
+                    >Sent to
+                    preview-recipient-with-a-deliberately-long-address@example.invalid…</span
+                  >
+                </td>
+                <td>Sep 18</td>
+              </tr>
+              <tr>
+                <td>☆</td>
+                <td>
+                  Taylor Demo<br />Weekend plans<br /><span
+                    class="message-snippet"
+                    >How about a walk near the imaginary lake?</span
+                  >
+                </td>
+                <td>Sep 17</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <footer class="toolbar">
+          <span>1–6 of 24</span
+          ><button aria-label="Previous page" disabled>‹</button
+          ><button aria-label="Next page">›</button>
+        </footer>
+      </section>
+      <main id="layout-content">
+        <header class="header">
+          <h2 class="header-title">Preview states</h2>
+        </header>
+        <div class="scroller preview-detail preview-stack">
+          <div class="warning" role="alert">
+            Remote images are blocked in this fictional message.
+          </div>
+          <div class="notice" aria-busy="true">Loading message…</div>
+          <div class="error" role="alert">
+            A sample operation could not be completed.
+          </div>
+          <p class="message-snippet">Select a message to display it here.</p>
+          <button data-preview-target="#demo-dialog">Open sample dialog</button>
+        </div>
+      </main>
+    </div>
+    <div id="demo-dialog" hidden>
+      <div class="preview-overlay"></div>
+      <section
+        class="ui-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="dialog-title"
+      >
+        <h2 id="dialog-title">Move message</h2>
+        <p>This inert dialog approximates a Roundcube UI dialog.</p>
+        <select>
+          <option>Archive</option>
+          <option>Project</option>
+        </select>
+        <p>
+          <button class="btn-primary" data-preview-target="#demo-dialog">
+            Move
+          </button>
+          <button data-preview-target="#demo-dialog">Cancel</button>
+        </p>
+      </section>
+    </div>
+    <script src="preview.js"></script>
+  </body>
+</html>

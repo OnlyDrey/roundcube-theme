@@ -5,6 +5,16 @@ import { join } from "node:path";
 import test from "node:test";
 import { verifyFontFile } from "../scripts/acquire-fonts.mjs";
 
+const previewPages = [
+  "index.html",
+  "login.html",
+  "inbox.html",
+  "message.html",
+  "compose.html",
+  "contacts.html",
+  "settings.html",
+];
+
 function luminance(hex) {
   const channels = hex
     .slice(1)
@@ -130,4 +140,22 @@ test("font verification rejects bytes that do not match the pinned checksum", as
   );
   assert.equal(await verifyFontFile(fixture, "0".repeat(64)), false);
   await rm(directory, { recursive: true });
+});
+
+test("static preview pages use generated skin assets without network endpoints", async () => {
+  for (const page of previewPages) {
+    const content = await readFile(join("preview", page), "utf8");
+    assert.match(content, /\.\.\/build\/dev\/akio\/styles\/akio\.css/);
+    assert.doesNotMatch(content, /(?:src|href|action)=["']https?:\/\//i);
+    assert.doesNotMatch(content, /(?:imap|smtp):\/\//i);
+  }
+});
+
+test("preview infrastructure stays outside the production build inputs", async () => {
+  const build = await readFile("scripts/build.mjs", "utf8");
+  assert.doesNotMatch(build, /["']preview["']/);
+  assert.match(
+    await readFile("preview/README.md", "utf8"),
+    /visual presentation only/i,
+  );
 });

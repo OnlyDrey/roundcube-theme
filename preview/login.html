@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Login — Akio preview</title>
+    <script src="../build/dev/akio/scripts/theme.js"></script>
+    <link rel="stylesheet" href="../build/dev/akio/styles/akio.css" />
+    <link rel="stylesheet" href="preview.css" />
+  </head>
+  <body class="akio task-login preview-login">
+    <h1 class="voice">Akio Mail Login</h1>
+    <div id="layout">
+      <div id="layout-content" class="selected no-navbar" role="main">
+        <img src="../build/dev/akio/images/logo.svg" id="logo" alt="Mail" />
+        <form id="login-form" class="propform" action="#" method="post">
+          <div class="alert alert-danger" role="alert">
+            The username or password is incorrect.
+          </div>
+          <table>
+            <tbody>
+              <tr class="form-group row">
+                <td class="title" hidden>
+                  <label for="rcmloginuser">Username</label>
+                </td>
+                <td class="input input-group input-group-lg">
+                  <span class="input-group-prepend"
+                    ><i class="input-group-text icon user" aria-hidden="true"
+                      ><img
+                        src="../build/dev/akio/images/icons/users.svg"
+                        alt="" /></i></span
+                  ><input
+                    id="rcmloginuser"
+                    name="_user"
+                    class="form-control"
+                    placeholder="Username"
+                    autocomplete="username"
+                    required
+                  />
+                </td>
+              </tr>
+              <tr class="form-group row">
+                <td class="title" hidden>
+                  <label for="rcmloginpwd">Password</label>
+                </td>
+                <td class="input input-group input-group-lg">
+                  <span class="input-group-prepend"
+                    ><i class="input-group-text icon pass" aria-hidden="true"
+                      ><img
+                        src="../build/dev/akio/images/icons/lock.svg"
+                        alt="" /></i></span
+                  ><input
+                    type="password"
+                    id="rcmloginpwd"
+                    name="_pass"
+                    class="form-control"
+                    placeholder="Password"
+                    autocomplete="current-password"
+                    required
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="formbuttons">
+            <button
+              type="submit"
+              id="rcmloginsubmit"
+              class="button mainaction submit btn-lg"
+            >
+              Log in
+            </button>
+          </p>
+          <p>
+            <button type="button" class="btn" disabled aria-busy="true">
+              Signing in…
+            </button>
+          </p>
+          <div id="login-footer" role="contentinfo">Akio Mail preview</div>
+        </form>
+      </div>
+    </div>
+    <script src="preview.js"></script>
+  </body>
+</html>

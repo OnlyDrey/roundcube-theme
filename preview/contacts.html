@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contacts — Akio preview</title>
+    <script src="../build/dev/akio/scripts/theme.js"></script>
+    <link rel="stylesheet" href="../build/dev/akio/styles/akio.css" />
+    <link rel="stylesheet" href="preview.css" />
+  </head>
+  <body class="akio task-addressbook preview-page">
+    <div id="layout">
+      <div id="layout-menu" role="navigation" aria-label="Tasks">
+        <a class="task-button" href="inbox.html">✉</a
+        ><a class="task-button selected" href="contacts.html">♙</a
+        ><a class="task-button" href="settings.html">⚙</a
+        ><a class="task-button" href="index.html">⌂</a>
+      </div>
+      <section id="layout-sidebar">
+        <header class="header">
+          <h2 class="header-title">Address books</h2>
+          <button>+</button>
+        </header>
+        <div class="scroller">
+          <ul class="listing menu-list">
+            <li class="selected"><a href="#">Personal Addresses</a></li>
+            <li><a href="#">Collected Recipients</a></li>
+          </ul>
+        </div>
+      </section>
+      <section id="layout-list">
+        <header class="header">
+          <h1 class="header-title">Contacts</h1>
+          <button aria-label="Search">Search</button>
+        </header>
+        <div class="toolbar">
+          <button class="btn-primary">Create</button><button>Delete</button>
+        </div>
+        <div class="scroller">
+          <table class="listing" aria-label="Contacts">
+            <tbody>
+              <tr class="selected">
+                <td>
+                  <strong>Casey Example</strong><br /><span
+                    class="message-snippet"
+                    >casey@example.invalid</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Jordan Sample<br /><span class="message-snippet"
+                    >jordan@example.invalid</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  A Contact With a Deliberately Long Display Name<br /><span
+                    class="message-snippet"
+                    >unusually-long-contact-address@example.invalid</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Taylor Demo<br /><span class="message-snippet"
+                    >taylor@example.invalid</span
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <main id="layout-content" class="selected">
+        <header class="header">
+          <h2 class="header-title">Casey Example</h2>
+          <button>Edit</button><button>Compose</button>
+        </header>
+        <!-- Approximation of the server-generated contact property table. -->
+        <div class="scroller preview-detail">
+          <div class="preview-stack">
+            <span class="preview-avatar">CE</span>
+            <h2>Casey Example</h2>
+            <dl>
+              <dt>Email</dt>
+              <dd><a href="#">casey@example.invalid</a></dd>
+              <dt>Phone</dt>
+              <dd>+1 555 0100</dd>
+              <dt>Organization</dt>
+              <dd>Example Workshop</dd>
+              <dt>Notes</dt>
+              <dd>Fictional contact for layout review.</dd>
+            </dl>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="preview.js"></script>
+  </body>
+</html>
