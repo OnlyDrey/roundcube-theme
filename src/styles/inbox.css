@@ -105,6 +105,48 @@
   text-indent: 0;
 }
 
+/* Elastic nests compact toolbars inside panel headers. Keep those controls
+   visually part of the header instead of rendering a second toolbar row. */
+.task-mail .header > .toolbar {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.task-mail .toolbar .compose {
+  border: var(--ak-border-width) solid var(--ak-color-accent);
+  border-radius: var(--ak-radius-control);
+  background: var(--ak-color-accent);
+  color: var(--ak-color-accent-contrast);
+  font-weight: var(--ak-weight-medium);
+}
+
+.task-mail .toolbar .compose:focus-visible {
+  border-color: var(--ak-color-focus);
+  background: var(--ak-color-accent);
+  color: var(--ak-color-accent-contrast);
+}
+
+.task-mail .toolbar .compose:hover:not(.disabled) {
+  border-color: var(--ak-color-accent-hover);
+  background: var(--ak-color-accent-hover);
+  color: var(--ak-color-accent-contrast);
+}
+
+.task-mail .toolbar .compose:active:not(.disabled) {
+  border-color: var(--ak-color-focus);
+  background: var(--ak-color-accent);
+  color: var(--ak-color-accent-contrast);
+}
+
+.task-mail .toolbar .compose.disabled {
+  border-color: var(--ak-color-accent);
+  background: var(--ak-color-accent);
+  color: var(--ak-color-accent-contrast);
+  opacity: 0.68;
+}
+
 .task-mail #layout-list > .toolbar:not(:last-child) button:not(.mainaction) {
   border-color: transparent;
   background: transparent;

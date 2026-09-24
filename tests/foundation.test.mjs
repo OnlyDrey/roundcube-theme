@@ -130,6 +130,26 @@ test("primary controls keep explicit accessible interactive states", async () =>
   );
 });
 
+test("Elastic's mailbox compose action uses the primary state system", async () => {
+  const inbox = await readFile("src/styles/inbox.css", "utf8");
+  const fixture = await readFile("preview/inbox.html", "utf8");
+
+  assert.match(fixture, /class="button compose"/);
+  for (const state of [
+    "",
+    ":hover",
+    ":active",
+    ":focus-visible",
+    ".disabled",
+  ]) {
+    assert.ok(
+      inbox.includes(`.task-mail .toolbar .compose${state}`),
+      `missing compose${state || " default"} state`,
+    );
+  }
+  assert.match(inbox, /\.header > \.toolbar[\s\S]*?background: transparent/);
+});
+
 test("the pinned Inter manifest covers required Phase 1 styles and weights", async () => {
   const manifest = JSON.parse(
     await readFile("assets/fonts/inter-4.1.json", "utf8"),
