@@ -14,9 +14,9 @@ body {
   min-height: 32rem;
 }
 .preview-page #layout-menu {
-  width: 4.25rem;
+  width: var(--ak-size-task-rail);
   flex: 0 0 auto;
-  padding: 0.75rem 0.5rem;
+  padding: 0;
 }
 .preview-page #layout-sidebar {
   width: var(--ak-size-folder-pane);
@@ -159,7 +159,7 @@ body {
 }
 @media (width <= 48rem) {
   .preview-page #layout-menu {
-    width: 3.5rem;
+    width: 3.25rem;
   }
   .preview-page #layout-sidebar {
     display: none;

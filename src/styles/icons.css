@@ -1,10 +1,100 @@
 .ak-icon {
   display: inline-block;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: var(--ak-icon-size);
+  height: var(--ak-icon-size);
   flex: 0 0 auto;
-  color: inherit;
+  background: currentcolor;
+  mask: var(--ak-icon) center / contain no-repeat;
   vertical-align: -0.2em;
+}
+
+.ak-icon-mail {
+  --ak-icon: url("../images/icons/mail.svg");
+}
+
+.ak-icon-users {
+  --ak-icon: url("../images/icons/users.svg");
+}
+
+.ak-icon-settings {
+  --ak-icon: url("../images/icons/settings.svg");
+}
+
+.ak-icon-house {
+  --ak-icon: url("../images/icons/house.svg");
+}
+
+.ak-icon-star {
+  --ak-icon: url("../images/icons/star.svg");
+}
+
+.ak-icon-paperclip {
+  --ak-icon: url("../images/icons/paperclip.svg");
+}
+
+.ak-icon-chevron-left {
+  --ak-icon: url("../images/icons/chevron-left.svg");
+}
+
+.ak-icon-chevron-right {
+  --ak-icon: url("../images/icons/chevron-right.svg");
+}
+
+.ak-icon-search {
+  --ak-icon: url("../images/icons/search.svg");
+}
+
+.ak-icon-ellipsis {
+  --ak-icon: url("../images/icons/ellipsis.svg");
+}
+
+.ak-icon-refresh {
+  --ak-icon: url("../images/icons/refresh-cw.svg");
+}
+
+.ak-icon-trash {
+  --ak-icon: url("../images/icons/trash-2.svg");
+}
+
+.ak-icon-reply {
+  --ak-icon: url("../images/icons/reply.svg");
+}
+
+.ak-icon-reply-all {
+  --ak-icon: url("../images/icons/reply-all.svg");
+}
+
+.ak-icon-forward {
+  --ak-icon: url("../images/icons/forward.svg");
+}
+
+.ak-icon-x {
+  --ak-icon: url("../images/icons/x.svg");
+}
+
+#layout-menu
+  :where(.mail, .addressbook, .contacts, .settings, .logout)::before {
+  width: var(--ak-icon-size-nav);
+  height: var(--ak-icon-size-nav);
+  background: currentcolor;
+  content: "";
+  mask: var(--ak-icon) center / contain no-repeat;
+}
+
+#layout-menu .mail::before {
+  --ak-icon: url("../images/icons/mail.svg");
+}
+
+#layout-menu :where(.addressbook, .contacts)::before {
+  --ak-icon: url("../images/icons/users.svg");
+}
+
+#layout-menu .settings::before {
+  --ak-icon: url("../images/icons/settings.svg");
+}
+
+#layout-menu .logout::before {
+  --ak-icon: url("../images/icons/house.svg");
 }
 
 .ak-icon[aria-hidden="true"] {

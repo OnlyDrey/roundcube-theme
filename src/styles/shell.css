@@ -30,6 +30,15 @@
   color: var(--ak-color-fg);
 }
 
+:where(#layout-sidebar, #layout-list, #layout-content) > .header button {
+  border-color: transparent;
+  background: transparent;
+}
+
+:where(#layout-sidebar, #layout-list, #layout-content) > .header button:hover {
+  background: var(--ak-color-hover);
+}
+
 .header-title,
 .boxtitle {
   color: var(--ak-color-fg);

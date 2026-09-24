@@ -1,0 +1,48 @@
+/* Message reading chrome; layout behavior remains owned by Elastic. */
+.task-mail.action-show #layout-content > .toolbar {
+  gap: var(--ak-space-1);
+}
+
+.task-mail.action-show
+  #layout-content
+  > .toolbar
+  :where(button, .btn, a.button) {
+  border-color: transparent;
+  background: transparent;
+}
+
+.task-mail.action-show
+  #layout-content
+  > .toolbar
+  :where(button, .btn, a.button):hover {
+  background: var(--ak-color-hover);
+}
+
+.task-mail.action-show #layout-content > .toolbar .reply-action {
+  background: var(--ak-color-selected);
+  color: var(--ak-color-fg);
+}
+
+.task-mail.action-show .notice {
+  border-radius: var(--ak-radius-sm);
+}
+
+.task-mail.action-show :where(.message-attachment, .attachmentslist > li) {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  padding: var(--ak-space-3);
+  gap: var(--ak-space-3);
+  border: var(--ak-border-width) solid var(--ak-color-border-subtle);
+  border-radius: var(--ak-radius-compact);
+  background: var(--ak-color-sidebar);
+  align-items: center;
+}
+
+.task-mail.action-show .message-attachment .ak-icon {
+  color: var(--ak-color-fg-muted);
+}
+
+.task-mail.action-show .message-attachment button {
+  border-color: transparent;
+  background: transparent;
+}

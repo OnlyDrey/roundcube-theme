@@ -11,10 +11,18 @@
   <body class="akio task-mail action-compose preview-page">
     <div id="layout">
       <div id="layout-menu" role="navigation" aria-label="Tasks">
-        <a class="task-button selected" href="inbox.html">✉</a
-        ><a class="task-button" href="contacts.html">♙</a
-        ><a class="task-button" href="settings.html">⚙</a
-        ><a class="task-button" href="index.html">⌂</a>
+        <a class="task-button selected" href="inbox.html" aria-label="Mail"
+          ><span class="ak-icon ak-icon-mail" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="contacts.html" aria-label="Contacts"
+          ><span class="ak-icon ak-icon-users" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="settings.html" aria-label="Settings"
+          ><span class="ak-icon ak-icon-settings" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="index.html" aria-label="Preview index"
+          ><span class="ak-icon ak-icon-house" aria-hidden="true"></span
+        ></a>
       </div>
       <main id="layout-content" class="selected">
         <header class="header">
@@ -26,7 +34,9 @@
         <div id="messagetoolbar" class="toolbar menu" role="toolbar">
           <button class="btn-primary send">Send</button
           ><button class="save draft">Save draft</button
-          ><button class="attach">Attach</button
+          ><button class="attach">
+            <span class="ak-icon ak-icon-paperclip" aria-hidden="true"></span>
+            Attach</button
           ><button class="cancel">Cancel</button>
         </div>
         <!-- Approximation: Roundcube generates recipient widgets and editor chrome at runtime. -->

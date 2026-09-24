@@ -96,6 +96,34 @@ test("compose workspace and editor use production-sized responsive surfaces", as
   );
 });
 
+test("authenticated UI uses compact geometry and local core icons", async () => {
+  const tokens = await readFile("src/styles/tokens.css", "utf8");
+  const inbox = await readFile("src/styles/inbox.css", "utf8");
+  const icons = await readFile("src/styles/icons.css", "utf8");
+  const components = await readFile("src/styles/components.css", "utf8");
+  const fixtures = await Promise.all(
+    ["inbox", "compose", "message", "contacts", "settings"].map((page) =>
+      readFile(`preview/${page}.html`, "utf8"),
+    ),
+  );
+
+  assert.match(tokens, /--ak-radius-xs: 0\.125rem/);
+  assert.match(tokens, /--ak-radius-control: 0\.375rem/);
+  assert.match(inbox, /#layout-menu[\s\S]*border-radius: 0/);
+  assert.match(
+    inbox,
+    /\.selected[\s\S]*box-shadow: inset 3px 0 0 var\(--ak-color-selected-border\)/,
+  );
+  for (const name of ["mail", "users", "settings", "house"]) {
+    assert.match(
+      icons,
+      new RegExp(`ak-icon-${name}[\\s\\S]*?images/icons/${name}\\.svg`),
+    );
+  }
+  assert.match(components, /fieldset[\s\S]*border: 0/);
+  assert.doesNotMatch(fixtures.join("\n"), /[✉♙⚙⌂★☆📎×‹›]/u);
+});
+
 test("Tailwind stays scoped and does not reset Roundcube markup", async () => {
   const config = (await import("../tailwind.config.js")).default;
   assert.equal(config.prefix, "ak-");

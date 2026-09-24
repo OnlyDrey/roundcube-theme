@@ -1,38 +1,40 @@
 /* Mailbox chrome built on Roundcube Elastic's stable layout regions/classes. */
-.task-mail #layout-menu {
+#layout-menu {
   display: flex;
-  padding: var(--ak-space-3) var(--ak-space-2);
-  gap: var(--ak-space-2);
+  width: var(--ak-size-task-rail);
+  padding: var(--ak-space-2) 0;
+  gap: 0;
   border-inline-end-color: var(--ak-color-border-subtle);
   align-items: stretch;
   flex-direction: column;
 }
 
-.task-mail #layout-menu :where(a.button, .task-button, button) {
+#layout-menu :where(a.button, .task-button, button) {
   display: grid;
   width: 100%;
   min-width: var(--ak-size-target);
   min-height: var(--ak-size-target);
   padding: var(--ak-space-2);
   border: 0;
-  border-radius: var(--ak-radius-control);
+  border-radius: 0;
   background: transparent;
   color: var(--ak-color-fg-muted);
   place-items: center;
   text-decoration: none;
 }
 
-.task-mail #layout-menu :where(.icon, .task-button)::before,
-.task-mail #layout-menu .task-button {
-  font-size: 1.125rem;
+#layout-menu :where(.icon, .task-button)::before,
+#layout-menu .task-button .ak-icon {
+  width: var(--ak-icon-size-nav);
+  height: var(--ak-icon-size-nav);
 }
 
-.task-mail #layout-menu :where(a.button, .task-button, button):hover {
+#layout-menu :where(a.button, .task-button, button):hover {
   background: var(--ak-color-hover);
   color: var(--ak-color-fg);
 }
 
-.task-mail #layout-menu :where(a.button, .task-button, button).selected {
+#layout-menu :where(a.button, .task-button, button).selected {
   background: var(--ak-color-selected);
   box-shadow: inset 3px 0 0 var(--ak-color-selected-border);
   color: var(--ak-color-accent);
@@ -105,6 +107,11 @@
   text-indent: 0;
 }
 
+.task-mail .toolbar :where(button, .btn, a.button):not(.compose, .btn-primary) {
+  border-color: transparent;
+  background: transparent;
+}
+
 /* Elastic nests compact toolbars inside panel headers. Keep those controls
    visually part of the header instead of rendering a second toolbar row. */
 .task-mail .header > .toolbar {
@@ -162,7 +169,7 @@
   padding: var(--ak-space-2) var(--ak-space-3);
   gap: var(--ak-space-2);
   align-items: center;
-  border-radius: var(--ak-radius-control);
+  border-radius: var(--ak-radius-sm);
   color: var(--ak-color-fg-secondary);
   text-decoration: none;
 }
@@ -189,22 +196,22 @@
 }
 
 .task-mail .messagelist {
-  padding-inline: var(--ak-space-2);
-  border-collapse: separate;
-  border-spacing: 0 var(--ak-space-1);
+  padding-inline: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
   table-layout: fixed;
 }
 
 .task-mail .messagelist tr > td {
   padding: var(--ak-space-3) var(--ak-space-2);
-  border-block-end: 0;
+  border-block-end: var(--ak-border-width) solid var(--ak-color-border-subtle);
   background: transparent;
   vertical-align: top;
 }
 
 .task-mail .messagelist tr > td:first-child {
   width: 2rem;
-  border-radius: var(--ak-radius-compact) 0 0 var(--ak-radius-compact);
+  border-radius: 0;
   color: var(--ak-color-fg-muted);
   text-align: center;
 }
@@ -219,7 +226,7 @@
 
 .task-mail .messagelist tr > td:last-child {
   width: 4.25rem;
-  border-radius: 0 var(--ak-radius-compact) var(--ak-radius-compact) 0;
+  border-radius: 0;
   color: var(--ak-color-fg-muted);
   font-size: var(--ak-font-size-sm);
   font-variant-numeric: tabular-nums;
@@ -265,6 +272,17 @@
 
 .task-mail .messagelist tr.selected > td:first-child {
   box-shadow: inset 3px 0 0 var(--ak-color-selected-border);
+}
+
+/* Icons below intentionally specialize the shared task-rail icon geometry. */
+/* stylelint-disable-next-line no-descending-specificity */
+.task-mail .messagelist .ak-icon {
+  width: var(--ak-icon-size-sm);
+  height: var(--ak-icon-size-sm);
+}
+
+.task-mail .messagelist .ak-icon-star.active {
+  color: var(--ak-color-warning);
 }
 
 .task-mail .messagelist tr.flagged > td:first-child,
@@ -382,8 +400,9 @@
 }
 
 @media (width <= 48rem) {
-  .task-mail #layout-menu {
-    padding: var(--ak-space-2) var(--ak-space-1);
+  #layout-menu {
+    width: 3.25rem;
+    padding: var(--ak-space-2) 0;
   }
 
   .task-mail :where(#layout-sidebar, #layout-list, #layout-content) > .header,
@@ -393,5 +412,13 @@
 
   .task-mail .messagelist tr > td {
     padding-block: var(--ak-space-3);
+  }
+
+  .task-mail .toolbar {
+    border-block-end-color: color-mix(
+      in srgb,
+      var(--ak-color-border-subtle) 65%,
+      transparent
+    );
   }
 }

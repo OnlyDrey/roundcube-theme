@@ -11,10 +11,18 @@
   <body class="akio task-mail action-show preview-page">
     <div id="layout">
       <div id="layout-menu" role="navigation" aria-label="Tasks">
-        <a class="task-button selected" href="inbox.html">✉</a
-        ><a class="task-button" href="contacts.html">♙</a
-        ><a class="task-button" href="settings.html">⚙</a
-        ><a class="task-button" href="index.html">⌂</a>
+        <a class="task-button selected" href="inbox.html" aria-label="Mail"
+          ><span class="ak-icon ak-icon-mail" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="contacts.html" aria-label="Contacts"
+          ><span class="ak-icon ak-icon-users" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="settings.html" aria-label="Settings"
+          ><span class="ak-icon ak-icon-settings" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="index.html" aria-label="Preview index"
+          ><span class="ak-icon ak-icon-house" aria-hidden="true"></span
+        ></a>
       </div>
       <section id="layout-sidebar">
         <header class="header"><h2 class="header-title">Folders</h2></header>
@@ -30,11 +38,24 @@
       <main id="layout-content" class="selected">
         <header class="header">
           <h1 class="header-title">Welcome to Akio Mail</h1>
-          <button>More</button>
+          <button aria-label="More actions">
+            <span class="ak-icon ak-icon-ellipsis" aria-hidden="true"></span>
+          </button>
         </header>
         <div class="toolbar">
-          <button>Reply</button><button>Reply all</button
-          ><button>Forward</button><button>Delete</button>
+          <button class="reply-action">
+            <span class="ak-icon ak-icon-reply" aria-hidden="true"></span>
+            Reply</button
+          ><button>
+            <span class="ak-icon ak-icon-reply-all" aria-hidden="true"></span>
+            Reply all</button
+          ><button>
+            <span class="ak-icon ak-icon-forward" aria-hidden="true"></span>
+            Forward</button
+          ><button>
+            <span class="ak-icon ak-icon-trash" aria-hidden="true"></span>
+            Delete
+          </button>
         </div>
         <article class="scroller preview-detail preview-stack">
           <header>
@@ -65,8 +86,12 @@
           </div>
           <section>
             <h2>Attachments</h2>
-            <div class="preview-card">
-              📎 getting-started.pdf <span class="message-snippet">248 KB</span>
+            <div class="message-attachment">
+              <span class="ak-icon ak-icon-paperclip" aria-hidden="true"></span>
+              <span
+                >getting-started.pdf
+                <span class="message-snippet">248 KB</span></span
+              >
               <button>Download</button>
             </div>
           </section>
