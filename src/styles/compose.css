@@ -106,6 +106,63 @@
   color: var(--ak-color-accent-hover);
 }
 
+.task-mail.action-compose :where(.recipient-input, .recipients-input) {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  min-height: var(--ak-size-target);
+  padding: var(--ak-space-1);
+  gap: var(--ak-space-1);
+  border: var(--ak-border-width) solid var(--ak-color-border);
+  border-radius: var(--ak-radius-control);
+  background: var(--ak-color-input);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.task-mail.action-compose :where(.recipient, .recipient-token) {
+  display: inline-flex;
+  min-width: 0;
+  max-width: 100%;
+  padding: var(--ak-space-1) var(--ak-space-2);
+  gap: var(--ak-space-1);
+  border-radius: var(--ak-radius-sm);
+  background: var(--ak-color-selected);
+  color: var(--ak-color-fg);
+  align-items: center;
+}
+
+.task-mail.action-compose :where(.recipient, .recipient-token) > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-mail.action-compose .recipient-remove {
+  display: inline-grid;
+  width: 1.5rem;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ak-color-fg-muted);
+  place-items: center;
+}
+
+.task-mail.action-compose :where(.recipient-input, .recipients-input) > input {
+  width: 8rem;
+  min-width: 6rem;
+  flex: 1 1 8rem;
+  border: 0;
+  outline: 0;
+}
+
+.task-mail.action-compose
+  :where(.recipient-input, .recipients-input).is-invalid {
+  border-color: var(--ak-color-danger);
+}
+
 .task-mail.action-compose
   :where(.editor-toolbar, .tox-toolbar__primary, .mce-toolbar-grp) {
   display: flex;
@@ -118,6 +175,14 @@
   border-radius: var(--ak-radius-control) var(--ak-radius-control) 0 0;
   background: var(--ak-color-sidebar);
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.task-mail.action-compose
+  :where(.editor-toolbar, .tox-toolbar__primary, .mce-toolbar-grp)
+  :where(button, select):disabled {
+  background: transparent;
+  color: var(--ak-color-fg-muted);
 }
 
 .task-mail.action-compose .editor-toolbar :where(button, select),
@@ -227,6 +292,30 @@
   border-color: transparent;
   background: transparent;
   color: var(--ak-color-danger);
+}
+
+.task-mail.action-compose .attachment-item.is-uploading {
+  border-color: var(--ak-color-info);
+}
+
+.task-mail.action-compose .attachment-item.is-failed {
+  border-color: var(--ak-color-danger);
+}
+
+.task-mail.action-compose .attachment-progress {
+  display: block;
+  height: 0.25rem;
+  margin-block-start: var(--ak-space-2);
+  overflow: hidden;
+  border-radius: var(--ak-radius-xs);
+  background: var(--ak-color-border-subtle);
+}
+
+.task-mail.action-compose .attachment-progress > span {
+  display: block;
+  width: var(--ak-attachment-progress, 0%);
+  height: 100%;
+  background: var(--ak-color-accent);
 }
 
 .task-mail.action-compose .close-compose {

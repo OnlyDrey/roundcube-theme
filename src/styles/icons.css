@@ -134,3 +134,27 @@
   padding: var(--ak-space-2);
   place-items: center;
 }
+
+.ak-icon-printer {
+  --ak-icon: url("../images/icons/printer.svg");
+}
+
+.ak-icon-image-off {
+  --ak-icon: url("../images/icons/image-off.svg");
+}
+
+.ak-icon-file {
+  --ak-icon: url("../images/icons/file.svg");
+}
+
+.ak-icon-circle-x {
+  --ak-icon: url("../images/icons/circle-x.svg");
+}
+
+.ak-icon-send {
+  --ak-icon: url("../images/icons/send.svg");
+}
+
+.ak-icon-chevron-down {
+  --ak-icon: url("../images/icons/chevron-down.svg");
+}

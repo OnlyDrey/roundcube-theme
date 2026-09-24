@@ -245,6 +245,41 @@ test("contacts and settings ship production responsive layers", async () => {
   assert.match(settings, /@media \(width <= 48rem\)/);
 });
 
+test("message and compose cover production reading and editor states", async () => {
+  const message = await readFile("src/styles/message.css", "utf8");
+  const compose = await readFile("src/styles/compose.css", "utf8");
+  const messageFixture = await readFile("preview/message.html", "utf8");
+  const composeFixture = await readFile("preview/compose.html", "utf8");
+
+  assert.match(message, /#message-header[\s\S]*#messagebody/);
+  assert.match(message, /\.attachmentslist > li/);
+  assert.match(message, /@media \(width <= 48rem\)/);
+  assert.match(compose, /\.tox-toolbar__primary/);
+  assert.match(compose, /#composebody/);
+  assert.match(compose, /\.recipient-input[\s\S]*min-width: 0/);
+  assert.match(compose, /\.attachment-item\.is-uploading/);
+  assert.match(compose, /\.attachment-item\.is-failed/);
+  assert.match(messageFixture, /ak-icon-(reply|forward|trash|printer)/);
+  assert.match(composeFixture, /aria-invalid="true"[\s\S]*invalid-feedback/);
+  assert.doesNotMatch(messageFixture + composeFixture, /[📎🖨❌]/u);
+});
+
+test("shared overlays retain bounded geometry and generated close icon", async () => {
+  const components = await readFile("src/styles/components.css", "utf8");
+  const inbox = await readFile("src/styles/inbox.css", "utf8");
+
+  assert.match(components, /\.ui-dialog[\s\S]*var\(--ak-radius-dialog\)/);
+  assert.match(components, /\.ui-dialog-titlebar-close[\s\S]*icons\/x\.svg/);
+  assert.match(
+    components,
+    /\.ui-autocomplete[\s\S]*max-width: calc\(100vw - 2rem\)/,
+  );
+  assert.match(
+    inbox,
+    /grid-template-columns: var\(--ak-icon-size\) minmax\(0, 1fr\)/,
+  );
+});
+
 test("the pinned Inter manifest covers required Phase 1 styles and weights", async () => {
   const manifest = JSON.parse(
     await readFile("assets/fonts/inter-4.1.json", "utf8"),

@@ -51,12 +51,40 @@
               <option>
                 Preview User &lt;preview@example.invalid&gt;
               </option></select
-            ><label for="to">To</label
-            ><input
-              id="to"
-              value="Casey Example &lt;casey@example.invalid&gt;"
-              autocomplete="off"
-            /><span></span>
+            ><label for="to-input">To</label>
+            <div class="recipient-input is-invalid" aria-describedby="to-error">
+              <span class="recipient-token"
+                ><span>Casey Example &lt;casey@example.invalid&gt;</span
+                ><button
+                  class="recipient-remove"
+                  type="button"
+                  aria-label="Remove Casey Example"
+                >
+                  <span
+                    class="ak-icon ak-icon-x"
+                    aria-hidden="true"
+                  ></span></button
+              ></span>
+              <span class="recipient-token"
+                ><span
+                  >Long Recipient Name
+                  &lt;recipient-with-a-deliberately-long-address@example.invalid&gt;</span
+                ><button
+                  class="recipient-remove"
+                  type="button"
+                  aria-label="Remove Long Recipient"
+                >
+                  <span
+                    class="ak-icon ak-icon-x"
+                    aria-hidden="true"
+                  ></span></button
+              ></span>
+              <input id="to-input" autocomplete="off" aria-invalid="true" />
+            </div>
+            <span></span
+            ><span id="to-error" class="invalid-feedback"
+              >One recipient needs review.</span
+            >
             <p class="recipient-actions">
               <button type="button">Add Cc</button>
               <button type="button">Add Bcc</button>
@@ -80,9 +108,16 @@
             >
           </div>
           <div class="editor-toolbar" role="toolbar" aria-label="Formatting">
-            <button type="button" aria-label="Bold"><strong>B</strong></button
+            <button
+              class="active"
+              type="button"
+              aria-label="Bold"
+              aria-pressed="true"
+            >
+              <strong>B</strong></button
             ><button type="button" aria-label="Italic"><em>I</em></button
             ><button type="button">List</button
+            ><button type="button" disabled>Link</button
             ><select aria-label="Text style">
               <option>Normal</option>
               <option>Heading</option>
@@ -108,6 +143,31 @@
                 <span class="attachment-meta">12 KB · uploaded</span>
               </span>
               <button class="attachment-remove" type="button">Remove</button>
+            </div>
+            <div class="attachment-item is-uploading">
+              <span class="attachment-icon" aria-hidden="true"></span
+              ><span class="attachment-info"
+                ><span class="attachment-name">quarterly-review.pdf</span
+                ><span class="attachment-meta">Uploading · 62%</span
+                ><span
+                  class="attachment-progress"
+                  style="--ak-attachment-progress: 62%"
+                  ><span></span></span></span
+              ><button
+                class="attachment-remove"
+                type="button"
+                aria-label="Cancel upload"
+              >
+                Cancel
+              </button>
+            </div>
+            <div class="attachment-item is-failed">
+              <span class="attachment-icon" aria-hidden="true"></span
+              ><span class="attachment-info"
+                ><span class="attachment-name"
+                  >large-file-that-could-not-be-uploaded.zip</span
+                ><span class="attachment-meta">Upload failed</span></span
+              ><button class="attachment-remove" type="button">Remove</button>
             </div>
           </section>
         </form>

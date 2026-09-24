@@ -54,22 +54,46 @@
             Forward</button
           ><button>
             <span class="ak-icon ak-icon-trash" aria-hidden="true"></span>
-            Delete
+            Delete</button
+          ><button aria-label="Print">
+            <span
+              class="ak-icon ak-icon-printer"
+              aria-hidden="true"
+            ></span></button
+          ><button aria-label="More actions">
+            <span class="ak-icon ak-icon-ellipsis" aria-hidden="true"></span>
           </button>
         </div>
         <article class="scroller preview-detail preview-stack">
-          <header>
+          <header id="message-header" class="message-header">
             <span class="preview-avatar" aria-hidden="true">AT</span>
-            <p>
-              <strong>Akio Team</strong> &lt;hello@example.invalid&gt;<br />To:
-              Preview User
-              &lt;preview-recipient-with-a-deliberately-long-address@example.invalid&gt;<br /><time
-                datetime="2026-09-24T09:42:00Z"
+            <div class="message-metadata">
+              <p>
+                <strong>Akio Team</strong>
+                <span class="message-address"
+                  >&lt;hello@example.invalid&gt;</span
+                >
+              </p>
+              <p class="message-recipients">
+                To: Preview User
+                &lt;preview-recipient-with-a-deliberately-long-address@example.invalid&gt;<br />Cc:
+                Project Review &lt;review@example.invalid&gt;
+              </p>
+              <time class="message-date" datetime="2026-09-24T09:42:00Z"
                 >September 24, 2026 at 09:42</time
               >
-            </p>
+            </div>
           </header>
-          <div class="notice">External images are blocked for privacy.</div>
+          <div class="notice remote-images-notice">
+            <span class="ak-icon ak-icon-image-off" aria-hidden="true"></span>
+            <div>
+              <strong>Remote images blocked.</strong> Protecting your privacy.
+            </div>
+            <div class="notice-actions">
+              <button>Display images</button
+              ><button>Always allow sender</button>
+            </div>
+          </div>
           <div class="message-part">
             <p>Hello Preview User,</p>
             <p>
@@ -82,15 +106,34 @@
               <li>Inspect typography and spacing</li>
               <li>Nothing here sends or receives mail</li>
             </ul>
-            <p>Regards,<br />The fictional Akio Team</p>
+            <p>
+              Long link:
+              <a href="#"
+                >https://example.invalid/projects/an-intentionally-long-path-for-responsive-overflow-review</a
+              >
+            </p>
+            <blockquote>
+              On September 23, Casey wrote:<br />This quoted history should
+              remain readable while visually subordinate.
+            </blockquote>
+            <p class="message-signature">—<br />The fictional Akio Team</p>
           </div>
-          <section>
+          <section class="message-attachments">
             <h2>Attachments</h2>
             <div class="message-attachment">
+              <span class="ak-icon ak-icon-file" aria-hidden="true"></span>
+              <span class="attachment-details"
+                ><span class="attachment-name">getting-started.pdf</span
+                ><span class="message-snippet">PDF · 248 KB</span></span
+              >
+              <button>Download</button>
+            </div>
+            <div class="message-attachment">
               <span class="ak-icon ak-icon-paperclip" aria-hidden="true"></span>
-              <span
-                >getting-started.pdf
-                <span class="message-snippet">248 KB</span></span
+              <span class="attachment-details"
+                ><span class="attachment-name"
+                  >project-notes-with-a-deliberately-long-filename-for-overflow-review.txt</span
+                ><span class="message-snippet">Text · 12 KB</span></span
               >
               <button>Download</button>
             </div>
