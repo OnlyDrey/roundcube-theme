@@ -304,6 +304,7 @@ test("mobile polish keeps compact mail controls and generated formatting icons",
   const icons = JSON.parse(await readFile("src/icons/icons.json", "utf8"));
   const compose = await readFile("src/styles/compose.css", "utf8");
   const message = await readFile("src/styles/message.css", "utf8");
+  const contacts = await readFile("src/styles/contacts.css", "utf8");
   const composeFixture = await readFile("preview/compose.html", "utf8");
   const messageFixture = await readFile("preview/message.html", "utf8");
   const contactsFixture = await readFile("preview/contacts.html", "utf8");
@@ -314,18 +315,37 @@ test("mobile polish keeps compact mail controls and generated formatting icons",
   assert.match(composeFixture, /ak-icon-italic/);
   assert.doesNotMatch(composeFixture, /aria-label="Italic"[^]*<em>/);
   assert.match(compose, /recipients-input\)[^]*min-height: 2\.25rem/);
+  assert.match(compose, /recipient-token\)[^]*flex: 0 1 auto/);
+  assert.match(compose, /max-width: min\(100%, 14rem\)/);
+  assert.doesNotMatch(compose, /max-width: 42%/);
   assert.match(
     compose,
     /#compose-attachments h2[^]*font-size: var\(--ak-font-size-sm\)/,
   );
-  assert.match(compose, /attachmentslist > li[^]*border-width: 0 0/);
+  assert.match(
+    compose,
+    /attachmentslist > li[^]*border: var\(--ak-border-width\) solid[^]*background: var\(--ak-color-sidebar\)/,
+  );
+  assert.match(
+    compose,
+    /#compose-attachments[^]*margin-block-start: var\(--ak-space-4\)/,
+  );
   assert.match(messageFixture, /<details class="message-details">/);
   assert.doesNotMatch(messageFixture, /<footer class="toolbar">/);
   assert.match(
     message,
     /message-attachments h2[^]*font-size: var\(--ak-font-size-sm\)/,
   );
+  assert.match(
+    message,
+    /message-attachment[^]*border: var\(--ak-border-width\) solid/,
+  );
   assert.doesNotMatch(contactsFixture, /btn-primary contact-compose/);
+  assert.match(contactsFixture, /action-label">Compose/);
+  assert.match(
+    contacts,
+    /contact-compose[^]*width: 44px[^]*height: 44px[^]*padding: 0[^]*place-items: center/,
+  );
 });
 
 test("the pinned Inter manifest covers required Phase 1 styles and weights", async () => {

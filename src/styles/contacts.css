@@ -110,14 +110,22 @@
     grid-template-columns: 1fr;
     gap: var(--ak-space-1);
   }
+}
 
+@media (width <= 37.5rem) {
   .task-addressbook .contact-compose {
-    width: var(--ak-size-target);
-    min-width: var(--ak-size-target);
-    padding: var(--ak-space-2);
+    display: inline-grid;
+    box-sizing: border-box;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0;
+    gap: 0;
     border-color: transparent;
     background: transparent;
     color: var(--ak-color-fg-secondary);
+    place-items: center;
   }
 
   .task-addressbook .contact-compose:hover,
@@ -132,5 +140,11 @@
     height: 1px;
     overflow: hidden;
     clip-path: inset(50%);
+  }
+
+  .task-addressbook .contact-compose .ak-icon {
+    width: 1.375rem;
+    height: 1.375rem;
+    margin: 0;
   }
 }
