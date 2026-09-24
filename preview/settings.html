@@ -57,7 +57,7 @@
           <h2 class="header-title">User interface</h2>
         </header>
         <!-- Approximation of Roundcube's generated propform table. -->
-        <form class="scroller preview-detail preview-stack" action="#">
+        <form class="scroller propform settings-form" action="#">
           <div class="confirmation" role="status">Preferences saved.</div>
           <fieldset>
             <legend>Main options</legend>
@@ -84,26 +84,30 @@
           <fieldset>
             <legend>Interface options</legend>
             <p>
-              <label
+              <label class="settings-choice"
                 ><input type="checkbox" checked /> Display next message after
                 delete</label
               >
             </p>
             <p>
-              <label
+              <label class="settings-choice"
                 ><input type="checkbox" /> Open messages in a new window</label
               >
             </p>
             <p>
-              <label
+              <label class="settings-choice"
                 ><input type="radio" name="density" checked />
                 Comfortable</label
               >
-              <label><input type="radio" name="density" /> Compact</label>
+              <label class="settings-choice"
+                ><input type="radio" name="density" /> Compact</label
+              >
             </p>
           </fieldset>
-          <div class="toolbar">
-            <button class="btn-primary" type="submit">Save</button
+          <div class="toolbar formbuttons settings-actions">
+            <button class="btn-primary" type="submit">
+              <span class="ak-icon ak-icon-save" aria-hidden="true"></span>
+              Save</button
             ><button type="reset">Cancel</button>
           </div>
         </form>

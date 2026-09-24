@@ -157,6 +157,15 @@
   text-decoration: none;
 }
 
+.task-mail .toolbar .compose::before {
+  width: var(--ak-icon-size);
+  height: var(--ak-icon-size);
+  margin-inline-end: var(--ak-space-2);
+  background: currentcolor;
+  content: "";
+  mask: url("../images/icons/pencil.svg") center / contain no-repeat;
+}
+
 .task-mail .toolbar a.compose:link,
 .task-mail .toolbar a.compose:visited,
 .task-mail .toolbar a.compose:hover,
@@ -421,12 +430,32 @@
 /* Elastic menu links follow higher-specificity folder-list rules in source. */
 /* stylelint-disable-next-line no-descending-specificity */
 .task-mail :where(.popupmenu, .dropdown-menu) a {
-  display: flex;
+  display: grid;
   min-height: 2.5rem;
   padding: var(--ak-space-2) var(--ak-space-3);
-  border-radius: var(--ak-radius-compact);
+  grid-template-columns: var(--ak-icon-size) minmax(0, 1fr);
+  gap: var(--ak-space-3);
+  border-radius: var(--ak-radius-xs);
   align-items: center;
   text-decoration: none;
+}
+
+/* Popup interactions intentionally specialize earlier navigation links. */
+/* stylelint-disable-next-line no-descending-specificity */
+.task-mail :where(.popupmenu, .dropdown-menu) a:active {
+  background: var(--ak-color-selected);
+}
+
+.task-mail :where(.popupmenu, .dropdown-menu) a.danger:hover,
+.task-mail :where(.popupmenu, .dropdown-menu) a.danger:focus-visible {
+  color: var(--ak-color-danger);
+}
+
+/* Popup icons intentionally specialize the shared application icons. */
+/* stylelint-disable-next-line no-descending-specificity */
+.task-mail :where(.popupmenu, .dropdown-menu) .ak-icon {
+  width: var(--ak-icon-size);
+  height: var(--ak-icon-size);
 }
 
 .task-mail :where(.ui-dialog, .modal-content) {

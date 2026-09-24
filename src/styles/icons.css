@@ -72,6 +72,30 @@
   --ak-icon: url("../images/icons/x.svg");
 }
 
+.ak-icon-pencil {
+  --ak-icon: url("../images/icons/pencil.svg");
+}
+
+.ak-icon-mail-open {
+  --ak-icon: url("../images/icons/mail-open.svg");
+}
+
+.ak-icon-folder-input {
+  --ak-icon: url("../images/icons/folder-input.svg");
+}
+
+.ak-icon-plus {
+  --ak-icon: url("../images/icons/plus.svg");
+}
+
+.ak-icon-user-plus {
+  --ak-icon: url("../images/icons/user-plus.svg");
+}
+
+.ak-icon-save {
+  --ak-icon: url("../images/icons/save.svg");
+}
+
 #layout-menu
   :where(.mail, .addressbook, .contacts, .settings, .logout)::before {
   width: var(--ak-icon-size-nav);

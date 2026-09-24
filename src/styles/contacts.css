@@ -1,0 +1,101 @@
+/* Address-book selectors mirror Elastic's list/detail regions and contact table. */
+.task-addressbook #layout-list .toolbar {
+  border-block-end: var(--ak-border-width) solid var(--ak-color-border-subtle);
+}
+
+.task-addressbook #contacts-table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.task-addressbook #contacts-table td {
+  padding: var(--ak-space-3) var(--ak-space-4);
+  border-block-end: var(--ak-border-width) solid var(--ak-color-border-subtle);
+}
+
+.task-addressbook #contacts-table tr:hover td {
+  background: var(--ak-color-hover);
+}
+
+.task-addressbook #contacts-table tr.selected td {
+  background: var(--ak-color-selected);
+  box-shadow: inset 3px 0 0 var(--ak-color-selected-border);
+}
+
+.task-addressbook .contact-name,
+.task-addressbook .contact-email {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-addressbook .contact-name {
+  color: var(--ak-color-fg);
+  font-weight: var(--ak-weight-semibold);
+}
+
+.task-addressbook .contact-email {
+  color: var(--ak-color-fg-muted);
+  font-size: var(--ak-font-size-sm);
+}
+
+.task-addressbook :where(#contact-details, .contact-details) {
+  width: min(100%, 48rem);
+  padding: var(--ak-space-6);
+}
+
+.task-addressbook .contact-identity {
+  display: flex;
+  margin-block-end: var(--ak-space-6);
+  gap: var(--ak-space-4);
+  align-items: center;
+}
+
+.task-addressbook .contact-identity h2 {
+  margin: 0;
+  font-size: var(--ak-font-size-xl);
+}
+
+.task-addressbook .contactfieldgroup {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  padding-block: var(--ak-space-3);
+  margin: 0;
+  border-block-start: var(--ak-border-width) solid var(--ak-color-border-subtle);
+  gap: var(--ak-space-3) var(--ak-space-4);
+}
+
+.task-addressbook .contactfieldgroup :where(dt, dd) {
+  min-width: 0;
+  margin: 0;
+}
+
+.task-addressbook .contactfieldgroup dt {
+  color: var(--ak-color-fg-muted);
+  font-size: var(--ak-font-size-sm);
+}
+
+.task-addressbook .contactfieldgroup a {
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.task-addressbook .back-list-button {
+  display: none;
+}
+
+@media (width <= 48rem) {
+  .task-addressbook :where(#contact-details, .contact-details) {
+    padding: var(--ak-space-4);
+  }
+
+  .task-addressbook .back-list-button {
+    display: inline-grid;
+  }
+
+  .task-addressbook .contactfieldgroup {
+    grid-template-columns: 1fr;
+    gap: var(--ak-space-1);
+  }
+}

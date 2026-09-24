@@ -214,6 +214,37 @@ test("mailbox actions and notifications retain toolbar hierarchy", async () => {
   );
 });
 
+test("mailbox menu and compose use generated semantic icons", async () => {
+  const fixture = await readFile("preview/inbox.html", "utf8");
+  const icons = await readFile("src/styles/icons.css", "utf8");
+  const inbox = await readFile("src/styles/inbox.css", "utf8");
+
+  for (const name of ["mail-open", "folder-input", "trash"]) {
+    assert.match(fixture, new RegExp(`ak-icon-${name}`));
+  }
+  assert.match(inbox, /\.compose::before[\s\S]*icons\/pencil\.svg/);
+  assert.match(icons, /ak-icon-mail-open[\s\S]*mail-open\.svg/);
+  assert.match(icons, /ak-icon-folder-input[\s\S]*folder-input\.svg/);
+  assert.match(
+    inbox,
+    /grid-template-columns: var\(--ak-icon-size\) minmax\(0, 1fr\)/,
+  );
+  assert.doesNotMatch(fixture, /[✉📂🗑✎]/u);
+});
+
+test("contacts and settings ship production responsive layers", async () => {
+  const entrypoint = await readFile("src/styles/akio.css", "utf8");
+  const contacts = await readFile("src/styles/contacts.css", "utf8");
+  const settings = await readFile("src/styles/settings.css", "utf8");
+
+  assert.match(entrypoint, /@import url\("\.\/contacts\.css"\)/);
+  assert.match(entrypoint, /@import url\("\.\/settings\.css"\)/);
+  assert.match(contacts, /#contacts-table[\s\S]*\.contactfieldgroup/);
+  assert.match(contacts, /@media \(width <= 48rem\)/);
+  assert.match(settings, /\.propform[\s\S]*fieldset[\s\S]*border: 0/);
+  assert.match(settings, /@media \(width <= 48rem\)/);
+});
+
 test("the pinned Inter manifest covers required Phase 1 styles and weights", async () => {
   const manifest = JSON.parse(
     await readFile("assets/fonts/inter-4.1.json", "utf8"),
