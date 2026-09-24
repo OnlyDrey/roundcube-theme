@@ -197,6 +197,23 @@ test("Elastic's mailbox compose action uses the primary state system", async () 
   assert.match(inbox, /\.header > \.toolbar[\s\S]*?background: transparent/);
 });
 
+test("mailbox actions and notifications retain toolbar hierarchy", async () => {
+  const styles = await readFile("src/styles/inbox.css", "utf8");
+
+  assert.match(
+    styles,
+    /a\.compose:link,[\s\S]*a\.compose:visited,[\s\S]*a\.compose:focus-visible[\s\S]*text-decoration: none/,
+  );
+  assert.match(
+    styles,
+    /\.mailbox-notification-region[\s\S]*padding: var\(--ak-space-3\)/,
+  );
+  assert.match(
+    styles,
+    /\.mailbox-notification-region[\s\S]*width: 100%[\s\S]*max-width: none/,
+  );
+});
+
 test("the pinned Inter manifest covers required Phase 1 styles and weights", async () => {
   const manifest = JSON.parse(
     await readFile("assets/fonts/inter-4.1.json", "utf8"),
