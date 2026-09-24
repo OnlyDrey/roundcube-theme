@@ -13,6 +13,7 @@ const previewPages = [
   "compose.html",
   "contacts.html",
   "settings.html",
+  "states.html",
 ];
 
 function luminance(hex) {
@@ -88,10 +89,16 @@ test("primary text and interactive colors meet WCAG AA token targets", () => {
     ["light secondary", "#465363", "#ffffff", 4.5],
     ["light muted", "#687588", "#ffffff", 4.5],
     ["light accent", "#2563a5", "#ffffff", 4.5],
-    ["dark foreground", "#edf1f6", "#1c222c", 4.5],
-    ["dark secondary", "#c0c8d4", "#1c222c", 4.5],
-    ["dark muted", "#9ca8b8", "#1c222c", 4.5],
-    ["dark accent", "#78b8f0", "#1c222c", 4.5],
+    ["dark foreground", "#e6edf7", "#172033", 4.5],
+    ["dark secondary", "#c2ccda", "#172033", 4.5],
+    ["dark muted", "#9baabd", "#172033", 4.5],
+    ["dark inactive icon", "#9baabd", "#111827", 3],
+    ["dark active icon", "#7dbcf2", "#172f4d", 3],
+    ["dark control border", "#64748b", "#172033", 3],
+    ["dark primary button", "#0b2035", "#7dbcf2", 4.5],
+    ["dark danger", "#ff9ca5", "#4a2027", 4.5],
+    ["dark warning", "#f0c36c", "#443316", 4.5],
+    ["dark focus", "#8bc5ff", "#0b1120", 3],
   ];
 
   for (const [name, foreground, background, minimum] of pairs) {

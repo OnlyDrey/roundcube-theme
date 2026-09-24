@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>UI states — Akio preview</title>
+    <script src="../build/dev/akio/scripts/theme.js"></script>
+    <link rel="stylesheet" href="../build/dev/akio/styles/akio.css" />
+    <link rel="stylesheet" href="preview.css" />
+  </head>
+  <body class="akio task-mail preview-page">
+    <div id="layout">
+      <main id="layout-content" class="selected">
+        <header class="header">
+          <h1 class="header-title">UI states</h1>
+          <a class="btn" href="index.html">Back to showcase</a>
+        </header>
+        <div class="scroller preview-detail preview-stack">
+          <div class="confirmation" role="status">
+            <strong>Success:</strong> Message moved to Archive.
+          </div>
+          <div class="notice" aria-busy="true">
+            <strong>Loading:</strong> Loading the next message…
+          </div>
+          <div class="warning" role="alert">
+            <strong>Warning:</strong> Remote images are blocked in this
+            fictional message.
+          </div>
+          <div class="error" role="alert">
+            <strong>Error:</strong> A sample operation could not be completed.
+          </div>
+          <button data-preview-target="#demo-dialog">Open sample dialog</button>
+        </div>
+      </main>
+    </div>
+    <div id="demo-dialog" hidden>
+      <div class="preview-overlay"></div>
+      <section
+        class="ui-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="dialog-title"
+      >
+        <h2 id="dialog-title">Move message</h2>
+        <p>This inert dialog approximates a Roundcube UI dialog.</p>
+        <label for="state-folder">Destination</label>
+        <select id="state-folder">
+          <option>Archive</option>
+          <option>Project</option>
+        </select>
+        <p>
+          <button class="btn-primary" data-preview-target="#demo-dialog">
+            Move
+          </button>
+          <button data-preview-target="#demo-dialog">Cancel</button>
+        </p>
+      </section>
+    </div>
+    <script src="preview.js"></script>
+  </body>
+</html>

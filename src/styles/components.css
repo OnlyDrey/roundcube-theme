@@ -150,25 +150,25 @@ label {
 }
 
 :where(.alert-success, .confirmation) {
-  border-color: var(--ak-color-success);
+  border-color: color-mix(in srgb, var(--ak-color-success) 48%, transparent);
   background: var(--ak-color-success-surface);
   color: var(--ak-color-success);
 }
 
 :where(.alert-warning, .warning) {
-  border-color: var(--ak-color-warning);
+  border-color: color-mix(in srgb, var(--ak-color-warning) 48%, transparent);
   background: var(--ak-color-warning-surface);
   color: var(--ak-color-warning);
 }
 
 :where(.alert-danger, .error) {
-  border-color: var(--ak-color-danger);
+  border-color: color-mix(in srgb, var(--ak-color-danger) 48%, transparent);
   background: var(--ak-color-danger-surface);
   color: var(--ak-color-danger);
 }
 
 :where(.alert-info, .notice) {
-  border-color: var(--ak-color-info);
+  border-color: color-mix(in srgb, var(--ak-color-info) 48%, transparent);
   background: var(--ak-color-info-surface);
   color: var(--ak-color-info);
 }

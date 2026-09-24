@@ -58,8 +58,8 @@
   --ak-color-fg: #18202b;
   --ak-color-fg-secondary: #465363;
   --ak-color-fg-muted: #687588;
-  --ak-color-border: #c9d0da;
-  --ak-color-border-strong: #aeb8c5;
+  --ak-color-border: #8491a3;
+  --ak-color-border-strong: #647286;
   --ak-color-border-subtle: #e1e5eb;
   --ak-color-hover: #e9edf3;
   --ak-color-selected: #dce9f8;
@@ -85,24 +85,24 @@
 :root[data-akio-theme-resolved="dark"] {
   color-scheme: dark;
 
-  --ak-color-canvas: #11151b;
-  --ak-color-sidebar: #171c24;
-  --ak-color-surface: #1c222c;
-  --ak-color-surface-raised: #242c37;
-  --ak-color-input: #171c24;
-  --ak-color-message: #1c222c;
-  --ak-color-fg: #edf1f6;
-  --ak-color-fg-secondary: #c0c8d4;
-  --ak-color-fg-muted: #9ca8b8;
-  --ak-color-border: #46515f;
-  --ak-color-border-strong: #647182;
-  --ak-color-border-subtle: #303946;
-  --ak-color-hover: #29323e;
-  --ak-color-selected: #173a5f;
-  --ak-color-selected-border: #6eafe9;
-  --ak-color-accent: #78b8f0;
-  --ak-color-accent-hover: #9dcbf3;
-  --ak-color-accent-contrast: #0d263e;
+  --ak-color-canvas: #0b1120;
+  --ak-color-sidebar: #111827;
+  --ak-color-surface: #172033;
+  --ak-color-surface-raised: #1e293b;
+  --ak-color-input: #111827;
+  --ak-color-message: #172033;
+  --ak-color-fg: #e6edf7;
+  --ak-color-fg-secondary: #c2ccda;
+  --ak-color-fg-muted: #9baabd;
+  --ak-color-border: #64748b;
+  --ak-color-border-strong: #7b8ba1;
+  --ak-color-border-subtle: #2b3a50;
+  --ak-color-hover: #22304a;
+  --ak-color-selected: #172f4d;
+  --ak-color-selected-border: #7dbcf2;
+  --ak-color-accent: #7dbcf2;
+  --ak-color-accent-hover: #a5d2f6;
+  --ak-color-accent-contrast: #0b2035;
   --ak-color-focus: #8bc5ff;
   --ak-color-focus-outer: #11151b;
   --ak-color-success: #70d398;
@@ -122,15 +122,15 @@
 
 @media (width >= 90rem) {
   :root {
-    --ak-size-folder-pane: 16rem;
-    --ak-size-list-pane: 28rem;
+    --ak-size-folder-pane: 15rem;
+    --ak-size-list-pane: 32rem;
   }
 }
 
 @media (width < 68.75rem) {
   :root {
     --ak-size-folder-pane: 13.5rem;
-    --ak-size-list-pane: 22.5rem;
+    --ak-size-list-pane: 24rem;
   }
 }
 
