@@ -85,7 +85,10 @@ test("compose workspace and editor use production-sized responsive surfaces", as
   const fixture = await readFile("preview/compose.html", "utf8");
 
   assert.match(entrypoint, /@import url\("\.\/compose\.css"\)/);
-  assert.match(styles, /#compose-content[\s\S]*width: min\(100%, 96rem\)/);
+  assert.match(
+    styles,
+    /#compose-content[\s\S]*box-sizing: border-box[\s\S]*width: 100%[\s\S]*max-width: none/,
+  );
   assert.match(styles, /min-height: clamp\(24rem, 48vh, 38rem\)/);
   assert.match(styles, /\.compose-headers[\s\S]*minmax\(0, 1fr\)/);
   assert.match(styles, /\.tox-toolbar__primary/);
@@ -409,13 +412,21 @@ test("desktop workspaces, anchored menus, and mobile settings navigation ship to
   assert.match(theme, /function initializeSettingsSectionNav/);
   assert.match(theme, /sourceLink\.cloneNode\(true\)/);
   assert.match(theme, /aria-current/);
-  assert.match(compose, /width: min\(100%, 96rem\)/);
+  assert.doesNotMatch(compose, /96rem/);
+  assert.match(
+    compose,
+    /#compose-content, \.compose-workspace\)[^}]*width: 100%[^}]*max-width: none[^}]*margin-inline: 0/,
+  );
   assert.match(
     compose,
     /@media \(width > 48rem\)[^]*margin-inline-start: 7rem/,
   );
   assert.match(compose, /grid-template-columns: repeat\(auto-fit/);
   assert.match(message, /max-width: 76rem/);
+  assert.match(
+    message,
+    /message-content, #message-content\)[^}]*width: 100%[^}]*max-width: none/,
+  );
   assert.match(message, /message-attachments[^]*order: 3/);
   assert.match(message, /message-part, #messagebody\)[^]*order: 4/);
   assert.match(message, /grid-template-columns: repeat\(auto-fit/);
@@ -433,6 +444,7 @@ test("structural navigation and message-state banners keep workspace geometry", 
     shell,
     /:where\(#layout-sidebar, #layout-list\) \.listing li,[^}]*li > a[^}]*border-radius: 0/,
   );
+  assert.match(shell, /\.listing li::before,[^}]*li > a::before[^}]*border-radius: 0/);
   assert.match(
     inbox,
     /#layout-sidebar \.listing li > a[^}]*border-radius: 0/,
@@ -459,6 +471,9 @@ test("structural navigation and message-state banners keep workspace geometry", 
     message,
     /@media \(width <= 48rem\)[^]*remote-images-notice \.notice-actions[^}]*margin-inline-start: 0/,
   );
+
+  const preview = await readFile("preview/preview.css", "utf8");
+  assert.doesNotMatch(preview, /\.preview-detail[^}]*max-width/);
 });
 
 test("the pinned Inter manifest covers required Phase 1 styles and weights", async () => {

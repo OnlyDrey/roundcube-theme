@@ -76,7 +76,9 @@
 /* Structural navigation belongs to its pane, rather than floating like a
    button. Keep both the row and its interactive surface rectangular. */
 :where(#layout-sidebar, #layout-list) .listing li,
-:where(#layout-sidebar, #layout-list) .listing li > a {
+:where(#layout-sidebar, #layout-list) .listing li > a,
+:where(#layout-sidebar, #layout-list) .listing li::before,
+:where(#layout-sidebar, #layout-list) .listing li > a::before {
   border-radius: 0;
 }
 

@@ -6,11 +6,13 @@
 
 .task-mail.action-compose :where(#compose-content, .compose-workspace) {
   display: flex;
-  width: min(100%, 96rem);
+  box-sizing: border-box;
+  width: 100%;
   min-width: 0;
+  max-width: none;
   min-height: 0;
   padding: var(--ak-space-6);
-  margin-inline: auto;
+  margin-inline: 0;
   overflow: auto;
   flex: 1 1 auto;
   flex-direction: column;
@@ -288,6 +290,12 @@
 }
 
 @media (width > 48rem) {
+  .task-mail.action-compose :where(#compose-content, .compose-workspace) {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+  }
+
   .task-mail.action-compose :where(.compose-headers, .compose-fields) {
     order: 1;
   }

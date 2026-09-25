@@ -179,23 +179,31 @@
 }
 
 @media (width > 48rem) {
+  .task-mail.action-show #layout-content,
   .task-mail.action-show #layout-content > .scroller,
-  .task-mail.action-show .message-workspace {
+  .task-mail.action-show .message-workspace,
+  .task-mail.action-show :where(.message-content, #message-content) {
     display: flex;
+    box-sizing: border-box;
     width: 100%;
+    min-width: 0;
     max-width: none;
     flex-direction: column;
     align-items: stretch;
   }
 
   .task-mail.action-show :where(#message-header, .message-header) {
+    box-sizing: border-box;
     width: 100%;
+    max-width: none;
+    align-self: stretch;
     order: 1;
   }
 
   .task-mail.action-show .remote-images-notice {
     width: 100%;
     max-width: none;
+    align-self: stretch;
     flex-wrap: wrap;
     justify-content: space-between;
     order: 2;
@@ -209,6 +217,7 @@
     display: grid;
     width: 100%;
     max-width: none;
+    align-self: stretch;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 22rem));
     order: 3;
   }
@@ -220,6 +229,7 @@
   .task-mail.action-show :where(.message-part, #messagebody) {
     width: 100%;
     max-width: 76rem;
+    align-self: flex-start;
     order: 4;
   }
 }
