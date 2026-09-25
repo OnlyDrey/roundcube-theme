@@ -26,7 +26,24 @@
   #layout-content
   > .toolbar
   :where(button, .btn, a.button):hover {
+  border-color: var(--ak-color-border-strong);
   background: var(--ak-color-hover);
+}
+
+.task-mail.action-show
+  #layout-content
+  > .toolbar
+  :where(button, .btn, a.button):focus-visible {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-hover);
+}
+
+.task-mail.action-show
+  #layout-content
+  > .toolbar
+  :where(button, .btn, a.button):active {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-selected);
 }
 
 .task-mail.action-show #layout-content > .toolbar .reply-action {
@@ -215,6 +232,6 @@
   }
 
   .task-mail.action-show .message-attachments h2 {
-    margin-block-end: var(--ak-space-1);
+    margin-block-end: 0;
   }
 }

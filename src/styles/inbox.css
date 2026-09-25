@@ -126,8 +126,19 @@
     :disabled,
     .disabled
   ) {
+  border-color: var(--ak-color-border-strong);
   background: var(--ak-color-hover);
   color: var(--ak-color-fg);
+}
+
+.task-mail
+  .toolbar
+  :where(button, .btn, a.button):not(.compose, .btn-primary):focus-visible:not(
+    :disabled,
+    .disabled
+  ) {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-hover);
 }
 
 .task-mail
@@ -136,6 +147,7 @@
     :disabled,
     .disabled
   ) {
+  border-color: var(--ak-color-border-strong);
   background: var(--ak-color-selected);
 }
 

@@ -305,6 +305,8 @@ test("mobile polish keeps compact mail controls and generated formatting icons",
   const compose = await readFile("src/styles/compose.css", "utf8");
   const message = await readFile("src/styles/message.css", "utf8");
   const contacts = await readFile("src/styles/contacts.css", "utf8");
+  const components = await readFile("src/styles/components.css", "utf8");
+  const shell = await readFile("src/styles/shell.css", "utf8");
   const composeFixture = await readFile("preview/compose.html", "utf8");
   const messageFixture = await readFile("preview/message.html", "utf8");
   const contactsFixture = await readFile("preview/contacts.html", "utf8");
@@ -316,7 +318,10 @@ test("mobile polish keeps compact mail controls and generated formatting icons",
   assert.doesNotMatch(composeFixture, /aria-label="Italic"[^]*<em>/);
   assert.match(compose, /recipients-input\)[^]*min-height: 2\.25rem/);
   assert.match(compose, /recipient-token\)[^]*flex: 0 1 auto/);
-  assert.match(compose, /max-width: min\(100%, 14rem\)/);
+  assert.match(compose, /recipient-token\)[^]*max-width: 100%/);
+  assert.match(compose, /recipient-token\) > span[^]*min-width: 0/);
+  assert.match(compose, /recipient-remove[^]*flex: 0 0 1\.5rem/);
+  assert.doesNotMatch(compose, /max-width: min\(100%, 14rem\)/);
   assert.doesNotMatch(compose, /max-width: 42%/);
   assert.match(
     compose,
@@ -330,6 +335,7 @@ test("mobile polish keeps compact mail controls and generated formatting icons",
     compose,
     /#compose-attachments[^]*margin-block-start: var\(--ak-space-4\)/,
   );
+  assert.match(compose, /#compose-attachments[^]*gap: var\(--ak-space-2\)/);
   assert.match(messageFixture, /<details class="message-details">/);
   assert.doesNotMatch(messageFixture, /<footer class="toolbar">/);
   assert.match(
@@ -340,11 +346,24 @@ test("mobile polish keeps compact mail controls and generated formatting icons",
     message,
     /message-attachment[^]*border: var\(--ak-border-width\) solid/,
   );
+  assert.match(message, /message-attachments[^]*gap: var\(--ak-space-2\)/);
   assert.doesNotMatch(contactsFixture, /btn-primary contact-compose/);
   assert.match(contactsFixture, /action-label">Compose/);
   assert.match(
     contacts,
     /contact-compose[^]*width: 44px[^]*height: 44px[^]*padding: 0[^]*place-items: center/,
+  );
+  assert.match(
+    components,
+    /not\([^)]*\.compose,[^)]*\.send[^)]*\)[^}]*border-color: transparent/,
+  );
+  assert.match(
+    components,
+    /focus-visible[^}]*border-color: var\(--ak-color-border-strong\)[^}]*background: var\(--ak-color-hover\)/,
+  );
+  assert.match(
+    shell,
+    /button:not\(\.btn-primary, \.mainaction\):is\(:hover, :focus-visible\)[^}]*border-color: var\(--ak-color-border-strong\)/,
   );
 });
 

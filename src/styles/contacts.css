@@ -130,8 +130,14 @@
 
   .task-addressbook .contact-compose:hover,
   .task-addressbook .contact-compose:focus-visible {
+    border-color: var(--ak-color-border-strong);
     background: var(--ak-color-hover);
     color: var(--ak-color-fg);
+  }
+
+  .task-addressbook .contact-compose:active {
+    border-color: var(--ak-color-border-strong);
+    background: var(--ak-color-selected);
   }
 
   .task-addressbook .contact-compose .action-label {

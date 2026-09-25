@@ -38,8 +38,18 @@
   align-items: center;
 }
 
-:where(#layout-sidebar, #layout-list, #layout-content) > .header button:hover {
+:where(#layout-sidebar, #layout-list, #layout-content)
+  > .header
+  button:not(.btn-primary, .mainaction):is(:hover, :focus-visible) {
+  border-color: var(--ak-color-border-strong);
   background: var(--ak-color-hover);
+}
+
+:where(#layout-sidebar, #layout-list, #layout-content)
+  > .header
+  button:not(.btn-primary, .mainaction):active {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-selected);
 }
 
 .header-title,

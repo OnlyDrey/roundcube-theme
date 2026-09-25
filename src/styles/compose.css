@@ -31,8 +31,23 @@
 .task-mail.action-compose
   #messagetoolbar
   > :where(a, button):not(.btn-primary, .mainaction, .send):hover {
+  border-color: var(--ak-color-border-strong);
   background: var(--ak-color-hover);
   color: var(--ak-color-fg);
+}
+
+.task-mail.action-compose
+  #messagetoolbar
+  > :where(a, button):not(.btn-primary, .mainaction, .send):focus-visible {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-hover);
+}
+
+.task-mail.action-compose
+  #messagetoolbar
+  > :where(a, button):not(.btn-primary, .mainaction, .send):active {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-selected);
 }
 
 .task-mail.action-compose
@@ -133,6 +148,8 @@
 }
 
 .task-mail.action-compose :where(.recipient, .recipient-token) > span {
+  min-width: 0;
+  flex: 1 1 auto;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -147,6 +164,7 @@
   border: 0;
   background: transparent;
   color: var(--ak-color-fg-muted);
+  flex: 0 0 1.5rem;
   place-items: center;
 }
 
@@ -262,7 +280,9 @@
 }
 
 .task-mail.action-compose #compose-attachments {
+  display: grid;
   margin-block-start: var(--ak-space-6);
+  gap: var(--ak-space-2);
 }
 
 .task-mail.action-compose #compose-attachments h2 {
@@ -445,7 +465,8 @@
   }
 
   .task-mail.action-compose :where(.recipient, .recipient-token) {
-    max-width: min(100%, 14rem);
+    box-sizing: border-box;
+    max-width: 100%;
     padding-block: 0.125rem;
     flex: 0 1 auto;
   }
@@ -489,6 +510,6 @@
   }
 
   .task-mail.action-compose #compose-attachments h2 {
-    margin-block-end: var(--ak-space-1);
+    margin-block-end: 0;
   }
 }

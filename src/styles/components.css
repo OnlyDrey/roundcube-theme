@@ -81,16 +81,48 @@
 }
 
 :where(.toolbar, .buttonbar)
-  :where(button, .btn, a.button):not(.btn-primary, .mainaction) {
+  :where(button, .btn, a.button):not(
+    .btn-primary,
+    .mainaction,
+    .compose,
+    .send
+  ) {
   gap: var(--ak-space-2);
   border-color: transparent;
   background: transparent;
 }
 
 :where(.toolbar, .buttonbar)
-  :where(button, .btn, a.button):not(.btn-primary, .mainaction):hover {
-  border-color: transparent;
+  :where(button, .btn, a.button):not(
+    .btn-primary,
+    .mainaction,
+    .compose,
+    .send
+  ):hover {
+  border-color: var(--ak-color-border-strong);
   background: var(--ak-color-hover);
+}
+
+:where(.toolbar, .buttonbar)
+  :where(button, .btn, a.button):not(
+    .btn-primary,
+    .mainaction,
+    .compose,
+    .send
+  ):focus-visible {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-hover);
+}
+
+:where(.toolbar, .buttonbar)
+  :where(button, .btn, a.button):not(
+    .btn-primary,
+    .mainaction,
+    .compose,
+    .send
+  ):active {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-selected);
 }
 
 :where(
