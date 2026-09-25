@@ -422,6 +422,45 @@ test("desktop workspaces, anchored menus, and mobile settings navigation ship to
   assert.match(messageFixture, /message-workspace/);
 });
 
+test("structural navigation and message-state banners keep workspace geometry", async () => {
+  const shell = await readFile("src/styles/shell.css", "utf8");
+  const inbox = await readFile("src/styles/inbox.css", "utf8");
+  const contacts = await readFile("src/styles/contacts.css", "utf8");
+  const settings = await readFile("src/styles/settings.css", "utf8");
+  const message = await readFile("src/styles/message.css", "utf8");
+
+  assert.match(
+    shell,
+    /:where\(#layout-sidebar, #layout-list\) \.listing li,[^}]*li > a[^}]*border-radius: 0/,
+  );
+  assert.match(
+    inbox,
+    /#layout-sidebar \.listing li > a[^}]*border-radius: 0/,
+  );
+  assert.match(
+    settings,
+    /#layout-sidebar, #layout-list[^}]*\.listing li > a[^}]*border-radius: 0/,
+  );
+  assert.match(
+    contacts,
+    /#contacts-table tr\.selected td[^}]*border-radius: 0/,
+  );
+
+  assert.match(
+    message,
+    /@media \(width > 48rem\)[^]*remote-images-notice[^}]*width: 100%[^}]*max-width: none[^}]*justify-content: space-between/,
+  );
+  assert.doesNotMatch(message, /remote-images-notice[^}]*72rem/);
+  assert.match(
+    message,
+    /@media \(width > 48rem\)[^]*remote-images-notice \.notice-actions[^}]*flex-wrap: nowrap/,
+  );
+  assert.match(
+    message,
+    /@media \(width <= 48rem\)[^]*remote-images-notice \.notice-actions[^}]*margin-inline-start: 0/,
+  );
+});
+
 test("the pinned Inter manifest covers required Phase 1 styles and weights", async () => {
   const manifest = JSON.parse(
     await readFile("assets/fonts/inter-4.1.json", "utf8"),

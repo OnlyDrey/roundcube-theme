@@ -73,6 +73,13 @@
   border-color: var(--ak-color-border-subtle);
 }
 
+/* Structural navigation belongs to its pane, rather than floating like a
+   button. Keep both the row and its interactive surface rectangular. */
+:where(#layout-sidebar, #layout-list) .listing li,
+:where(#layout-sidebar, #layout-list) .listing li > a {
+  border-radius: 0;
+}
+
 .listing tr:hover > td,
 .listing li:hover {
   background: var(--ak-color-hover);

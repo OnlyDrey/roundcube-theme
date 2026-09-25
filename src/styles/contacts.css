@@ -14,10 +14,12 @@
 }
 
 .task-addressbook #contacts-table tr:hover td {
+  border-radius: 0;
   background: var(--ak-color-hover);
 }
 
 .task-addressbook #contacts-table tr.selected td {
+  border-radius: 0;
   background: var(--ak-color-selected);
   box-shadow: inset 3px 0 0 var(--ak-color-selected-border);
 }
