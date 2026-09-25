@@ -85,7 +85,7 @@ test("compose workspace and editor use production-sized responsive surfaces", as
   const fixture = await readFile("preview/compose.html", "utf8");
 
   assert.match(entrypoint, /@import url\("\.\/compose\.css"\)/);
-  assert.match(styles, /#compose-content[\s\S]*width: min\(100%, 68rem\)/);
+  assert.match(styles, /#compose-content[\s\S]*width: min\(100%, 96rem\)/);
   assert.match(styles, /min-height: clamp\(24rem, 48vh, 38rem\)/);
   assert.match(styles, /\.compose-headers[\s\S]*minmax\(0, 1fr\)/);
   assert.match(styles, /\.tox-toolbar__primary/);
@@ -365,6 +365,61 @@ test("mobile polish keeps compact mail controls and generated formatting icons",
     shell,
     /button:not\(\.btn-primary, \.mainaction\):is\(:hover, :focus-visible\)[^}]*border-color: var\(--ak-color-border-strong\)/,
   );
+});
+
+test("desktop workspaces, anchored menus, and mobile settings navigation ship together", async () => {
+  const components = await readFile("src/styles/components.css", "utf8");
+  const compose = await readFile("src/styles/compose.css", "utf8");
+  const message = await readFile("src/styles/message.css", "utf8");
+  const settings = await readFile("src/styles/settings.css", "utf8");
+  const settingsFixture = await readFile("preview/settings.html", "utf8");
+  const messageFixture = await readFile("preview/message.html", "utf8");
+  const theme = await readFile("src/js/theme.js", "utf8");
+  const settingsList =
+    settingsFixture.match(
+      /<section id="layout-list">([\s\S]*?)<\/section>/,
+    )?.[1] ?? "";
+
+  assert.match(
+    components,
+    /:has\(> \.popupmenu, > \.dropdown-menu\)[^]*inset: calc\(100% \+ var\(--ak-space-1\)\)/,
+  );
+  assert.match(
+    components,
+    /max-width: calc\(100vw - \(2 \* var\(--ak-space-3\)\)\)/,
+  );
+  assert.match(theme, /function positionContextMenu/);
+  assert.match(theme, /const gap = 6/);
+  assert.match(theme, /window\.innerWidth - menuRect\.width - edge/);
+  assert.match(theme, /triggerRect\.top - menuRect\.height - gap/);
+  assert.doesNotMatch(
+    components,
+    /:active[^}]*border-radius|:hover[^}]*border-radius/,
+  );
+  assert.match(
+    settings,
+    /@media \(width <= 37\.5rem\)[^]*\.settings-section-nav/,
+  );
+  assert.match(settings, /settings-section-nav summary[^]*min-height: 44px/);
+  assert.equal(
+    [...settingsList.matchAll(/<li(?: class="selected")?><a href="#">/g)]
+      .length,
+    5,
+  );
+  assert.match(theme, /function initializeSettingsSectionNav/);
+  assert.match(theme, /sourceLink\.cloneNode\(true\)/);
+  assert.match(theme, /aria-current/);
+  assert.match(compose, /width: min\(100%, 96rem\)/);
+  assert.match(
+    compose,
+    /@media \(width > 48rem\)[^]*margin-inline-start: 7rem/,
+  );
+  assert.match(compose, /grid-template-columns: repeat\(auto-fit/);
+  assert.match(message, /max-width: 76rem/);
+  assert.match(message, /message-attachments[^]*order: 3/);
+  assert.match(message, /message-part, #messagebody\)[^]*order: 4/);
+  assert.match(message, /grid-template-columns: repeat\(auto-fit/);
+  assert.match(messageFixture, /message-workspace/);
 });
 
 test("the pinned Inter manifest covers required Phase 1 styles and weights", async () => {

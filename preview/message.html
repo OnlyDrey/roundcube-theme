@@ -63,6 +63,8 @@
           ><button
             aria-label="More actions"
             data-preview-target="#message-menu"
+            aria-controls="message-menu"
+            aria-haspopup="menu"
           >
             <span class="ak-icon ak-icon-ellipsis" aria-hidden="true"></span>
           </button>
@@ -86,7 +88,9 @@
             >
           </div>
         </div>
-        <article class="scroller preview-detail preview-stack">
+        <article
+          class="scroller preview-detail preview-stack message-workspace"
+        >
           <header id="message-header" class="message-header">
             <span class="preview-avatar" aria-hidden="true">AT</span>
             <div class="message-metadata">

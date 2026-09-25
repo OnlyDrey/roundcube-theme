@@ -5,13 +5,15 @@
 }
 
 .task-mail.action-compose :where(#compose-content, .compose-workspace) {
-  width: min(100%, 68rem);
+  display: flex;
+  width: min(100%, 96rem);
   min-width: 0;
   min-height: 0;
   padding: var(--ak-space-6);
   margin-inline: auto;
   overflow: auto;
   flex: 1 1 auto;
+  flex-direction: column;
   scrollbar-color: var(--ak-color-border) transparent;
 }
 
@@ -283,6 +285,44 @@
   display: grid;
   margin-block-start: var(--ak-space-6);
   gap: var(--ak-space-2);
+}
+
+@media (width > 48rem) {
+  .task-mail.action-compose :where(.compose-headers, .compose-fields) {
+    order: 1;
+  }
+
+  .task-mail.action-compose #compose-attachments {
+    width: calc(100% - 7rem);
+    margin-inline-start: 7rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 22rem));
+    order: 2;
+  }
+
+  .task-mail.action-compose #compose-attachments h2 {
+    grid-column: 1 / -1;
+  }
+
+  .task-mail.action-compose
+    :where(.editor-toolbar, .tox-toolbar__primary, .mce-toolbar-grp) {
+    width: calc(100% - 7rem);
+    margin-inline-start: 7rem;
+    order: 3;
+  }
+
+  .task-mail.action-compose
+    :where(
+      #composebody,
+      .compose-editor,
+      .preview-editor,
+      .tox-edit-area,
+      iframe
+    ) {
+    width: calc(100% - 7rem);
+    min-height: clamp(18rem, 36vh, 30rem);
+    margin-inline-start: 7rem;
+    order: 4;
+  }
 }
 
 .task-mail.action-compose #compose-attachments h2 {
