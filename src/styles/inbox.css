@@ -1,0 +1,528 @@
+/* Mailbox chrome built on Roundcube Elastic's stable layout regions/classes. */
+#layout-menu {
+  display: flex;
+  width: var(--ak-size-task-rail);
+  padding: var(--ak-space-2) 0;
+  gap: 0;
+  border-inline-end-color: var(--ak-color-border-subtle);
+  align-items: stretch;
+  flex-direction: column;
+}
+
+#layout-menu :where(a.button, .task-button, button) {
+  display: grid;
+  width: 100%;
+  min-width: var(--ak-size-target);
+  min-height: var(--ak-size-target);
+  padding: var(--ak-space-2);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ak-color-fg-muted);
+  place-items: center;
+  text-decoration: none;
+}
+
+#layout-menu :where(.icon, .task-button)::before,
+#layout-menu .task-button .ak-icon {
+  width: var(--ak-icon-size-nav);
+  height: var(--ak-icon-size-nav);
+}
+
+#layout-menu :where(a.button, .task-button, button):hover {
+  background: var(--ak-color-hover);
+  color: var(--ak-color-fg);
+}
+
+#layout-menu :where(a.button, .task-button, button).selected {
+  background: var(--ak-color-selected);
+  box-shadow: inset 3px 0 0 var(--ak-color-selected-border);
+  color: var(--ak-color-accent);
+}
+
+.task-mail :where(#layout-sidebar, #layout-list, #layout-content) {
+  border-color: color-mix(
+    in srgb,
+    var(--ak-color-border-subtle) 62%,
+    transparent
+  );
+}
+
+.task-mail #layout-sidebar {
+  border-inline-end-color: transparent;
+  background: var(--ak-color-sidebar);
+}
+
+.task-mail :where(#layout-list, #layout-content) {
+  background: var(--ak-color-surface);
+}
+
+.task-mail :where(#layout-sidebar, #layout-list, #layout-content) > .header {
+  min-height: var(--ak-size-toolbar);
+  padding: var(--ak-space-3) var(--ak-space-4);
+  gap: var(--ak-space-2);
+  border-block-end: var(--ak-border-width) solid var(--ak-color-border-subtle);
+}
+
+.task-mail
+  :where(#layout-sidebar, #layout-list, #layout-content)
+  > .header
+  button {
+  padding-inline: var(--ak-space-3);
+  border-color: transparent;
+  background: transparent;
+}
+
+.task-mail
+  :where(#layout-sidebar, #layout-list, #layout-content)
+  > .header
+  button:hover {
+  background: var(--ak-color-hover);
+}
+
+.task-mail .header-title {
+  overflow: hidden;
+  margin: 0;
+  color: var(--ak-color-fg);
+  font-size: var(--ak-font-size-md);
+  font-weight: var(--ak-weight-semibold);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-mail #layout-content > .header .header-title {
+  font-size: var(--ak-font-size-lg);
+}
+
+.task-mail .toolbar {
+  min-height: var(--ak-size-toolbar);
+  padding: var(--ak-space-2) var(--ak-space-4);
+  gap: var(--ak-space-2);
+  border-block-end: var(--ak-border-width) solid var(--ak-color-border-subtle);
+  background: var(--ak-color-surface);
+  align-items: center;
+}
+
+.task-mail .toolbar :where(button, .btn, a.button) {
+  display: inline-flex;
+  min-height: 2.5rem;
+  padding: var(--ak-space-2) var(--ak-space-3);
+  align-items: center;
+  justify-content: center;
+  font-size: var(--ak-font-size-base);
+  line-height: var(--ak-line-base);
+  text-indent: 0;
+  text-decoration: none;
+}
+
+.task-mail .toolbar :where(button, .btn, a.button):not(.compose, .btn-primary) {
+  border-color: transparent;
+  background: transparent;
+}
+
+.task-mail
+  .toolbar
+  :where(button, .btn, a.button):not(.compose, .btn-primary):hover:not(
+    :disabled,
+    .disabled
+  ) {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-hover);
+  color: var(--ak-color-fg);
+}
+
+.task-mail
+  .toolbar
+  :where(button, .btn, a.button):not(.compose, .btn-primary):focus-visible:not(
+    :disabled,
+    .disabled
+  ) {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-hover);
+}
+
+.task-mail
+  .toolbar
+  :where(button, .btn, a.button):not(.compose, .btn-primary):active:not(
+    :disabled,
+    .disabled
+  ) {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-selected);
+}
+
+/* Elastic nests compact toolbars inside panel headers. Keep those controls
+   visually part of the header instead of rendering a second toolbar row. */
+.task-mail .header > .toolbar {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.task-mail .toolbar .compose {
+  border: var(--ak-border-width) solid var(--ak-color-accent);
+  border-radius: var(--ak-radius-control);
+  background: var(--ak-color-accent);
+  color: var(--ak-color-accent-contrast);
+  font-weight: var(--ak-weight-medium);
+  text-decoration: none;
+}
+
+.task-mail .toolbar .compose::before {
+  width: var(--ak-icon-size);
+  height: var(--ak-icon-size);
+  margin-inline-end: var(--ak-space-2);
+  background: currentcolor;
+  content: "";
+  mask: url("../images/icons/pencil.svg") center / contain no-repeat;
+}
+
+.task-mail .toolbar a.compose:link,
+.task-mail .toolbar a.compose:visited,
+.task-mail .toolbar a.compose:hover,
+.task-mail .toolbar a.compose:active,
+.task-mail .toolbar a.compose:focus-visible {
+  color: var(--ak-color-accent-contrast);
+  text-decoration: none;
+}
+
+.task-mail .toolbar .compose:focus-visible {
+  border-color: var(--ak-color-focus);
+  background: var(--ak-color-accent);
+  color: var(--ak-color-accent-contrast);
+}
+
+.task-mail .toolbar .compose:hover:not(.disabled) {
+  border-color: var(--ak-color-accent-hover);
+  background: var(--ak-color-accent-hover);
+  color: var(--ak-color-accent-contrast);
+}
+
+.task-mail .toolbar .compose:active:not(.disabled) {
+  border-color: var(--ak-color-focus);
+  background: var(--ak-color-accent);
+  color: var(--ak-color-accent-contrast);
+}
+
+.task-mail .toolbar .compose.disabled {
+  border-color: var(--ak-color-accent);
+  background: var(--ak-color-accent);
+  color: var(--ak-color-accent-contrast);
+  opacity: 0.68;
+}
+
+.task-mail #layout-sidebar .listing {
+  padding: var(--ak-space-2);
+}
+
+.task-mail #layout-sidebar .listing li > a {
+  display: flex;
+  min-height: var(--ak-size-target);
+  padding: var(--ak-space-2) var(--ak-space-3);
+  gap: var(--ak-space-2);
+  align-items: center;
+  border-radius: 0;
+  color: var(--ak-color-fg-secondary);
+  text-decoration: none;
+}
+
+.task-mail #layout-sidebar .listing li > a:hover {
+  background: var(--ak-color-hover);
+  color: var(--ak-color-fg);
+}
+
+.task-mail #layout-sidebar .listing li.selected > a {
+  background: var(--ak-color-selected);
+  box-shadow: inset 3px 0 0 var(--ak-color-selected-border);
+  color: var(--ak-color-fg);
+  font-weight: var(--ak-weight-semibold);
+}
+
+.task-mail #layout-sidebar .count {
+  min-width: 1.5rem;
+  padding: 0.125rem var(--ak-space-2);
+  margin-inline-start: auto;
+  background: var(--ak-color-surface-raised);
+  color: var(--ak-color-accent);
+  text-align: center;
+}
+
+.task-mail .messagelist {
+  padding-inline: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.task-mail .messagelist tr > td {
+  padding: var(--ak-space-3) var(--ak-space-2);
+  border-block-end: var(--ak-border-width) solid var(--ak-color-border-subtle);
+  background: transparent;
+  vertical-align: top;
+}
+
+.task-mail .messagelist tr > td:first-child {
+  width: 2rem;
+  border-radius: 0;
+  color: var(--ak-color-fg-muted);
+  text-align: center;
+}
+
+.task-mail .messagelist tr > td:nth-child(2) {
+  overflow: hidden;
+  width: auto;
+  min-width: 0;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+}
+
+.task-mail .messagelist tr > td:last-child {
+  width: 4.25rem;
+  border-radius: 0;
+  color: var(--ak-color-fg-muted);
+  font-size: var(--ak-font-size-sm);
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+  white-space: nowrap;
+}
+
+.task-mail .messagelist tr:hover > td {
+  background: var(--ak-color-hover);
+}
+
+.task-mail .messagelist tr.unread > td {
+  font-weight: var(--ak-weight-regular);
+}
+
+.task-mail .messagelist tr.unread strong {
+  color: var(--ak-color-fg);
+  font-weight: var(--ak-weight-semibold);
+}
+
+.task-mail
+  .messagelist
+  :where(.message-sender, .message-subject, .fromto, .subject) {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-mail .messagelist .message-sender {
+  color: var(--ak-color-fg-secondary);
+}
+
+.task-mail .messagelist tr.unread .message-sender,
+.task-mail .messagelist tr.unread .message-subject {
+  color: var(--ak-color-fg);
+  font-weight: var(--ak-weight-semibold);
+}
+
+.task-mail .messagelist tr.selected > td {
+  background: var(--ak-color-selected);
+}
+
+.task-mail .messagelist tr.selected > td:first-child {
+  box-shadow: inset 3px 0 0 var(--ak-color-selected-border);
+}
+
+/* Icons below intentionally specialize the shared task-rail icon geometry. */
+/* stylelint-disable-next-line no-descending-specificity */
+.task-mail .messagelist .ak-icon {
+  width: var(--ak-icon-size-sm);
+  height: var(--ak-icon-size-sm);
+}
+
+.task-mail .messagelist .ak-icon-star.active {
+  color: var(--ak-color-warning);
+}
+
+.task-mail .messagelist tr.flagged > td:first-child,
+.task-mail .messagelist tr.selected > td:first-child {
+  color: var(--ak-color-accent);
+}
+
+.task-mail .message-snippet {
+  display: block;
+  overflow: hidden;
+  color: var(--ak-color-fg-muted);
+  font-size: var(--ak-font-size-sm);
+  font-weight: var(--ak-weight-regular);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-mail .messagelist tr.selected :where(.message-snippet, td:last-child) {
+  color: var(--ak-color-fg-secondary);
+}
+
+.task-mail .messagelist tr.selected > td:last-child {
+  color: var(--ak-color-fg-secondary);
+}
+
+.task-mail
+  #layout-content
+  .scroller
+  > :where(.alert, .confirmation, .warning, .error, .notice) {
+  margin-block-end: var(--ak-space-3);
+}
+
+.task-mail .mailbox-notification-region {
+  padding: var(--ak-space-3);
+}
+
+.task-mail
+  .mailbox-notification-region
+  > :where(.alert, .confirmation, .warning, .error, .notice) {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/* Elastic may insert feedback directly into the list pane without a wrapper. */
+.task-mail
+  #layout-list
+  > :where(.alert, .confirmation, .warning, .error, .notice) {
+  box-sizing: border-box;
+  width: calc(100% - (2 * var(--ak-space-3)));
+  max-width: none;
+  margin: var(--ak-space-3);
+}
+
+.task-mail .empty-state {
+  display: grid;
+  width: 100%;
+  min-height: 12rem;
+  padding: var(--ak-space-8);
+  color: var(--ak-color-fg-muted);
+  place-items: center;
+  justify-self: stretch;
+  text-align: center;
+}
+
+.task-mail .empty-state-icon {
+  display: inline-grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-block-end: var(--ak-space-3);
+  border: var(--ak-border-width) solid var(--ak-color-border);
+  border-radius: 50%;
+  color: var(--ak-color-fg-muted);
+  font-size: var(--ak-font-size-lg);
+  place-items: center;
+}
+
+.task-mail .empty-state h2 {
+  margin: 0 0 var(--ak-space-1);
+  color: var(--ak-color-fg-secondary);
+  font-size: var(--ak-font-size-md);
+  font-weight: var(--ak-weight-medium);
+}
+
+.task-mail .empty-state p {
+  margin: 0;
+  color: var(--ak-color-fg-muted);
+  font-size: var(--ak-font-size-sm);
+}
+
+.task-mail #layout-list > .toolbar:last-child {
+  justify-content: flex-end;
+  border-block-start: var(--ak-border-width) solid var(--ak-color-border-subtle);
+  border-block-end: 0;
+  color: var(--ak-color-fg-muted);
+  font-size: var(--ak-font-size-sm);
+}
+
+.task-mail #layout-list > .toolbar:last-child :where(button, .btn) {
+  width: 2.5rem;
+  min-width: 2.5rem;
+  padding: 0;
+  border-color: transparent;
+  background: transparent;
+}
+
+.task-mail :where(.popupmenu, .dropdown-menu) {
+  padding: var(--ak-space-2);
+}
+
+/* Elastic menu links follow higher-specificity folder-list rules in source. */
+/* stylelint-disable-next-line no-descending-specificity */
+.task-mail :where(.popupmenu, .dropdown-menu) a {
+  display: grid;
+  min-height: 2.5rem;
+  padding: var(--ak-space-2) var(--ak-space-3);
+  grid-template-columns: var(--ak-icon-size) minmax(0, 1fr);
+  gap: var(--ak-space-3);
+  border-radius: var(--ak-radius-xs);
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Popup interactions intentionally specialize earlier navigation links. */
+/* stylelint-disable-next-line no-descending-specificity */
+.task-mail :where(.popupmenu, .dropdown-menu) a:active {
+  background: var(--ak-color-selected);
+}
+
+.task-mail :where(.popupmenu, .dropdown-menu) a.danger:hover,
+.task-mail :where(.popupmenu, .dropdown-menu) a.danger:focus-visible {
+  color: var(--ak-color-danger);
+}
+
+/* Popup icons intentionally specialize the shared application icons. */
+/* stylelint-disable-next-line no-descending-specificity */
+.task-mail :where(.popupmenu, .dropdown-menu) .ak-icon {
+  width: var(--ak-icon-size);
+  height: var(--ak-icon-size);
+}
+
+.task-mail :where(.ui-dialog, .modal-content) {
+  width: min(28rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  padding: var(--ak-space-6);
+  overflow: auto;
+}
+
+/* Dialog headings follow empty-state headings in this task-scoped layer. */
+/* stylelint-disable-next-line no-descending-specificity */
+.task-mail :where(.ui-dialog, .modal-content) h2 {
+  margin-block: 0 var(--ak-space-4);
+  font-size: var(--ak-font-size-lg);
+}
+
+.task-mail :where(.ui-dialog, .modal-content) > p:not(:last-child) {
+  color: var(--ak-color-fg-secondary);
+}
+
+.task-mail :where(.ui-dialog, .modal-content) > p:last-child {
+  display: flex;
+  margin-block: var(--ak-space-6) 0;
+  gap: var(--ak-space-2);
+  justify-content: flex-end;
+}
+
+@media (width <= 48rem) {
+  #layout-menu {
+    width: 3.25rem;
+    padding: var(--ak-space-2) 0;
+  }
+
+  .task-mail :where(#layout-sidebar, #layout-list, #layout-content) > .header,
+  .task-mail .toolbar {
+    padding-inline: var(--ak-space-3);
+  }
+
+  .task-mail .messagelist tr > td {
+    padding-block: var(--ak-space-3);
+  }
+
+  .task-mail .toolbar {
+    border-block-end-color: color-mix(
+      in srgb,
+      var(--ak-color-border-subtle) 65%,
+      transparent
+    );
+  }
+}

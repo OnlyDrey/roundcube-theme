@@ -1,0 +1,149 @@
+/* Settings keeps Elastic navigation and propform semantics without boxed fieldsets. */
+.task-settings :where(#layout-sidebar, #layout-list) .listing li > a {
+  display: block;
+  min-height: var(--ak-size-target);
+  padding: var(--ak-space-2) var(--ak-space-3);
+  color: var(--ak-color-fg-secondary);
+  text-decoration: none;
+  border-radius: 0;
+}
+
+.task-settings :where(#layout-sidebar, #layout-list) .listing li:hover > a {
+  background: var(--ak-color-hover);
+  color: var(--ak-color-fg);
+}
+
+.task-settings :where(#layout-sidebar, #layout-list) .listing li.selected > a {
+  background: var(--ak-color-selected);
+  box-shadow: inset 3px 0 0 var(--ak-color-selected-border);
+  color: var(--ak-color-fg);
+  font-weight: var(--ak-weight-medium);
+}
+
+.task-settings :where(.propform, .settings-form) {
+  width: min(100%, 48rem);
+  padding: var(--ak-space-6);
+}
+
+.task-settings :where(.propform, .settings-form) fieldset {
+  border: 0;
+  border-block-start: var(--ak-border-width) solid var(--ak-color-border-subtle);
+}
+
+.task-settings .settings-choice {
+  display: flex;
+  min-height: 2.25rem;
+  gap: var(--ak-space-2);
+  align-items: flex-start;
+}
+
+.task-settings
+  .settings-choice
+  :where(input[type="checkbox"], input[type="radio"]) {
+  margin-block-start: 0.125rem;
+  flex: 0 0 auto;
+}
+
+.task-settings .formbuttons,
+.task-settings .settings-actions {
+  display: flex;
+  padding: var(--ak-space-4) 0 0;
+  gap: var(--ak-space-2);
+  border-block-start: var(--ak-border-width) solid var(--ak-color-border-subtle);
+}
+
+.task-settings .settings-section-nav {
+  display: none;
+}
+
+@media (width <= 37.5rem) {
+  .task-settings .settings-section-nav {
+    position: relative;
+    display: block;
+    margin: var(--ak-space-3) var(--ak-space-4) 0;
+  }
+
+  .task-settings .settings-section-nav summary {
+    display: flex;
+    min-height: 44px;
+    padding: var(--ak-space-2) var(--ak-space-3);
+    border: var(--ak-border-width) solid var(--ak-color-border);
+    border-radius: var(--ak-radius-control);
+    background: var(--ak-color-input);
+    color: var(--ak-color-fg);
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .task-settings .settings-section-nav summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .task-settings .settings-section-nav summary small {
+    display: block;
+    color: var(--ak-color-fg-muted);
+    font-size: var(--ak-font-size-xs);
+  }
+
+  .task-settings .settings-section-nav[open] summary .ak-icon {
+    transform: rotate(180deg);
+  }
+
+  .task-settings .settings-section-nav .popupmenu {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + var(--ak-space-1));
+    right: 0;
+    left: 0;
+    padding: var(--ak-space-1);
+  }
+
+  .task-settings .settings-section-nav .popupmenu a {
+    display: flex;
+    min-height: 44px;
+    padding: var(--ak-space-2) var(--ak-space-3);
+    border-radius: var(--ak-radius-xs);
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .task-settings .settings-section-nav .popupmenu a[aria-current="page"] {
+    border-radius: 0;
+    background: var(--ak-color-selected);
+    box-shadow: inset 3px 0 0 var(--ak-color-selected-border);
+    color: var(--ak-color-fg);
+    font-weight: var(--ak-weight-medium);
+  }
+}
+
+@media (width <= 48rem) {
+  .task-settings :where(.propform, .settings-form) {
+    width: 100%;
+    padding: var(--ak-space-4);
+  }
+
+  .task-settings :where(.propform, .settings-form) :where(input, select) {
+    max-width: 100%;
+  }
+
+  .task-settings .settings-form .confirmation {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    margin-block-end: var(--ak-space-2);
+  }
+
+  .task-settings .propform table {
+    border-spacing: 0 var(--ak-space-2);
+  }
+
+  .task-settings .settings-form fieldset {
+    padding-block: var(--ak-space-2) var(--ak-space-4);
+  }
+
+  .task-settings .settings-form fieldset legend {
+    padding-block-start: var(--ak-space-2);
+  }
+}

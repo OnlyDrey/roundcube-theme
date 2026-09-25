@@ -7,7 +7,12 @@
   input[type="reset"]
 ) {
   min-height: var(--ak-size-target);
+  padding: var(--ak-space-2) var(--ak-space-4);
+  border: var(--ak-border-width) solid var(--ak-color-border);
   border-radius: var(--ak-radius-control);
+  background: var(--ak-color-surface-raised);
+  background-image: none;
+  color: var(--ak-color-fg);
   font: inherit;
   font-weight: var(--ak-weight-medium);
   transition:
@@ -16,15 +21,108 @@
     color var(--ak-transition-fast) ease;
 }
 
-:where(.btn-primary, input.button.mainaction, button.mainaction) {
+:where(
+    button,
+    .btn,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"]
+  ):hover:not(:disabled) {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-hover);
+  color: var(--ak-color-fg);
+}
+
+:where(
+    button,
+    .btn,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"]
+  ):active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+:is(.btn-primary, input.button.mainaction, button.mainaction) {
   border-color: var(--ak-color-accent);
   background: var(--ak-color-accent);
   color: var(--ak-color-accent-contrast);
 }
 
-:where(.btn-primary, input.button.mainaction, button.mainaction):hover {
+:is(.btn-primary, input.button.mainaction, button.mainaction):hover:not(
+    :disabled
+  ) {
   border-color: var(--ak-color-accent-hover);
   background: var(--ak-color-accent-hover);
+  color: var(--ak-color-accent-contrast);
+}
+
+:is(.btn-primary, input.button.mainaction, button.mainaction):active:not(
+    :disabled
+  ) {
+  border-color: var(--ak-color-accent);
+  background: var(--ak-color-accent);
+  color: var(--ak-color-accent-contrast);
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 18%);
+}
+
+:is(.btn-primary, input.button.mainaction, button.mainaction):focus-visible {
+  border-color: var(--ak-color-focus);
+  background: var(--ak-color-accent);
+  color: var(--ak-color-accent-contrast);
+}
+
+:is(.btn-primary, input.button.mainaction, button.mainaction):disabled,
+:is(.btn-primary, input.button.mainaction, button.mainaction).disabled {
+  border-color: var(--ak-color-accent);
+  background: var(--ak-color-accent);
+  color: var(--ak-color-accent-contrast);
+  opacity: 0.68;
+}
+
+:where(.toolbar, .buttonbar)
+  :where(button, .btn, a.button):not(
+    .btn-primary,
+    .mainaction,
+    .compose,
+    .send
+  ) {
+  gap: var(--ak-space-2);
+  border: var(--ak-border-width) solid transparent;
+  background: transparent;
+}
+
+:where(.toolbar, .buttonbar)
+  :where(button, .btn, a.button):not(
+    .btn-primary,
+    .mainaction,
+    .compose,
+    .send
+  ):hover {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-hover);
+}
+
+:where(.toolbar, .buttonbar)
+  :where(button, .btn, a.button):not(
+    .btn-primary,
+    .mainaction,
+    .compose,
+    .send
+  ):focus-visible {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-hover);
+}
+
+:where(.toolbar, .buttonbar)
+  :where(button, .btn, a.button):not(
+    .btn-primary,
+    .mainaction,
+    .compose,
+    .send
+  ):active {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-selected);
 }
 
 :where(
@@ -35,11 +133,13 @@
   .custom-select
 ) {
   min-height: var(--ak-size-target);
+  padding-inline: var(--ak-space-3);
   border: var(--ak-border-width) solid var(--ak-color-border);
   border-radius: var(--ak-radius-control);
   background: var(--ak-color-input);
   color: var(--ak-color-fg);
   font: inherit;
+  line-height: var(--ak-line-base);
 }
 
 :where(input, textarea)::placeholder {
@@ -67,6 +167,17 @@ label {
 }
 
 /* Menus and dialogs */
+:where(.header, .toolbar, .buttonbar):has(> .popupmenu, > .dropdown-menu) {
+  position: relative;
+}
+
+:where(.header, .toolbar, .buttonbar) > :where(.popupmenu, .dropdown-menu) {
+  position: absolute;
+  z-index: 20;
+  inset: calc(100% + var(--ak-space-1)) var(--ak-space-2) auto auto;
+  max-width: calc(100vw - (2 * var(--ak-space-3)));
+}
+
 :where(.popupmenu, .dropdown-menu, .ui-menu) {
   border: var(--ak-border-width) solid var(--ak-color-border);
   border-radius: var(--ak-radius-control);
@@ -86,6 +197,20 @@ label {
   color: var(--ak-color-fg);
 }
 
+:where(.autocomplete, .ui-autocomplete) {
+  max-width: calc(100vw - 2rem);
+  padding: var(--ak-space-1);
+  border: var(--ak-border-width) solid var(--ak-color-border);
+  border-radius: var(--ak-radius-compact);
+  background: var(--ak-color-surface-raised);
+  box-shadow: var(--ak-shadow-menu);
+}
+
+:where(.autocomplete, .ui-autocomplete) :where(li, a) {
+  padding: var(--ak-space-2) var(--ak-space-3);
+  border: 0;
+}
+
 :where(.ui-dialog, .modal-content) {
   border: var(--ak-border-width) solid var(--ak-color-border);
   border-radius: var(--ak-radius-dialog);
@@ -94,32 +219,80 @@ label {
   color: var(--ak-color-fg);
 }
 
+:where(.ui-dialog-titlebar-close, .modal-close) {
+  display: inline-grid;
+  width: var(--ak-size-target);
+  min-width: var(--ak-size-target);
+  padding: var(--ak-space-2);
+  border-color: transparent;
+  background: transparent;
+  place-items: center;
+}
+
+:where(.ui-dialog-titlebar-close, .modal-close)::before {
+  width: var(--ak-icon-size);
+  height: var(--ak-icon-size);
+  background: currentcolor;
+  content: "";
+  mask: url("../images/icons/x.svg") center / contain no-repeat;
+}
+
+:where(.loading, [aria-busy="true"]) {
+  min-height: 1.5rem;
+}
+
 .ui-widget-overlay,
 .modal-backdrop {
   background: var(--ak-color-backdrop);
 }
 
 /* Semantic feedback always retains text/icon meaning supplied by Roundcube. */
+:where(.alert, .confirmation, .warning, .error, .notice) {
+  width: fit-content;
+  max-width: min(100%, 42rem);
+  padding: var(--ak-space-3) var(--ak-space-4);
+  border: var(--ak-border-width) solid;
+  border-radius: var(--ak-radius-sm);
+  line-height: var(--ak-line-base);
+}
+
+/* Fieldsets remain semantic groups, but not browser-default outlined boxes. */
+fieldset {
+  min-width: 0;
+  padding: var(--ak-space-4) 0 var(--ak-space-6);
+  margin: 0;
+  border: 0;
+  border-block-start: var(--ak-border-width) solid var(--ak-color-border-subtle);
+}
+
+fieldset legend {
+  width: 100%;
+  padding: var(--ak-space-3) 0 0;
+  color: var(--ak-color-fg);
+  font-size: var(--ak-font-size-md);
+  font-weight: var(--ak-weight-semibold);
+}
+
 :where(.alert-success, .confirmation) {
-  border-color: var(--ak-color-success);
+  border-color: color-mix(in srgb, var(--ak-color-success) 48%, transparent);
   background: var(--ak-color-success-surface);
   color: var(--ak-color-success);
 }
 
 :where(.alert-warning, .warning) {
-  border-color: var(--ak-color-warning);
+  border-color: color-mix(in srgb, var(--ak-color-warning) 48%, transparent);
   background: var(--ak-color-warning-surface);
   color: var(--ak-color-warning);
 }
 
 :where(.alert-danger, .error) {
-  border-color: var(--ak-color-danger);
+  border-color: color-mix(in srgb, var(--ak-color-danger) 48%, transparent);
   background: var(--ak-color-danger-surface);
   color: var(--ak-color-danger);
 }
 
 :where(.alert-info, .notice) {
-  border-color: var(--ak-color-info);
+  border-color: color-mix(in srgb, var(--ak-color-info) 48%, transparent);
   background: var(--ak-color-info-surface);
   color: var(--ak-color-info);
 }

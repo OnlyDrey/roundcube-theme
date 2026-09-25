@@ -1,0 +1,298 @@
+/* Message reading chrome; layout behavior remains owned by Elastic. */
+.task-mail.action-show #layout-content > .toolbar {
+  position: relative;
+  gap: var(--ak-space-1);
+}
+
+.task-mail.action-show
+  #layout-content
+  > .toolbar
+  :where(#messagemenu, .message-actions-menu) {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + var(--ak-space-1));
+  right: var(--ak-space-2);
+}
+
+.task-mail.action-show
+  #layout-content
+  > .toolbar
+  :where(button, .btn, a.button) {
+  border-color: transparent;
+  background: transparent;
+}
+
+.task-mail.action-show
+  #layout-content
+  > .toolbar
+  :where(button, .btn, a.button):hover {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-hover);
+}
+
+.task-mail.action-show
+  #layout-content
+  > .toolbar
+  :where(button, .btn, a.button):focus-visible {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-hover);
+}
+
+.task-mail.action-show
+  #layout-content
+  > .toolbar
+  :where(button, .btn, a.button):active {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-selected);
+}
+
+.task-mail.action-show #layout-content > .toolbar .reply-action {
+  color: var(--ak-color-fg);
+}
+
+.task-mail.action-show #layout-content > .toolbar :where(button, a.button) {
+  gap: var(--ak-space-2);
+}
+
+.task-mail.action-show :where(#message-header, .message-header) {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--ak-space-3) var(--ak-space-4);
+  align-items: start;
+}
+
+.task-mail.action-show .message-metadata {
+  min-width: 0;
+}
+
+.task-mail.action-show .message-metadata :where(p, dl) {
+  margin: 0;
+}
+
+.task-mail.action-show .message-address,
+.task-mail.action-show .message-recipients {
+  overflow-wrap: anywhere;
+  color: var(--ak-color-fg-muted);
+  font-size: var(--ak-font-size-sm);
+}
+
+.task-mail.action-show .message-date {
+  color: var(--ak-color-fg-muted);
+  font-size: var(--ak-font-size-sm);
+}
+
+.task-mail.action-show .message-summary {
+  color: var(--ak-color-fg-muted);
+  font-size: var(--ak-font-size-sm);
+}
+
+.task-mail.action-show .message-details summary {
+  color: var(--ak-color-accent);
+  cursor: pointer;
+  font-size: var(--ak-font-size-sm);
+}
+
+.task-mail.action-show :where(.message-part, #messagebody) {
+  width: min(100%, 52rem);
+  color: var(--ak-color-fg);
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.task-mail.action-show :where(.message-part, #messagebody) blockquote {
+  padding-inline-start: var(--ak-space-4);
+  margin-inline: 0;
+  border-inline-start: 2px solid var(--ak-color-border);
+  color: var(--ak-color-fg-secondary);
+}
+
+.task-mail.action-show .message-signature {
+  color: var(--ak-color-fg-muted);
+}
+
+.task-mail.action-show .notice {
+  border-radius: var(--ak-radius-sm);
+}
+
+.task-mail.action-show .remote-images-notice {
+  display: flex;
+  gap: var(--ak-space-3);
+  align-items: center;
+}
+
+.task-mail.action-show .remote-images-notice .notice-actions {
+  display: flex;
+  margin-inline-start: auto;
+  gap: var(--ak-space-2);
+  flex-wrap: wrap;
+}
+
+.task-mail.action-show :where(.message-attachment, .attachmentslist > li) {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  padding: var(--ak-space-3);
+  gap: var(--ak-space-3);
+  border: var(--ak-border-width) solid var(--ak-color-border-subtle);
+  border-radius: var(--ak-radius-compact);
+  background: var(--ak-color-sidebar);
+  align-items: center;
+}
+
+.task-mail.action-show .message-attachment .ak-icon {
+  color: var(--ak-color-fg-muted);
+}
+
+.task-mail.action-show .message-attachment button {
+  border-color: transparent;
+  background: transparent;
+}
+
+.task-mail.action-show .message-attachments {
+  display: grid;
+  width: min(100%, 52rem);
+  gap: var(--ak-attachment-gap);
+}
+
+.task-mail.action-show .message-attachments h2 {
+  margin: 0 0 var(--ak-space-2);
+  color: var(--ak-color-fg-secondary);
+  font-size: var(--ak-font-size-sm);
+  font-weight: var(--ak-weight-semibold);
+  letter-spacing: 0.02em;
+}
+
+.task-mail.action-show .attachment-details {
+  min-width: 0;
+}
+
+.task-mail.action-show .attachment-name {
+  display: block;
+  overflow: hidden;
+  color: var(--ak-color-fg);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-mail.action-show .message-attachment .message-snippet {
+  color: var(--ak-color-fg-secondary);
+}
+
+@media (width > 48rem) {
+  .task-mail.action-show #layout-content,
+  .task-mail.action-show #layout-content > .scroller,
+  .task-mail.action-show .message-workspace,
+  .task-mail.action-show :where(.message-content, #message-content) {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .task-mail.action-show :where(#message-header, .message-header) {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    align-self: stretch;
+    order: 1;
+  }
+
+  .task-mail.action-show .remote-images-notice {
+    width: 100%;
+    max-width: none;
+    align-self: stretch;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    order: 2;
+  }
+
+  .task-mail.action-show .remote-images-notice .notice-actions {
+    flex-wrap: nowrap;
+  }
+
+  .task-mail.action-show .message-attachments {
+    display: grid;
+    width: 100%;
+    max-width: none;
+    align-self: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 22rem));
+    order: 3;
+  }
+
+  .task-mail.action-show .message-attachments h2 {
+    grid-column: 1 / -1;
+  }
+
+  .task-mail.action-show :where(.message-part, #messagebody) {
+    width: 100%;
+    max-width: 76rem;
+    align-self: flex-start;
+    order: 4;
+  }
+}
+
+@media (width <= 48rem) {
+  .task-mail.action-show #layout-content > .toolbar {
+    padding-inline: var(--ak-space-3);
+    flex-wrap: wrap;
+  }
+
+  .task-mail.action-show #layout-content > .toolbar .mobile-overflow-action {
+    display: none;
+  }
+
+  .task-mail.action-show :where(#message-header, .message-header) {
+    grid-template-columns: 1fr;
+  }
+
+  .task-mail.action-show .remote-images-notice {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    padding: var(--ak-space-2);
+    gap: var(--ak-space-1) var(--ak-space-2);
+    align-items: start;
+  }
+
+  .task-mail.action-show .remote-images-notice .notice-actions {
+    grid-column: 2;
+    margin-inline-start: 0;
+    gap: var(--ak-space-2);
+    flex-wrap: nowrap;
+  }
+
+  .task-mail.action-show .remote-images-notice strong {
+    display: block;
+  }
+
+  .task-mail.action-show .remote-images-notice .notice-actions button {
+    min-height: 1.75rem;
+    padding: var(--ak-space-1) 0;
+    border: 0;
+    background: transparent;
+    color: var(--ak-color-accent);
+    font-size: var(--ak-font-size-sm);
+    white-space: nowrap;
+  }
+
+  .task-mail.action-show :where(.message-attachment, .attachmentslist > li) {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    padding: var(--ak-space-3);
+    gap: var(--ak-space-2);
+    border: var(--ak-border-width) solid var(--ak-color-border-subtle);
+    border-radius: var(--ak-radius-compact);
+    background: var(--ak-color-sidebar);
+  }
+
+  /* Attachment actions specialize the compact semantic-notice actions. */
+  /* stylelint-disable-next-line no-descending-specificity */
+  .task-mail.action-show .message-attachment button {
+    grid-column: 3;
+    padding-inline: var(--ak-space-1);
+  }
+
+  .task-mail.action-show .message-attachments h2 {
+    margin-block-end: 0;
+  }
+}

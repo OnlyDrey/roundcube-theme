@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Message — Akio preview</title>
+    <script src="../build/dev/akio/scripts/theme.js"></script>
+    <link rel="stylesheet" href="../build/dev/akio/styles/akio.css" />
+    <link rel="stylesheet" href="preview.css" />
+  </head>
+  <body class="akio task-mail action-show preview-page">
+    <div id="layout">
+      <div id="layout-menu" role="navigation" aria-label="Tasks">
+        <a class="task-button selected" href="inbox.html" aria-label="Mail"
+          ><span class="ak-icon ak-icon-mail" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="contacts.html" aria-label="Contacts"
+          ><span class="ak-icon ak-icon-users" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="settings.html" aria-label="Settings"
+          ><span class="ak-icon ak-icon-settings" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="index.html" aria-label="Preview index"
+          ><span class="ak-icon ak-icon-house" aria-hidden="true"></span
+        ></a>
+      </div>
+      <section id="layout-sidebar">
+        <header class="header"><h2 class="header-title">Folders</h2></header>
+        <div class="scroller">
+          <ul class="listing menu-list">
+            <li class="selected"><a href="inbox.html">Inbox</a></li>
+            <li><a href="#">Drafts</a></li>
+            <li><a href="#">Sent</a></li>
+            <li><a href="#">Trash</a></li>
+          </ul>
+        </div>
+      </section>
+      <main id="layout-content" class="selected">
+        <header class="header">
+          <h1 class="header-title">Welcome to Akio Mail</h1>
+          <button aria-label="More actions">
+            <span class="ak-icon ak-icon-ellipsis" aria-hidden="true"></span>
+          </button>
+        </header>
+        <div class="toolbar">
+          <button class="reply-action">
+            <span class="ak-icon ak-icon-reply" aria-hidden="true"></span>
+            Reply</button
+          ><button class="mobile-overflow-action">
+            <span class="ak-icon ak-icon-reply-all" aria-hidden="true"></span>
+            Reply all</button
+          ><button>
+            <span class="ak-icon ak-icon-forward" aria-hidden="true"></span>
+            Forward</button
+          ><button class="mobile-overflow-action">
+            <span class="ak-icon ak-icon-trash" aria-hidden="true"></span>
+            Delete</button
+          ><button class="mobile-overflow-action" aria-label="Print">
+            <span
+              class="ak-icon ak-icon-printer"
+              aria-hidden="true"
+            ></span></button
+          ><button
+            aria-label="More actions"
+            data-preview-target="#message-menu"
+            aria-controls="message-menu"
+            aria-haspopup="menu"
+          >
+            <span class="ak-icon ak-icon-ellipsis" aria-hidden="true"></span>
+          </button>
+          <div
+            id="message-menu"
+            class="popupmenu message-actions-menu"
+            role="menu"
+            hidden
+          >
+            <a href="#" role="menuitem"
+              ><span class="ak-icon ak-icon-reply-all" aria-hidden="true"></span
+              ><span>Reply all</span></a
+            >
+            <a href="#" role="menuitem"
+              ><span class="ak-icon ak-icon-trash" aria-hidden="true"></span
+              ><span>Delete</span></a
+            >
+            <a href="#" role="menuitem"
+              ><span class="ak-icon ak-icon-printer" aria-hidden="true"></span
+              ><span>Print</span></a
+            >
+          </div>
+        </div>
+        <article
+          class="scroller preview-detail preview-stack message-workspace"
+        >
+          <header id="message-header" class="message-header">
+            <span class="preview-avatar" aria-hidden="true">AT</span>
+            <div class="message-metadata">
+              <p>
+                <strong>Akio Team</strong>
+                <span class="message-address"
+                  >&lt;hello@example.invalid&gt;</span
+                >
+              </p>
+              <p class="message-summary">
+                to me · <time datetime="2026-09-24T09:42:00Z">09:42</time>
+              </p>
+              <details class="message-details">
+                <summary>Recipient details</summary>
+                <p class="message-recipients">
+                  To: Preview User
+                  &lt;preview-recipient-with-a-deliberately-long-address@example.invalid&gt;<br />Cc:
+                  Project Review &lt;review@example.invalid&gt;
+                </p>
+                <time class="message-date" datetime="2026-09-24T09:42:00Z"
+                  >September 24, 2026 at 09:42</time
+                >
+              </details>
+            </div>
+          </header>
+          <div class="notice remote-images-notice">
+            <span class="ak-icon ak-icon-image-off" aria-hidden="true"></span>
+            <div>
+              <strong>Remote images blocked.</strong> Protecting your privacy.
+            </div>
+            <div class="notice-actions">
+              <button>Display images</button
+              ><button>Always allow sender</button>
+            </div>
+          </div>
+          <div class="message-part">
+            <p>Hello Preview User,</p>
+            <p>
+              Welcome to this entirely fictional visual fixture. It uses
+              harmless content to exercise paragraphs, links, lists, and longer
+              lines.
+            </p>
+            <ul>
+              <li>Review the responsive layout</li>
+              <li>Inspect typography and spacing</li>
+              <li>Nothing here sends or receives mail</li>
+            </ul>
+            <p>
+              Long link:
+              <a href="#"
+                >https://example.invalid/projects/an-intentionally-long-path-for-responsive-overflow-review</a
+              >
+            </p>
+            <blockquote>
+              On September 23, Casey wrote:<br />This quoted history should
+              remain readable while visually subordinate.
+            </blockquote>
+            <p class="message-signature">—<br />The fictional Akio Team</p>
+          </div>
+          <section class="message-attachments">
+            <h2>Attachments</h2>
+            <div class="message-attachment">
+              <span class="ak-icon ak-icon-file" aria-hidden="true"></span>
+              <span class="attachment-details"
+                ><span class="attachment-name">getting-started.pdf</span
+                ><span class="message-snippet">PDF · 248 KB</span></span
+              >
+              <button>Download</button>
+            </div>
+            <div class="message-attachment">
+              <span class="ak-icon ak-icon-paperclip" aria-hidden="true"></span>
+              <span class="attachment-details"
+                ><span class="attachment-name"
+                  >project-notes-with-a-deliberately-long-filename-for-overflow-review.txt</span
+                ><span class="message-snippet">Text · 12 KB</span></span
+              >
+              <button>Download</button>
+            </div>
+          </section>
+        </article>
+      </main>
+    </div>
+    <script src="preview.js"></script>
+  </body>
+</html>

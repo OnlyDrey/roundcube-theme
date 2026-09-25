@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Inbox — Akio preview</title>
+    <script src="../build/dev/akio/scripts/theme.js"></script>
+    <link rel="stylesheet" href="../build/dev/akio/styles/akio.css" />
+    <link rel="stylesheet" href="preview.css" />
+  </head>
+  <body class="akio task-mail preview-page">
+    <div id="layout">
+      <div id="layout-menu" role="navigation" aria-label="Tasks">
+        <a class="task-button selected" href="inbox.html" aria-label="Mail"
+          ><span class="ak-icon ak-icon-mail" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="contacts.html" aria-label="Contacts"
+          ><span class="ak-icon ak-icon-users" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="settings.html" aria-label="Settings"
+          ><span class="ak-icon ak-icon-settings" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="index.html" aria-label="Preview index"
+          ><span class="ak-icon ak-icon-house" aria-hidden="true"></span
+        ></a>
+      </div>
+      <section id="layout-sidebar">
+        <header class="header">
+          <h2 class="header-title">Folders</h2>
+          <button aria-label="Folder options">
+            <span class="ak-icon ak-icon-ellipsis" aria-hidden="true"></span>
+          </button>
+        </header>
+        <div class="scroller">
+          <ul class="listing menu-list">
+            <li class="selected">
+              <a href="#">Inbox <span class="count">4</span></a>
+            </li>
+            <li><a href="#">Drafts</a></li>
+            <li><a href="#">Sent</a></li>
+            <li><a href="#">Junk</a></li>
+            <li><a href="#">Trash</a></li>
+          </ul>
+        </div>
+      </section>
+      <section id="layout-list" class="selected">
+        <header class="header">
+          <h1 class="header-title">Inbox</h1>
+          <button aria-label="Search">
+            <span class="ak-icon ak-icon-search" aria-hidden="true"></span>
+            Search</button
+          ><button
+            data-preview-target="#mail-menu"
+            aria-controls="mail-menu"
+            aria-haspopup="menu"
+            aria-expanded="false"
+          >
+            <span class="ak-icon ak-icon-ellipsis" aria-hidden="true"></span>
+            More
+          </button>
+          <div id="mail-menu" class="popupmenu" role="menu" hidden>
+            <a href="#" role="menuitem"
+              ><span class="ak-icon ak-icon-mail-open" aria-hidden="true"></span
+              ><span>Mark as read</span></a
+            ><a href="#" role="menuitem"
+              ><span
+                class="ak-icon ak-icon-folder-input"
+                aria-hidden="true"
+              ></span
+              ><span>Move to folder</span></a
+            ><a class="danger" href="#" role="menuitem"
+              ><span class="ak-icon ak-icon-trash" aria-hidden="true"></span
+              ><span>Delete</span></a
+            >
+          </div>
+        </header>
+        <div class="toolbar">
+          <a class="button compose" href="compose.html">Compose</a
+          ><button>
+            <span class="ak-icon ak-icon-refresh" aria-hidden="true"></span>
+            Refresh</button
+          ><button disabled>
+            <span class="ak-icon ak-icon-trash" aria-hidden="true"></span>
+            Delete
+          </button>
+        </div>
+        <div class="mailbox-notification-region">
+          <div class="confirmation" role="status">
+            <strong>Success:</strong> Mailbox refreshed successfully.
+          </div>
+        </div>
+        <div class="scroller">
+          <table class="listing messagelist" aria-label="Messages">
+            <tbody>
+              <tr class="unread selected">
+                <td>
+                  <span
+                    class="ak-icon ak-icon-star active"
+                    role="img"
+                    aria-label="Flagged"
+                  ></span>
+                </td>
+                <td>
+                  <strong class="message-sender">Akio Team</strong
+                  ><span class="message-subject">Welcome to Akio Mail</span
+                  ><span class="message-snippet"
+                    >A quick tour of your fictional inbox…</span
+                  >
+                </td>
+                <td>09:42</td>
+              </tr>
+              <tr class="unread">
+                <td>
+                  <span
+                    class="ak-icon ak-icon-star"
+                    role="img"
+                    aria-label="Not flagged"
+                  ></span>
+                </td>
+                <td>
+                  <strong class="message-sender">Casey Example</strong
+                  ><span class="message-subject"
+                    >Project update and milestones</span
+                  ><span class="message-snippet"
+                    >The prototype review is ready…</span
+                  >
+                </td>
+                <td>08:15</td>
+              </tr>
+              <tr class="flagged">
+                <td>
+                  <span
+                    class="ak-icon ak-icon-star active"
+                    role="img"
+                    aria-label="Flagged"
+                  ></span>
+                </td>
+                <td>
+                  <span class="message-sender">Jordan Sample</span
+                  ><span class="message-subject"
+                    >Meeting notes and next steps</span
+                  ><span class="message-snippet"
+                    >Attached are the notes from yesterday…
+                    <span
+                      class="ak-icon ak-icon-paperclip"
+                      role="img"
+                      aria-label="Has attachment"
+                    ></span
+                  ></span>
+                </td>
+                <td>Tue</td>
+              </tr>
+              <tr>
+                <td>
+                  <span
+                    class="ak-icon ak-icon-star"
+                    role="img"
+                    aria-label="Not flagged"
+                  ></span>
+                </td>
+                <td>
+                  <span class="message-sender">Billing Robot</span
+                  ><span class="message-subject">Invoice available</span
+                  ><span class="message-snippet"
+                    >Your fictional invoice is available…
+                    <span
+                      class="ak-icon ak-icon-paperclip"
+                      role="img"
+                      aria-label="Has attachment"
+                    ></span
+                  ></span>
+                </td>
+                <td>Mon</td>
+              </tr>
+              <tr>
+                <td>
+                  <span
+                    class="ak-icon ak-icon-star"
+                    role="img"
+                    aria-label="Not flagged"
+                  ></span>
+                </td>
+                <td>
+                  <span class="message-sender"
+                    >A Very Long Fictional Sender Name</span
+                  ><span class="message-subject"
+                    >An intentionally very long subject that demonstrates
+                    truncation without exposing any private information</span
+                  ><span class="message-snippet"
+                    >Sent to
+                    preview-recipient-with-a-deliberately-long-address@example.invalid…</span
+                  >
+                </td>
+                <td>Sep 18</td>
+              </tr>
+              <tr>
+                <td>
+                  <span
+                    class="ak-icon ak-icon-star"
+                    role="img"
+                    aria-label="Not flagged"
+                  ></span>
+                </td>
+                <td>
+                  <span class="message-sender">Taylor Demo</span
+                  ><span class="message-subject">Weekend plans</span
+                  ><span class="message-snippet"
+                    >How about a walk near the imaginary lake?</span
+                  >
+                </td>
+                <td>Sep 17</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <footer class="toolbar">
+          <span>1–6 of 24</span
+          ><button aria-label="Previous page" disabled>
+            <span
+              class="ak-icon ak-icon-chevron-left"
+              aria-hidden="true"
+            ></span></button
+          ><button aria-label="Next page">
+            <span
+              class="ak-icon ak-icon-chevron-right"
+              aria-hidden="true"
+            ></span>
+          </button>
+        </footer>
+      </section>
+      <main id="layout-content">
+        <div class="scroller empty-state" role="status">
+          <div>
+            <span
+              class="empty-state-icon ak-icon ak-icon-mail"
+              aria-hidden="true"
+            ></span>
+            <h2>Select a message</h2>
+            <p>Choose a message from the inbox to read it.</p>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="preview.js"></script>
+  </body>
+</html>

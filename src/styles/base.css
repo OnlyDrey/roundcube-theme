@@ -28,7 +28,6 @@ a:hover {
 }
 
 :where(a, button, input, select, textarea, [tabindex]):focus-visible {
-  border-radius: var(--ak-radius-sm);
   outline: 2px solid var(--ak-color-focus);
   outline-offset: 2px;
   box-shadow: 0 0 0 1px var(--ak-color-focus-outer);

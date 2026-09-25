@@ -6,7 +6,12 @@ export default [
   },
   js.configs.recommended,
   {
-    files: ["src/**/*.js", "scripts/**/*.mjs", "tests/**/*.mjs"],
+    files: [
+      "src/**/*.js",
+      "scripts/**/*.mjs",
+      "tests/**/*.mjs",
+      "preview/**/*.js",
+    ],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",

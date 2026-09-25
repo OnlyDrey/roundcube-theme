@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contacts — Akio preview</title>
+    <script src="../build/dev/akio/scripts/theme.js"></script>
+    <link rel="stylesheet" href="../build/dev/akio/styles/akio.css" />
+    <link rel="stylesheet" href="preview.css" />
+  </head>
+  <body class="akio task-addressbook preview-page">
+    <div id="layout">
+      <div id="layout-menu" role="navigation" aria-label="Tasks">
+        <a class="task-button" href="inbox.html" aria-label="Mail"
+          ><span class="ak-icon ak-icon-mail" aria-hidden="true"></span
+        ></a>
+        <a
+          class="task-button selected"
+          href="contacts.html"
+          aria-label="Contacts"
+          ><span class="ak-icon ak-icon-users" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="settings.html" aria-label="Settings"
+          ><span class="ak-icon ak-icon-settings" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="index.html" aria-label="Preview index"
+          ><span class="ak-icon ak-icon-house" aria-hidden="true"></span
+        ></a>
+      </div>
+      <section id="layout-sidebar">
+        <header class="header">
+          <h2 class="header-title">Address books</h2>
+          <button aria-label="Add address book">
+            <span class="ak-icon ak-icon-plus" aria-hidden="true"></span>
+          </button>
+        </header>
+        <div class="scroller">
+          <ul class="listing menu-list">
+            <li class="selected"><a href="#">Personal Addresses</a></li>
+            <li><a href="#">Collected Recipients</a></li>
+          </ul>
+        </div>
+      </section>
+      <section id="layout-list">
+        <header class="header">
+          <h1 class="header-title">Contacts</h1>
+          <button aria-label="Search">
+            <span class="ak-icon ak-icon-search" aria-hidden="true"></span>
+            Search
+          </button>
+        </header>
+        <div class="toolbar">
+          <button class="btn-primary">
+            <span class="ak-icon ak-icon-user-plus" aria-hidden="true"></span>
+            Create</button
+          ><button>
+            <span class="ak-icon ak-icon-trash" aria-hidden="true"></span>
+            Delete
+          </button>
+        </div>
+        <div class="scroller">
+          <table id="contacts-table" class="listing" aria-label="Contacts">
+            <tbody>
+              <tr class="selected">
+                <td>
+                  <span class="contact-name">Casey Example</span
+                  ><span class="contact-email">casey@example.invalid</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="contact-name">Jordan Sample</span
+                  ><span class="contact-email">jordan@example.invalid</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="contact-name"
+                    >A Contact With a Deliberately Long Display Name</span
+                  ><span class="contact-email"
+                    >unusually-long-contact-address@example.invalid</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="contact-name">Taylor Demo</span
+                  ><span class="contact-email">taylor@example.invalid</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <main id="layout-content" class="selected">
+        <header class="header">
+          <a
+            class="button back-list-button ak-icon-button"
+            href="contacts.html"
+            aria-label="Back to contacts"
+            ><span
+              class="ak-icon ak-icon-chevron-left"
+              aria-hidden="true"
+            ></span
+          ></a>
+          <h2 class="header-title">
+            <span class="desktop-contact-title">Casey Example</span
+            ><span class="mobile-contact-title">Contacts</span>
+          </h2>
+          <button>
+            <span class="ak-icon ak-icon-pencil" aria-hidden="true"></span>
+            Edit</button
+          ><button
+            class="contact-compose"
+            aria-label="Compose to Casey Example"
+          >
+            <span class="ak-icon ak-icon-mail" aria-hidden="true"></span>
+            <span class="action-label">Compose</span>
+          </button>
+        </header>
+        <!-- Approximation of the server-generated contact property table. -->
+        <div class="scroller">
+          <div id="contact-details" class="contact-details">
+            <div class="contact-identity">
+              <span class="preview-avatar">CE</span>
+              <h2>Casey Example</h2>
+            </div>
+            <dl class="contactfieldgroup">
+              <dt>Email</dt>
+              <dd>
+                <a href="mailto:casey@example.invalid">casey@example.invalid</a>
+              </dd>
+              <dt>Phone</dt>
+              <dd><a href="tel:+15550100">+1 555 0100</a></dd>
+              <dt>Organization</dt>
+              <dd>Example Workshop</dd>
+              <dt>Notes</dt>
+              <dd>
+                Fictional contact with a deliberately long note for responsive
+                layout review.
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="preview.js"></script>
+  </body>
+</html>

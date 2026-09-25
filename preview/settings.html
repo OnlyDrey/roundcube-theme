@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Settings — Akio preview</title>
+    <script src="../build/dev/akio/scripts/theme.js"></script>
+    <link rel="stylesheet" href="../build/dev/akio/styles/akio.css" />
+    <link rel="stylesheet" href="preview.css" />
+  </head>
+  <body class="akio task-settings preview-page">
+    <div id="layout">
+      <div id="layout-menu" role="navigation" aria-label="Tasks">
+        <a class="task-button" href="inbox.html" aria-label="Mail"
+          ><span class="ak-icon ak-icon-mail" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="contacts.html" aria-label="Contacts"
+          ><span class="ak-icon ak-icon-users" aria-hidden="true"></span
+        ></a>
+        <a
+          class="task-button selected"
+          href="settings.html"
+          aria-label="Settings"
+          ><span class="ak-icon ak-icon-settings" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="index.html" aria-label="Preview index"
+          ><span class="ak-icon ak-icon-house" aria-hidden="true"></span
+        ></a>
+      </div>
+      <section id="layout-sidebar">
+        <header class="header"><h1 class="header-title">Settings</h1></header>
+        <div class="scroller">
+          <ul class="listing menu-list">
+            <li class="selected"><a href="#">Preferences</a></li>
+            <li><a href="#">Folders</a></li>
+            <li><a href="#">Identities</a></li>
+            <li><a href="#">Responses</a></li>
+          </ul>
+        </div>
+      </section>
+      <section id="layout-list">
+        <header class="header">
+          <h2 class="header-title">Preferences</h2>
+        </header>
+        <div class="scroller">
+          <ul class="listing menu-list">
+            <li class="selected"><a href="#">User interface</a></li>
+            <li><a href="#">Mailbox view</a></li>
+            <li><a href="#">Displaying messages</a></li>
+            <li><a href="#">Composing messages</a></li>
+            <li><a href="#">Server settings</a></li>
+          </ul>
+        </div>
+      </section>
+      <main id="layout-content" class="selected">
+        <header class="header">
+          <h2 class="header-title">User interface</h2>
+        </header>
+        <!-- Approximation of Roundcube's generated propform table. -->
+        <form class="scroller propform settings-form" action="#">
+          <div class="confirmation" role="status">Preferences saved.</div>
+          <fieldset>
+            <legend>Main options</legend>
+            <div class="preview-fields">
+              <label for="language">Language</label
+              ><select id="language">
+                <option>English (US)</option></select
+              ><label for="timezone">Time zone</label
+              ><select id="timezone">
+                <option>Automatic</option></select
+              ><label for="format">Time format</label
+              ><select id="format">
+                <option>12:30</option>
+                <option>12:30 PM</option></select
+              ><label for="rows">Rows per page</label
+              ><input id="rows" type="number" value="50" /><label for="refresh"
+                >Refresh interval</label
+              ><select id="refresh">
+                <option>Every minute</option>
+                <option>Every 5 minutes</option>
+              </select>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Interface options</legend>
+            <p>
+              <label class="settings-choice"
+                ><input type="checkbox" checked /> Display next message after
+                delete</label
+              >
+            </p>
+            <p>
+              <label class="settings-choice"
+                ><input type="checkbox" /> Open messages in a new window</label
+              >
+            </p>
+            <p>
+              <label class="settings-choice"
+                ><input type="radio" name="density" checked />
+                Comfortable</label
+              >
+              <label class="settings-choice"
+                ><input type="radio" name="density" /> Compact</label
+              >
+            </p>
+          </fieldset>
+          <div class="toolbar formbuttons settings-actions">
+            <button class="btn-primary" type="submit">
+              <span class="ak-icon ak-icon-save" aria-hidden="true"></span>
+              Save</button
+            ><button type="reset">Cancel</button>
+          </div>
+        </form>
+      </main>
+    </div>
+    <script src="preview.js"></script>
+  </body>
+</html>

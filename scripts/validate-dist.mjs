@@ -33,13 +33,22 @@ for (const font of fontManifest.files) {
   }
 }
 
+const files = await filesUnder(root);
 const metadata = JSON.parse(await readFile(join(root, "meta.json"), "utf8"));
 if (metadata.extends !== "elastic") throw new Error("Skin must extend Elastic");
 if (metadata.config?.dark_mode_support !== true) {
   throw new Error("Skin metadata must enable dark mode support");
 }
 
-const files = await filesUnder(root);
+for (const [relation, value] of Object.entries(metadata.links ?? {})) {
+  const href = typeof value === "string" ? value : value?.href;
+  if (href?.startsWith("/") && !files.includes(join(root, href.slice(1)))) {
+    throw new Error(
+      `Missing ${relation} asset referenced by meta.json: ${href}`,
+    );
+  }
+}
+
 const forbidden = files.filter((path) =>
   /(?:\.map|\.env|\.pem|\.key|package-lock\.json|node_modules)/i.test(path),
 );

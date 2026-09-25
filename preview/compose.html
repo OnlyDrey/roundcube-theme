@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Compose — Akio preview</title>
+    <script src="../build/dev/akio/scripts/theme.js"></script>
+    <link rel="stylesheet" href="../build/dev/akio/styles/akio.css" />
+    <link rel="stylesheet" href="preview.css" />
+  </head>
+  <body class="akio task-mail action-compose preview-page">
+    <div id="layout">
+      <div id="layout-menu" role="navigation" aria-label="Tasks">
+        <a class="task-button selected" href="inbox.html" aria-label="Mail"
+          ><span class="ak-icon ak-icon-mail" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="contacts.html" aria-label="Contacts"
+          ><span class="ak-icon ak-icon-users" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="settings.html" aria-label="Settings"
+          ><span class="ak-icon ak-icon-settings" aria-hidden="true"></span
+        ></a>
+        <a class="task-button" href="index.html" aria-label="Preview index"
+          ><span class="ak-icon ak-icon-house" aria-hidden="true"></span
+        ></a>
+      </div>
+      <main id="layout-content" class="selected">
+        <header class="header">
+          <h1 class="header-title">New message</h1>
+          <button class="close-compose" aria-label="Close">
+            <span class="close-icon" aria-hidden="true"></span>
+          </button>
+        </header>
+        <div id="messagetoolbar" class="toolbar menu" role="toolbar">
+          <button class="btn-primary send">Send</button
+          ><button class="save draft">
+            <span class="ak-icon ak-icon-save" aria-hidden="true"></span>
+            Save draft</button
+          ><button class="attach">
+            <span class="ak-icon ak-icon-paperclip" aria-hidden="true"></span>
+            Attach</button
+          ><button class="cancel">Cancel</button>
+        </div>
+        <!-- Approximation: Roundcube generates recipient widgets and editor chrome at runtime. -->
+        <form
+          id="compose-content"
+          class="formcontainer content compose-workspace"
+          action="#"
+        >
+          <div id="compose-headers" class="compose-fields">
+            <label for="from">From</label
+            ><select id="from">
+              <option>
+                Preview User &lt;preview@example.invalid&gt;
+              </option></select
+            ><label for="to-input">To</label>
+            <div class="recipient-input" aria-describedby="to-error">
+              <span class="recipient-token"
+                ><span>Casey Example &lt;casey@example.invalid&gt;</span
+                ><button
+                  class="recipient-remove"
+                  type="button"
+                  aria-label="Remove Casey Example"
+                >
+                  <span
+                    class="ak-icon ak-icon-x"
+                    aria-hidden="true"
+                  ></span></button
+              ></span>
+              <span class="recipient-token"
+                ><span
+                  >Long Recipient Name
+                  &lt;recipient-with-a-deliberately-long-address@example.invalid&gt;</span
+                ><button
+                  class="recipient-remove"
+                  type="button"
+                  aria-label="Remove Long Recipient"
+                >
+                  <span
+                    class="ak-icon ak-icon-x"
+                    aria-hidden="true"
+                  ></span></button
+              ></span>
+              <input id="to-input" autocomplete="off" />
+            </div>
+            <span></span
+            ><span id="to-error" class="invalid-feedback" hidden
+              >One recipient needs review.</span
+            >
+            <p class="recipient-actions">
+              <button type="button">Add Cc</button>
+              <button type="button">Add Bcc</button>
+            </p>
+            <label class="optional-recipient" for="cc">Cc</label
+            ><input
+              class="optional-recipient"
+              id="cc"
+              value="preview-recipient-with-a-deliberately-long-address@example.invalid"
+            /><label class="optional-recipient" for="bcc">Bcc</label
+            ><input
+              class="optional-recipient"
+              id="bcc"
+              value="another-fictional-recipient@example.invalid"
+            /><label for="subject">Subject</label
+            ><input
+              id="subject"
+              value="Project update and an intentionally long subject for overflow review"
+            /><span></span
+            ><span class="invalid-feedback" hidden
+              >Review the sample subject before sending.</span
+            >
+          </div>
+          <div class="editor-toolbar" role="toolbar" aria-label="Formatting">
+            <button
+              class="active"
+              type="button"
+              aria-label="Bold"
+              aria-pressed="true"
+            >
+              <span
+                class="ak-icon ak-icon-bold"
+                aria-hidden="true"
+              ></span></button
+            ><button type="button" aria-label="Italic">
+              <span
+                class="ak-icon ak-icon-italic"
+                aria-hidden="true"
+              ></span></button
+            ><button type="button" aria-label="Bulleted list">
+              <span
+                class="ak-icon ak-icon-list"
+                aria-hidden="true"
+              ></span></button
+            ><button type="button" aria-label="Insert link" disabled>
+              <span
+                class="ak-icon ak-icon-link"
+                aria-hidden="true"
+              ></span></button
+            ><span class="editor-style-select"
+              ><select aria-label="Text style">
+                <option>Normal</option>
+                <option>Heading</option></select
+              ><span
+                class="ak-icon ak-icon-chevron-down"
+                aria-hidden="true"
+              ></span
+            ></span>
+          </div>
+          <div
+            class="compose-editor"
+            contenteditable="true"
+            role="textbox"
+            aria-label="Message body"
+          >
+            Hello Casey,<br /><br />Here is the fictional project update for
+            visual review.<br /><br />Regards,<br />Preview User
+          </div>
+          <section id="compose-attachments">
+            <h2>Attachments</h2>
+            <div class="attachment-item">
+              <span class="attachment-icon" aria-hidden="true"></span>
+              <span class="attachment-info">
+                <span class="attachment-name"
+                  >project-notes-with-a-deliberately-long-filename.txt</span
+                >
+                <span class="attachment-meta">12 KB · uploaded</span>
+              </span>
+              <button class="attachment-remove" type="button">Remove</button>
+            </div>
+            <div class="attachment-item is-uploading">
+              <span class="attachment-icon" aria-hidden="true"></span
+              ><span class="attachment-info"
+                ><span class="attachment-name">quarterly-review.pdf</span
+                ><span class="attachment-meta">Uploading · 62%</span
+                ><span
+                  class="attachment-progress"
+                  style="--ak-attachment-progress: 62%"
+                  ><span></span></span></span
+              ><button
+                class="attachment-remove"
+                type="button"
+                aria-label="Cancel upload"
+              >
+                Cancel
+              </button>
+            </div>
+            <div class="attachment-item is-failed">
+              <span class="attachment-icon" aria-hidden="true"></span
+              ><span class="attachment-info"
+                ><span class="attachment-name"
+                  >large-file-that-could-not-be-uploaded.zip</span
+                ><span class="attachment-meta">Upload failed</span></span
+              ><button class="attachment-remove" type="button">Remove</button>
+            </div>
+          </section>
+        </form>
+      </main>
+    </div>
+    <script src="preview.js"></script>
+  </body>
+</html>

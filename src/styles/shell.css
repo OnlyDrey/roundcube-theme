@@ -30,6 +30,28 @@
   color: var(--ak-color-fg);
 }
 
+:where(#layout-sidebar, #layout-list, #layout-content) > .header button {
+  display: inline-flex;
+  gap: var(--ak-space-2);
+  border-color: transparent;
+  background: transparent;
+  align-items: center;
+}
+
+:where(#layout-sidebar, #layout-list, #layout-content)
+  > .header
+  button:not(.btn-primary, .mainaction):is(:hover, :focus-visible) {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-hover);
+}
+
+:where(#layout-sidebar, #layout-list, #layout-content)
+  > .header
+  button:not(.btn-primary, .mainaction):active {
+  border-color: var(--ak-color-border-strong);
+  background: var(--ak-color-selected);
+}
+
 .header-title,
 .boxtitle {
   color: var(--ak-color-fg);
@@ -49,6 +71,15 @@
 .listing tr > td,
 .listing li {
   border-color: var(--ak-color-border-subtle);
+}
+
+/* Structural navigation belongs to its pane, rather than floating like a
+   button. Keep both the row and its interactive surface rectangular. */
+:where(#layout-sidebar, #layout-list) .listing li,
+:where(#layout-sidebar, #layout-list) .listing li > a,
+:where(#layout-sidebar, #layout-list) .listing li::before,
+:where(#layout-sidebar, #layout-list) .listing li > a::before {
+  border-radius: 0;
 }
 
 .listing tr:hover > td,

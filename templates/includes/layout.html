@@ -34,8 +34,9 @@
     <roundcube:link rel="stylesheet/less" href="/styles/print.less" condition="env:action == 'print'" />
     <script src="/deps/less.min.js" data-env="development"></script>
   <roundcube:else />
-    <link rel="stylesheet" href="/styles/styles.css">
-    <roundcube:link rel="stylesheet" href="/styles/print.css" condition="env:action == 'print'" />
+    <!-- Elastic's release artifact ships its compiled styles with .min names. -->
+    <link rel="stylesheet" href="/styles/styles.min.css">
+    <roundcube:link rel="stylesheet" href="/styles/print.min.css" condition="env:action == 'print'" />
   <roundcube:endif />
   <link rel="stylesheet" href="/styles/akio.css">
 </head>

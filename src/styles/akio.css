@@ -4,6 +4,12 @@
 @import url("./components.css");
 @import url("./icons.css");
 @import url("./shell.css");
+@import url("./inbox.css");
+@import url("./compose.css");
+@import url("./message.css");
+@import url("./contacts.css");
+@import url("./settings.css");
+@import url("./login.css");
 @import url("./demo.css");
 
 @tailwind components;

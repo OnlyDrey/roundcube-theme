@@ -1,10 +1,124 @@
 .ak-icon {
   display: inline-block;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: var(--ak-icon-size);
+  height: var(--ak-icon-size);
   flex: 0 0 auto;
-  color: inherit;
+  background: currentcolor;
+  mask: var(--ak-icon) center / contain no-repeat;
   vertical-align: -0.2em;
+}
+
+.ak-icon-mail {
+  --ak-icon: url("../images/icons/mail.svg");
+}
+
+.ak-icon-users {
+  --ak-icon: url("../images/icons/users.svg");
+}
+
+.ak-icon-settings {
+  --ak-icon: url("../images/icons/settings.svg");
+}
+
+.ak-icon-house {
+  --ak-icon: url("../images/icons/house.svg");
+}
+
+.ak-icon-star {
+  --ak-icon: url("../images/icons/star.svg");
+}
+
+.ak-icon-paperclip {
+  --ak-icon: url("../images/icons/paperclip.svg");
+}
+
+.ak-icon-chevron-left {
+  --ak-icon: url("../images/icons/chevron-left.svg");
+}
+
+.ak-icon-chevron-right {
+  --ak-icon: url("../images/icons/chevron-right.svg");
+}
+
+.ak-icon-search {
+  --ak-icon: url("../images/icons/search.svg");
+}
+
+.ak-icon-ellipsis {
+  --ak-icon: url("../images/icons/ellipsis.svg");
+}
+
+.ak-icon-refresh {
+  --ak-icon: url("../images/icons/refresh-cw.svg");
+}
+
+.ak-icon-trash {
+  --ak-icon: url("../images/icons/trash-2.svg");
+}
+
+.ak-icon-reply {
+  --ak-icon: url("../images/icons/reply.svg");
+}
+
+.ak-icon-reply-all {
+  --ak-icon: url("../images/icons/reply-all.svg");
+}
+
+.ak-icon-forward {
+  --ak-icon: url("../images/icons/forward.svg");
+}
+
+.ak-icon-x {
+  --ak-icon: url("../images/icons/x.svg");
+}
+
+.ak-icon-pencil {
+  --ak-icon: url("../images/icons/pencil.svg");
+}
+
+.ak-icon-mail-open {
+  --ak-icon: url("../images/icons/mail-open.svg");
+}
+
+.ak-icon-folder-input {
+  --ak-icon: url("../images/icons/folder-input.svg");
+}
+
+.ak-icon-plus {
+  --ak-icon: url("../images/icons/plus.svg");
+}
+
+.ak-icon-user-plus {
+  --ak-icon: url("../images/icons/user-plus.svg");
+}
+
+.ak-icon-save {
+  --ak-icon: url("../images/icons/save.svg");
+}
+
+#layout-menu
+  :where(.mail, .addressbook, .contacts, .settings, .logout)::before {
+  width: var(--ak-icon-size-nav);
+  height: var(--ak-icon-size-nav);
+  background: currentcolor;
+  content: "";
+  mask: var(--ak-icon) center / contain no-repeat;
+}
+
+#layout-menu .mail::before {
+  --ak-icon: url("../images/icons/mail.svg");
+}
+
+#layout-menu :where(.addressbook, .contacts)::before {
+  --ak-icon: url("../images/icons/users.svg");
+}
+
+#layout-menu .settings::before {
+  --ak-icon: url("../images/icons/settings.svg");
+}
+
+#layout-menu .logout::before {
+  --ak-icon: url("../images/icons/house.svg");
 }
 
 .ak-icon[aria-hidden="true"] {
@@ -19,4 +133,44 @@
   min-height: var(--ak-size-target);
   padding: var(--ak-space-2);
   place-items: center;
+}
+
+.ak-icon-printer {
+  --ak-icon: url("../images/icons/printer.svg");
+}
+
+.ak-icon-image-off {
+  --ak-icon: url("../images/icons/image-off.svg");
+}
+
+.ak-icon-file {
+  --ak-icon: url("../images/icons/file.svg");
+}
+
+.ak-icon-circle-x {
+  --ak-icon: url("../images/icons/circle-x.svg");
+}
+
+.ak-icon-send {
+  --ak-icon: url("../images/icons/send.svg");
+}
+
+.ak-icon-chevron-down {
+  --ak-icon: url("../images/icons/chevron-down.svg");
+}
+
+.ak-icon-bold {
+  --ak-icon: url("../images/icons/bold.svg");
+}
+
+.ak-icon-italic {
+  --ak-icon: url("../images/icons/italic.svg");
+}
+
+.ak-icon-list {
+  --ak-icon: url("../images/icons/list.svg");
+}
+
+.ak-icon-link {
+  --ak-icon: url("../images/icons/link.svg");
 }
