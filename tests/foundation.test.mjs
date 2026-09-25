@@ -309,7 +309,10 @@ test("mobile polish keeps compact mail controls and generated formatting icons",
   const message = await readFile("src/styles/message.css", "utf8");
   const contacts = await readFile("src/styles/contacts.css", "utf8");
   const components = await readFile("src/styles/components.css", "utf8");
+  const base = await readFile("src/styles/base.css", "utf8");
+  const embed = await readFile("src/styles/embed.css", "utf8");
   const shell = await readFile("src/styles/shell.css", "utf8");
+  const tokens = await readFile("src/styles/tokens.css", "utf8");
   const composeFixture = await readFile("preview/compose.html", "utf8");
   const messageFixture = await readFile("preview/message.html", "utf8");
   const contactsFixture = await readFile("preview/contacts.html", "utf8");
@@ -338,7 +341,10 @@ test("mobile polish keeps compact mail controls and generated formatting icons",
     compose,
     /#compose-attachments[^]*margin-block-start: var\(--ak-space-4\)/,
   );
-  assert.match(compose, /#compose-attachments[^]*gap: var\(--ak-space-2\)/);
+  assert.match(
+    compose,
+    /#compose-attachments[^]*gap: var\(--ak-attachment-gap\)/,
+  );
   assert.match(messageFixture, /<details class="message-details">/);
   assert.doesNotMatch(messageFixture, /<footer class="toolbar">/);
   assert.match(
@@ -349,7 +355,10 @@ test("mobile polish keeps compact mail controls and generated formatting icons",
     message,
     /message-attachment[^]*border: var\(--ak-border-width\) solid/,
   );
-  assert.match(message, /message-attachments[^]*gap: var\(--ak-space-2\)/);
+  assert.match(
+    message,
+    /message-attachments[^]*gap: var\(--ak-attachment-gap\)/,
+  );
   assert.doesNotMatch(contactsFixture, /btn-primary contact-compose/);
   assert.match(contactsFixture, /action-label">Compose/);
   assert.match(
@@ -358,12 +367,20 @@ test("mobile polish keeps compact mail controls and generated formatting icons",
   );
   assert.match(
     components,
-    /not\([^)]*\.compose,[^)]*\.send[^)]*\)[^}]*border-color: transparent/,
+    /not\([^)]*\.compose,[^)]*\.send[^)]*\)[^}]*border: var\(--ak-border-width\) solid transparent/,
   );
   assert.match(
     components,
     /focus-visible[^}]*border-color: var\(--ak-color-border-strong\)[^}]*background: var\(--ak-color-hover\)/,
   );
+  assert.doesNotMatch(base, /focus-visible[^}]*border-radius/);
+  assert.doesNotMatch(embed, /focus-visible[^}]*border-radius/);
+  assert.match(tokens, /--ak-attachment-gap: var\(--ak-space-2\)/);
+  assert.match(
+    message,
+    /\.reply-action[^}]*color: var\(--ak-color-fg\)/,
+  );
+  assert.doesNotMatch(message, /\.reply-action[^}]*background:/);
   assert.match(
     shell,
     /button:not\(\.btn-primary, \.mainaction\):is\(:hover, :focus-visible\)[^}]*border-color: var\(--ak-color-border-strong\)/,

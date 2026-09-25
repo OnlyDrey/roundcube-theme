@@ -286,7 +286,7 @@
 .task-mail.action-compose #compose-attachments {
   display: grid;
   margin-block-start: var(--ak-space-6);
-  gap: var(--ak-space-2);
+  gap: var(--ak-attachment-gap);
 }
 
 @media (width > 48rem) {

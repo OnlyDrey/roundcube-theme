@@ -47,7 +47,6 @@
 }
 
 .task-mail.action-show #layout-content > .toolbar .reply-action {
-  background: var(--ak-color-selected);
   color: var(--ak-color-fg);
 }
 
@@ -151,7 +150,7 @@
 .task-mail.action-show .message-attachments {
   display: grid;
   width: min(100%, 52rem);
-  gap: var(--ak-space-2);
+  gap: var(--ak-attachment-gap);
 }
 
 .task-mail.action-show .message-attachments h2 {

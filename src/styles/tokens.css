@@ -47,6 +47,7 @@
   --ak-size-toolbar: 3.5rem;
   --ak-size-row: 3.25rem;
   --ak-size-target: 2.75rem;
+  --ak-attachment-gap: var(--ak-space-2);
   --ak-icon-size-sm: 1rem;
   --ak-icon-size: 1.125rem;
   --ak-icon-size-nav: 1.25rem;
